@@ -134,6 +134,74 @@
     font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
     letter-spacing: 0.5px;
   }
+  .strapline {
+    margin-top: 14px;
+    font-family: Georgia, serif;
+    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .strapline .sep { color: #d4a017; margin: 0 6px; font-weight: 400; }
+  .vision-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin: 16px 0 10px;
+  }
+  .vision-card {
+    background: #fafbff;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 6px;
+    padding: 12px 16px;
+  }
+  .vision-card .v-emoji { font-size: 1.4rem; margin-right: 6px; }
+  .vision-card strong { color: var(--accent); }
+  .price-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .price-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 16px;
+    text-align: center;
+    background: #fafbff;
+  }
+  .price-card.primary {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+  .price-card .label {
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    font-family: "Segoe UI", sans-serif;
+    color: var(--muted);
+  }
+  .price-card.primary .label { color: rgba(255,255,255,0.85); }
+  .price-card .amount {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1.1;
+    margin: 4px 0;
+  }
+  .price-card.primary .amount { color: #ffd86b; }
+  .price-card .sub {
+    font-size: 0.78rem;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    font-family: "Segoe UI", sans-serif;
+  }
+  .price-card.primary .sub { color: rgba(255,255,255,0.85); }
+  @media (max-width: 600px) {
+    .vision-grid, .price-grid { grid-template-columns: 1fr; }
+  }
   @media print {
     body { background: #fff; }
     section { box-shadow: none; border: 1px solid var(--border); page-break-inside: avoid; }
@@ -145,14 +213,16 @@
 <header class="hero">
   <h1>T.H.Y.N.K — The Hub for Young Next-gen Knowledge</h1>
   <h2>Program Proposal for Schools</h2>
+  <div class="strapline">Think Today<span class="sep">·</span>Learn Smart<span class="sep">·</span>Lead Tomorrow</div>
 </header>
 
 <main>
 
   <section>
     <h3>What Is T.H.Y.N.K?</h3>
-    <p>T.H.Y.N.K is an after-school program for Grades 4 to 7 that teaches <strong>Vedic Mathematics and Computer Programming together</strong> — delivered once a week, entirely through your school's existing computer lab and teachers.</p>
     <p>The name says it all: <strong>T</strong>he <strong>H</strong>ub for <strong>Y</strong>oung <strong>N</strong>ext-gen <strong>K</strong>nowledge. And it pronounces <em>THINK</em> — because that is exactly what every session is designed to develop.</p>
+    <p>T.H.Y.N.K is a modern learning hub dedicated to empowering young minds with future-ready skills through a unique blend of <strong>Vedic Mathematics, Coding, Logical Reasoning, Problem Solving and Creative Thinking</strong>. It provides an engaging environment where students develop confidence, analytical abilities, and a lifelong love for learning.</p>
+    <p>T.H.Y.N.K is an ongoing school program in IT / Computers for <strong>Grades 4 to 7</strong> that teaches <strong>Vedic Mathematics and Computer Programming together</strong> — delivered once a week, entirely through your school's existing computer lab and teachers.</p>
   </section>
 
   <section>
@@ -191,8 +261,16 @@
       <li><strong>It gives your school a clear differentiator</strong> — Parents today actively choose schools that prepare children for the future. A working coding programme, taught alongside India's own mathematical heritage, is a powerful story to tell at admissions time.</li>
     </ul>
 
+    <h4>Our Vision Is Simple</h4>
+    <p>Every child who finishes T.H.Y.N.K should be able to:</p>
+    <div class="vision-grid">
+      <div class="vision-card"><span class="v-emoji">🧠</span><strong>Solve</strong> a problem step-by-step in their head using a Vedic sutra.</div>
+      <div class="vision-card"><span class="v-emoji">💻</span><strong>Express</strong> that same solution as working code on a screen.</div>
+      <div class="vision-card"><span class="v-emoji">🗣️</span><strong>Explain</strong> both to another person — in their own words.</div>
+      <div class="vision-card"><span class="v-emoji">📱</span><strong>Use screen time</strong> for the right purpose — to create, not just consume.</div>
+    </div>
     <div class="callout">
-      <strong>Our vision is simple:</strong> Every child who finishes T.H.Y.N.K should be able to (a) solve a problem step-by-step in their head using a Vedic sutra, (b) express that same solution as working code on a screen, and (c) explain both to another person. That is what it means to <em>think</em> in 2026 — and that is what T.H.Y.N.K is committed to delivering to your school.
+      That is what it means to <em>think</em> in 2026 — and that is what T.H.Y.N.K is committed to delivering to your school.
     </div>
   </section>
 
@@ -355,11 +433,53 @@
     </div>
   </section>
 
+  <section>
+    <h3>Student Pricing — Built for Every Family</h3>
+    <p>We have deliberately priced T.H.Y.N.K so that <em>no parent has to choose between affordability and a future-ready education for their child.</em></p>
+    <div class="price-grid">
+      <div class="price-card">
+        <div class="label">REGISTRATION</div>
+        <div class="amount">₹ 500</div>
+        <div class="sub">ONE-TIME</div>
+      </div>
+      <div class="price-card primary">
+        <div class="label">ANNUAL PROGRAM FEE</div>
+        <div class="amount">₹ 3,600</div>
+        <div class="sub">FULL ACADEMIC YEAR</div>
+      </div>
+    </div>
+    <div class="callout">
+      <strong>That works out to just ₹ 150 per session</strong> — less than a single private tuition class, for a full year of <em>coding + Vedic Maths + AI fluency</em> delivered inside your school.
+    </div>
+    <ul>
+      <li>One transparent fee. No hidden costs, no upsells, no “premium tier.”</li>
+      <li>Full kit, full year, full support — included.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Get in Touch</h3>
+    <p>We’d love to hear from you — reach out to either of us to schedule a demo or ask any questions.</p>
+    <table>
+      <thead>
+        <tr><th>Name</th><th>Mobile</th><th>Email</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Aradhana Zaveri</strong></td><td>+91 98197 41486</td><td>zaradhana24@gmail.com</td></tr>
+        <tr><td><strong>Pranav Sheth</strong></td><td>+91 99200 49590</td><td>pranavs80@gmail.com</td></tr>
+      </tbody>
+    </table>
+  </section>
+
 </main>
 
 <footer>
-  <p><em>T.H.Y.N.K — The Hub for Young Next-gen Knowledge</em><br/>
-  <em>Ancient Wisdom. Modern Code. Modern Schools.</em></p>
+  <p><strong style="color:var(--accent); letter-spacing:3px;">T · H · Y · N · K</strong><br/>
+  <em>The Hub for Young Next-gen Knowledge</em><br/>
+  <span style="display:inline-block; margin-top:6px; font-family:Georgia,serif; font-weight:700; color:var(--accent); letter-spacing:1px;">
+    Think Today<span style="color:#d4a017; margin:0 6px; font-weight:400;">·</span>Learn Smart<span style="color:#d4a017; margin:0 6px; font-weight:400;">·</span>Lead Tomorrow
+  </span><br/>
+  <em style="font-size:0.9rem;">Ancient Wisdom. Modern Code. Future-Ready Schools.</em></p>
 </footer>
 
 </body>
