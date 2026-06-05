@@ -35,7 +35,6 @@
   /* Each A4 page */
   .page {
     width: 210mm;
-    min-height: 297mm;
     background: #ffffff;
     margin: 16px auto;
     box-shadow: 0 6px 24px rgba(0,0,0,0.18);
@@ -43,11 +42,16 @@
     position: relative;
     overflow: hidden;
     page-break-after: always;
+    display: flex;
+    flex-direction: column;
   }
   .page:last-child { page-break-after: auto; }
+  /* push the page footer to the bottom so the strip sits under the content, not floating */
+  .page > .pagefoot { margin-top: auto; }
 
   /* ============ COVER PAGE (vanilla, pops of colour) ============ */
   .cover {
+    min-height: 297mm; /* cover keeps full A4 so the hero/panel split renders correctly on screen */
     padding: 0;
     background: #ffffff;
     color: var(--ink);
@@ -489,7 +493,12 @@
   /* ============ PRINT ============ */
   @media print {
     body { background: #fff; }
-    .page { margin: 0; box-shadow: none; }
+    .page {
+      margin: 0;
+      box-shadow: none;
+      min-height: 297mm; /* full A4 only for print so each page breaks correctly */
+    }
+    .cover { min-height: 297mm; }
   }
 </style>
 </head>
@@ -516,24 +525,9 @@
   <!-- BOTTOM HALF : cream panel with tagline, badges, footer -->
   <div class="cover-panel">
 
-    <p class="cover-tagline">
-      Where ancient <strong>Vedic wisdom</strong> meets modern <strong>code</strong> — a once-a-week program that turns your school's computer lab into a hub for <strong>future-ready minds.</strong>
-    </p>
+    
 
-    <div class="cover-badges">
-      <div class="cover-badge">
-        <span class="b-num">24</span>
-        <span class="b-label">Weekly Sessions</span>
-      </div>
-      <div class="cover-badge">
-        <span class="b-num">35<span style="font-size:11pt; letter-spacing:0; font-weight:600;">min</span></span>
-        <span class="b-label">Per Class</span>
-      </div>
-      <div class="cover-badge">
-        <span class="b-num">2</span>
-        <span class="b-label">Tracks · Gr 4–5 &amp; 6–7</span>
-      </div>
-    </div>
+    
 
     <div class="cover-contacts">
       <div style="flex:1;">
@@ -697,14 +691,7 @@
     </div>
   </div>
 
-  <h4 style="margin-top:14px; color:var(--accent);">Sample Projects Across 24 Weeks</h4>
-  <ul class="tight" style="margin-top:6px;">
-    <li><strong>"Guess My Number"</strong> — Ekadhikena loop counts up and checks answers.</li>
-    <li><strong>"Nikhilam Subtraction Wizard"</strong> — animated subtraction with the "all from 9, last from 10" trick.</li>
-    <li><strong>"Times-Table Race"</strong> — a two-player game where Vedic-trained speed wins.</li>
-    <li><strong>"Urdhva Multiplication Machine"</strong> — animated cross-wise multiplier.</li>
-    <li><strong>Final (Week 24):</strong> "My Vedic Maths Game" — each student designs, codes, and presents an original game that teaches a sutra to a younger child.</li>
-  </ul>
+  
 
   <div class="callout" style="background:#fbf3dc; border-color:var(--gold);">
     <strong>By Week 24,</strong> students are no longer just <em>playing</em> Scratch projects — they are <em>designing</em> them.
@@ -737,14 +724,7 @@
     </div>
   </div>
 
-  <h4 style="margin-top:14px; color:var(--accent);">Sample Projects Across 24 Weeks</h4>
-  <ul class="tight" style="margin-top:6px;">
-    <li><strong>Personal "About Me" page</strong> (HTML + CSS) — the classic first project.</li>
-    <li><strong>Vedic Sutra Reference Card</strong> — styled, mobile-friendly responsive page explaining one sutra.</li>
-    <li><strong>Interactive Mental Maths Quiz</strong> (JavaScript) — generates random problems, checks answers, tracks score.</li>
-    <li><strong>Nikhilam Calculator</strong> (JavaScript + DOM) — type two numbers, watch the Vedic algorithm work step-by-step on screen.</li>
-    <li><strong>Final (Week 24):</strong> "Teach Vedic Maths" Website — a published 4-page interactive site with working calculators and quizzes, hosted free, visitable by anyone on any phone.</li>
-  </ul>
+ 
 
   <div class="callout" style="background:#fbf3dc; border-color:var(--gold);">
     <strong>By Week 24,</strong> students can open any website in the world, right-click <em>"Inspect"</em>, and understand exactly what they're looking at — years ahead of their peers.
@@ -753,36 +733,10 @@
   <div class="pagefoot"><strong>T.H.Y.N.K</strong><span>6 · Track 2 · Web</span></div>
 </div>
 
-<!-- ============ PAGE 7 : SESSION + SUTRA TABLE ============ -->
+<!-- ============ PAGE 7 : SUTRA TABLE ============ -->
 <div class="page">
-  <div class="section-label">07 · INSIDE A SESSION</div>
-  <h2 class="section-title">How each <em>35-minute</em> class flows.</h2>
-  <p class="lead">A predictable four-part rhythm teachers internalize by Week 3 — easy to deliver, easy to assess, easy to love.</p>
 
-  <div class="timeline">
-    <div class="tstep">
-      <span class="min">8 min</span>
-      <h4>Vedic Warm-Up</h4>
-      <p>5 mental maths problems using today's sutra. No calculators.</p>
-    </div>
-    <div class="tstep">
-      <span class="min">5 min</span>
-      <h4>Sutra → Code Bridge</h4>
-      <p>Teacher draws the connection between sutra and coding concept.</p>
-    </div>
-    <div class="tstep">
-      <span class="min">15 min</span>
-      <h4>Build / Code</h4>
-      <p>Students code on guided starter files. Fast finishers get extensions.</p>
-    </div>
-    <div class="tstep">
-      <span class="min">7 min</span>
-      <h4>Share &amp; Reflect</h4>
-      <p>Two students show work. One-line written reflection by every child.</p>
-    </div>
-  </div>
-
-  <div class="section-label" style="margin-top:24px;">08 · THE BRIDGE</div>
+  <div class="section-label">07 · THE BRIDGE</div>
   <h2 class="section-title">Five direct <em>sutra-to-code</em> connections.</h2>
 
   <table>
@@ -802,12 +756,12 @@
     <strong>The result:</strong> Children stop seeing maths and coding as separate subjects. They start seeing them as <em>two windows into the same way of thinking.</em>
   </div>
 
-  <div class="pagefoot"><strong>T.H.Y.N.K</strong><span>7 · Session &amp; Bridge</span></div>
+  <div class="pagefoot"><strong>T.H.Y.N.K</strong><span>7 · The Bridge</span></div>
 </div>
 
 <!-- ============ PAGE 8 : LOGISTICS — WHO PROVIDES WHAT ============ -->
 <div class="page">
-  <div class="section-label">09 · LOGISTICS</div>
+  <div class="section-label">08 · LOGISTICS</div>
   <h2 class="section-title">A program that runs on what your school <em>already has.</em></h2>
 
   <div class="grid grid-2">
@@ -838,21 +792,14 @@
     <strong>No new hardware. No new software licences. No specialist hiring.</strong>
   </div>
 
-  <div class="section-label" style="margin-top:20px;">PILOT INVITATION</div>
-  <p>We are inviting schools to pilot T.H.Y.N.K in the upcoming academic year. The pilot cohort receives the full teacher kit, training, and ongoing support at no cost to the school. We are looking for schools that:</p>
-  <ul class="tight" style="margin-top:6px;">
-    <li>Have a functioning computer lab</li>
-    <li>Have a computer teacher willing to facilitate</li>
-    <li>Can commit one 35-minute slot per week for 24 weeks</li>
-    <li>Are willing to share student progress feedback at midpoint and end</li>
-  </ul>
+  
 
   <div class="pagefoot"><strong>T.H.Y.N.K</strong><span>8 · Logistics</span></div>
 </div>
 
 <!-- ============ PAGE 9 : PRICING + NEXT STEP + CONTACT ============ -->
 <div class="page cta-page">
-  <div class="section-label">10 · STUDENT PRICING</div>
+  <div class="section-label">09 · STUDENT PRICING</div>
   <h2 class="section-title">Honest pricing. <em>Zero surprises.</em></h2>
   <p class="lead">One registration, one annual fee — that's it. No upsells, no hidden charges, no "premium tier." Built so every family in your school can say yes.</p>
 
@@ -873,37 +820,36 @@
     <strong>Just ₹ 150 per session</strong> — less than one private tuition class, for a full year of <em>coding + Vedic Maths + AI fluency.</em>
   </div>
 
-  <div class="section-label" style="margin-top:18px;">11 · NEXT STEP</div>
-  <div class="cta-box">
-    <h3>Pilot T.H.Y.N.K at your school — <span class="gold">at zero cost.</span></h3>
-    <p>The 2026–27 pilot cohort receives the complete teacher kit, on-site training, and full-year support free of charge. All we ask in return is a 35-minute weekly slot and honest feedback from your teacher.</p>
-    <p style="margin-top:14px;"><span class="gold">▸ Book a 30-minute demo</span> with your academic coordinator and computer teacher — we walk through one complete sample session, end-to-end, live.</p>
+  <div class="section-label" style="margin-top:18px;">WHAT'S INCLUDED IN THE ANNUAL FEE</div>
+  <div class="grid grid-2" style="margin-top:8px; gap:6px 16px;">
+    <ul class="tight" style="margin:0;">
+      <li><strong>24 weekly sessions</strong> — full academic year</li>
+      <li><strong>All Student Worksheets</strong> — one per session</li>
+      <li><strong>Scratch starters</strong> + <strong>HTML/CSS/JS templates</strong></li>
+      
+    </ul>
+    <ul class="tight" style="margin:0;">
+      <li><strong>AI prompting guide</strong> — age-appropriate, supervised</li>      
+      <li><strong>End-of-year Certificate</strong> — printable</li>
+           
+    </ul>
   </div>
 
-  <div class="section-label" style="margin-top:22px;">12 · GET IN TOUCH</div>
-  <div class="grid grid-2" style="margin-top:10px;">
-    <div class="card tint" style="padding:14px 16px;">
-      <h4 style="font-size:11.5pt; margin-bottom:6px;">Aradhana Zaveri</h4>
-      <p style="font-size:10pt; color:var(--ink); margin:2px 0;">☎ <strong>+91 98197 41486</strong></p>
-      <p style="font-size:10pt; color:var(--ink); margin:2px 0;">✉ zaradhana24@gmail.com</p>
-    </div>
-    <div class="card tint" style="padding:14px 16px;">
-      <h4 style="font-size:11.5pt; margin-bottom:6px;">Pranav Sheth</h4>
-      <p style="font-size:10pt; color:var(--ink); margin:2px 0;">☎ <strong>+91 99200 49590</strong></p>
-      <p style="font-size:10pt; color:var(--ink); margin:2px 0;">✉ pranavs80@gmail.com</p>
-    </div>
+  <!-- School Revenue Share -->
+  <div class="card" style="margin-top:14px; padding:14px 18px; background:linear-gradient(135deg,#f5f8ff 0%,#eaf1ff 100%); border:1px solid var(--accent); border-left:4px solid var(--accent);">
+    <h4 style="font-size:11pt; margin:0 0 6px; color:var(--accent); letter-spacing:0.5px;">
+      A Revenue-Share Partnership for Your School
+      <span style="display:inline-block; margin-left:8px; padding:2px 8px; background:var(--accent); color:#fff; font-size:9pt; font-weight:700; border-radius:3px; letter-spacing:0.5px;">20–25%</span>
+    </h4>
+    <p style="font-size:9.5pt; color:var(--ink); line-height:1.5; margin:0;">
+      We share <strong>20–25% of the annual program fee</strong> with the school as a partnership contribution — <em>negotiable based on cohort size and engagement.</em> T.H.Y.N.K isn't just a vendor program; it's a <strong>shared revenue stream</strong> that supports your lab, your teachers, and your school's investment in future-ready learning — all while delivering a flagship program at zero capital cost.
+    </p>
   </div>
 
-  <div style="text-align:center; margin-top:24px; color:var(--ink-soft);">
-    <strong style="color:var(--accent); letter-spacing:3px;">T · H · Y · N · K</strong><br/>
-    <span style="display:inline-block; margin-top:8px; font-family:Georgia,serif; font-size:14pt; font-weight:700; color:var(--accent); letter-spacing:1px;">
-      Think Today<span style="color:var(--gold); margin:0 6px; font-weight:400;">·</span>Learn Smart<span style="color:var(--gold); margin:0 6px; font-weight:400;">·</span>Lead Tomorrow
-    </span><br/>
-    <em style="font-size:10pt;">Ancient Wisdom. Modern Code. Future-Ready Schools.</em>
-  </div>
-
-  <div class="pagefoot"><strong>T.H.Y.N.K</strong><span>9 · Pricing &amp; Contact</span></div>
+  <div class="pagefoot"><strong>T.H.Y.N.K</strong><span>9 · Pricing &amp; Inclusions</span></div>
 </div>
+
+
 
 </body>
 </html>
