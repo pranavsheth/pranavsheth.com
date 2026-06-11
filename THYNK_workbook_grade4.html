@@ -1078,6 +1078,219 @@
   }
 
   /* ============================================================
+     A.I. HELPER — stand-out callout used in every topic chapter
+     ============================================================ */
+  .ai-box {
+    margin: 5mm 0 4mm;
+    border: 2px dashed var(--grape);
+    border-radius: 5mm;
+    background: linear-gradient(140deg, #f5efff 0%, #ece4ff 60%, #f7e9ff 100%);
+    padding: 4mm 5mm 4mm 22mm;
+    position: relative;
+    page-break-inside: avoid;
+    box-shadow: 0 1mm 3mm rgba(142, 108, 213, 0.18);
+  }
+  .ai-box::before {
+    content: "🤖";
+    position: absolute;
+    left: 4mm;
+    top: 4mm;
+    font-size: 16pt;
+    background: var(--grape);
+    color: #fff;
+    width: 13mm;
+    height: 13mm;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1mm 2mm rgba(142, 108, 213, 0.45);
+  }
+  .ai-box .ai-lbl {
+    display: inline-block;
+    background: var(--grape);
+    color: #fff;
+    font-size: 8pt;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    padding: 0.6mm 3mm;
+    border-radius: 6mm;
+    text-transform: uppercase;
+    margin-right: 2mm;
+  }
+  .ai-box h4 {
+    margin: 0;
+    color: #4a2d8a;
+    font-size: 12.5pt;
+    font-weight: 700;
+    display: inline;
+    vertical-align: middle;
+  }
+  .ai-box .prompt {
+    background: #fff;
+    border: 1.4px solid #d3c5f3;
+    border-left: 4px solid var(--grape);
+    border-radius: 2mm;
+    padding: 2.5mm 3.5mm;
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 10pt;
+    color: #2a1659;
+    line-height: 1.45;
+    margin-top: 2.5mm;
+  }
+  .ai-box .prompt::before {
+    content: "✏️  ";
+  }
+  .ai-box .tip {
+    margin-top: 2mm;
+    margin-bottom: 0;
+    font-size: 9.5pt;
+    color: #4a4a5e;
+    font-style: italic;
+  }
+
+  /* ============================================================
+     A.I. INTRO PAGE — full-page "Meet Your A.I. Buddy" spread
+     ============================================================ */
+  .ai-page {
+    background: linear-gradient(155deg, #faf6ff 0%, #f0e8ff 60%, #fff4e8 110%);
+  }
+  .ai-page .ai-hero {
+    background: linear-gradient(135deg, #2a1659 0%, #5a3aaf 55%, #8e6cd5 100%);
+    color: #fff;
+    border-radius: 5mm;
+    padding: 7mm 8mm;
+    display: flex;
+    align-items: center;
+    gap: 6mm;
+    margin-bottom: 6mm;
+    box-shadow: 0 2mm 6mm rgba(42, 22, 89, 0.25);
+  }
+  .ai-page .ai-hero .robo {
+    font-size: 38pt;
+    flex-shrink: 0;
+    background: rgba(255,255,255,0.15);
+    border: 2px solid rgba(255,255,255,0.35);
+    border-radius: 50%;
+    width: 28mm;
+    height: 28mm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ai-page .ai-hero h1 {
+    font-family: Georgia, serif;
+    font-size: 28pt;
+    line-height: 1.05;
+    margin: 0 0 2mm;
+    color: #fff;
+  }
+  .ai-page .ai-hero h1 .accent { color: var(--gold); }
+  .ai-page .ai-hero p {
+    margin: 0;
+    font-size: 12pt;
+    opacity: 0.95;
+  }
+  .ai-page .ai-what {
+    background: #fff;
+    border-left: 5px solid var(--grape);
+    padding: 4mm 5mm;
+    border-radius: 2mm;
+    margin-bottom: 5mm;
+    box-shadow: 0 1mm 3mm rgba(0,0,0,0.06);
+  }
+  .ai-page .ai-what h3 {
+    color: var(--grape);
+    margin-bottom: 1.5mm;
+    font-size: 13pt;
+  }
+  .ai-rules {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 4mm;
+    margin-bottom: 5mm;
+  }
+  .ai-rule {
+    background: #fff;
+    border-radius: 4mm;
+    padding: 4mm 4mm 3.5mm;
+    border-top: 5px solid var(--grape);
+    box-shadow: 0 1mm 3mm rgba(0,0,0,0.06);
+  }
+  .ai-rule .num {
+    display: inline-block;
+    background: var(--grape);
+    color: #fff;
+    font-weight: 700;
+    width: 8mm;
+    height: 8mm;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 8mm;
+    font-size: 11pt;
+    margin-bottom: 2mm;
+  }
+  .ai-rule h4 {
+    color: #2a1659;
+    margin: 0 0 1.5mm;
+    font-size: 11.5pt;
+  }
+  .ai-rule p {
+    font-size: 9.8pt;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.45;
+  }
+  .ai-sample {
+    background: #fff;
+    border: 2px solid var(--grape);
+    border-radius: 4mm;
+    padding: 5mm;
+    margin-bottom: 5mm;
+  }
+  .ai-sample .lbl {
+    display: inline-block;
+    background: var(--grape);
+    color: #fff;
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 0.6mm 3mm;
+    border-radius: 6mm;
+    text-transform: uppercase;
+    margin-bottom: 2mm;
+  }
+  .ai-sample .bad,
+  .ai-sample .good {
+    padding: 2.5mm 3mm;
+    border-radius: 2mm;
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 10pt;
+    line-height: 1.4;
+    margin: 1.5mm 0;
+  }
+  .ai-sample .bad {
+    background: #ffe8e8;
+    border-left: 4px solid var(--coral);
+    color: #8c1e1e;
+  }
+  .ai-sample .good {
+    background: #e6f7e8;
+    border-left: 4px solid var(--leaf);
+    color: #1b5d29;
+  }
+  .ai-sample .bad::before { content: "❌  "; font-family: "Segoe UI"; }
+  .ai-sample .good::before { content: "✅  "; font-family: "Segoe UI"; }
+  .ai-golden {
+    background: linear-gradient(95deg, var(--gold-soft), #fff 90%);
+    border: 1.5px solid var(--gold);
+    border-radius: 3mm;
+    padding: 4mm 5mm;
+    font-size: 11pt;
+  }
+  .ai-golden b { color: #6b4a00; }
+
+  /* ============================================================
      PRINT TWEAKS
      ============================================================ */
   @media print {
@@ -1852,7 +2065,71 @@
 
 
 <!-- ============================================================
-     PAGE 11 · CHAPTER 3 DIVIDER · SEQUENCING & EVENTS
+     PAGE 11 · MEET YOUR A.I. BUDDY (Bridge before topic chapters)
+     ============================================================ -->
+<section class="page ai-page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>Meet Your <span class="accent" style="color: var(--grape);">A.I.</span> Buddy</h1>
+    </div>
+    <div class="crumb"><b>Bonus</b>Smart Helper</div>
+  </div>
+
+  <div class="ai-hero">
+    <div class="robo">🤖</div>
+    <div>
+      <h1>Stuck on a block? <span class="accent">Just ask!</span></h1>
+      <p>From here on, every chapter has a purple <b>"Ask A.I."</b> box. It shows you exactly what to type into a chat A.I. (like ChatGPT, Gemini or Copilot) when you get stuck — so you never feel lost.</p>
+    </div>
+  </div>
+
+  <div class="ai-what">
+    <h3>What is A.I., really?</h3>
+    <p>A.I. (Artificial Intelligence) is a <b>computer friend</b> that has read millions of books, lessons and Scratch projects. It can explain ideas in your own words, suggest blocks you might have forgotten, and help you find tiny mistakes — but <b>only if you know how to ask it nicely</b>. Think of it like a super-patient tutor who never gets tired.</p>
+  </div>
+
+  <h2 class="section" style="color: var(--grape); border-bottom: 2px solid var(--grape); padding-bottom: 1.5mm;">3 Golden Rules of Asking A.I.</h2>
+
+  <div class="ai-rules">
+    <div class="ai-rule">
+      <div class="num">1</div>
+      <h4>Be Clear</h4>
+      <p>Say <b>what you want</b> the sprite to do — not just "fix it". Example: <i>"I want my cat to spin twice when I press space."</i></p>
+    </div>
+    <div class="ai-rule">
+      <div class="num">2</div>
+      <h4>Be Specific</h4>
+      <p>Tell A.I. <b>which blocks you tried</b> and <b>what went wrong</b>. The more details, the better the help.</p>
+    </div>
+    <div class="ai-rule">
+      <div class="num">3</div>
+      <h4>One Step at a Time</h4>
+      <p>Ask about <b>one problem per chat</b>. Don't pile three questions together — A.I. helps best when focused.</p>
+    </div>
+  </div>
+
+  <div class="ai-sample">
+    <div class="lbl">Compare these two prompts</div>
+    <div class="bad">my code doesnt work fix it</div>
+    <div class="good">In Scratch, I want my cat sprite to say "Hi!" for 2 seconds and then move 100 steps when I press the green flag. I tried using "say Hi" and "move 100" but the cat moves first and then says Hi. How do I fix the order?</div>
+    <p style="font-size: 9.8pt; color: var(--ink-soft); margin: 1mm 0 0;">See the difference? The second prompt tells A.I. <b>what</b> you want, <b>what you tried</b>, and <b>what's wrong</b> — so it can give a real answer.</p>
+  </div>
+
+  <div class="ai-golden">
+    <b>The Golden Rule —</b> Always <b>try yourself first</b>. Drag the blocks, watch what happens, think for a minute. Only ask A.I. when you've genuinely tried and got stuck. A.I. is your <i>helper</i>, not your homework-doer. The more you struggle a little, the smarter <b>you</b> get. 🧠✨
+  </div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Bonus · Meet Your A.I. Buddy</div>
+    <div class="pgnum">09</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 12 · CHAPTER 3 DIVIDER · SEQUENCING & EVENTS
      ============================================================ -->
 <section class="page divider d3">
   <div class="div-inner">
@@ -1941,7 +2218,7 @@
   <div class="pagefoot">
     <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
     <div>Chapter 3 · Sequencing &amp; Events</div>
-    <div class="pgnum">09</div>
+    <div class="pgnum">10</div>
   </div>
 </section>
 
@@ -2065,10 +2342,16 @@
     </ol>
   </div>
 
+  <div class="ai-box">
+    <div><span class="ai-lbl">Ask A.I.</span><h4>Stuck? Try this prompt &mdash;</h4></div>
+    <div class="prompt">I'm coding in Scratch. I want my cat sprite to <b>say "Hi, friend!" for 2 seconds and then move 80 steps</b> when I click the green flag. I tried two blocks but the cat moves <i>before</i> it speaks. Which <b>Events</b> block should I start with, and what's the correct <b>order</b> of blocks so it talks first, then walks?</div>
+    <p class="tip">💡 Notice how the prompt names the <b>topic</b> (sequencing &amp; events) and tells A.I. <b>what went wrong</b>.</p>
+  </div>
+
   <div class="pagefoot">
     <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
     <div>Chapter 3 · Sequencing &amp; Events</div>
-    <div class="pgnum">10</div>
+    <div class="pgnum">11</div>
   </div>
 </section>
 
@@ -2193,7 +2476,7 @@
   <div class="pagefoot">
     <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
     <div>Chapter 4 · Loops</div>
-    <div class="pgnum">11</div>
+    <div class="pgnum">12</div>
   </div>
 </section>
 
@@ -2333,10 +2616,16 @@
     <div style="border: 1.2px dashed var(--coral); border-radius: 2mm; height: 22mm; margin-top: 2mm;"></div>
   </div>
 
+  <div class="ai-box">
+    <div><span class="ai-lbl">Ask A.I.</span><h4>Stuck? Try this prompt &mdash;</h4></div>
+    <div class="prompt">In Scratch, my cat draws a <b>square</b> using <b>repeat 4 → move 100 → turn 90°</b> with the Pen extension. I want it to draw a <b>hexagon (6 sides)</b> instead. What number should I put inside <b>repeat ___</b> and <b>turn ___ degrees</b>? Please share the formula so I can try other shapes too (octagon, decagon).</div>
+    <p class="tip">💡 Asking for the <b>formula</b> is smarter than asking for one answer — you learn the rule, not just the result.</p>
+  </div>
+
   <div class="pagefoot">
     <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
     <div>Chapter 4 · Loops</div>
-    <div class="pgnum">12</div>
+    <div class="pgnum">13</div>
   </div>
 </section>
 
@@ -2447,7 +2736,7 @@
   <div class="pagefoot">
     <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
     <div>Chapter 5 · Variables &amp; Lists</div>
-    <div class="pgnum">13</div>
+    <div class="pgnum">14</div>
   </div>
 </section>
 
@@ -2543,7 +2832,7 @@
   <div class="pagefoot">
     <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
     <div>Chapter 5 · Variables &amp; Lists</div>
-    <div class="pgnum">14</div>
+    <div class="pgnum">15</div>
   </div>
 </section>
 
@@ -2644,7 +2933,7 @@
   <div class="pagefoot">
     <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
     <div>Chapter 5 · Variables &amp; Lists</div>
-    <div class="pgnum">15</div>
+    <div class="pgnum">16</div>
   </div>
 </section>
 
@@ -2748,10 +3037,16 @@
     <div class="tickrow"><div class="box"></div> I built the quiz skeleton!</div>
   </div>
 
+  <div class="ai-box">
+    <div><span class="ai-lbl">Ask A.I.</span><h4>Stuck? Try this prompt &mdash;</h4></div>
+    <div class="prompt">I'm building a Scratch quiz with a variable called <b>score</b> and a list called <b>player_answers</b>. After each question I want to <b>add the player's answer to the list</b> and <b>show the score</b> on the stage. But every time the cat asks the next question, my score box shows <b>0</b>. I'm using <b>set score to 0</b> at the start. What might be making the score reset, and how do I fix it?</div>
+    <p class="tip">💡 Telling A.I. the <b>variable names</b> you used (score, player_answers) helps it explain in the same language as your code.</p>
+  </div>
+
   <div class="pagefoot">
     <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
     <div>Chapter 5 · Variables &amp; Lists</div>
-    <div class="pgnum">16</div>
+    <div class="pgnum">17</div>
   </div>
 </section>
 
@@ -2874,7 +3169,7 @@
   <div class="pagefoot">
     <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
     <div>Chapter 6 · Conditionals</div>
-    <div class="pgnum">17</div>
+    <div class="pgnum">18</div>
   </div>
 </section>
 
@@ -2974,7 +3269,7 @@
   <div class="pagefoot">
     <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
     <div>Chapter 6 · Conditionals</div>
-    <div class="pgnum">18</div>
+    <div class="pgnum">19</div>
   </div>
 </section>
 
@@ -3101,10 +3396,16 @@
     <div class="tickrow"><div class="box"></div> My quiz now scores by itself!</div>
   </div>
 
+  <div class="ai-box">
+    <div><span class="ai-lbl">Ask A.I.</span><h4>Stuck? Try this prompt &mdash;</h4></div>
+    <div class="prompt">In my Scratch quiz the cat asks <b>"What is 100 − 1?"</b>. I want it to say <b>"Right!"</b> if the player's <b>answer = 99</b>, and <b>"Oops, try again!"</b> otherwise. I'm using the <b>if &hellip; else</b> control block with the green <b>=</b> operator inside, but the <b>else</b> part never runs even when I type a wrong number. Can you check what might be wrong with my comparison?</div>
+    <p class="tip">💡 Naming the <b>blocks you used</b> (if&hellip;else, green =) helps A.I. point straight at the bug.</p>
+  </div>
+
   <div class="pagefoot">
     <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
     <div>Chapter 6 · Conditionals</div>
-    <div class="pgnum">19</div>
+    <div class="pgnum">20</div>
   </div>
 </section>
 
@@ -3206,7 +3507,7 @@
   <div class="pagefoot">
     <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
     <div>Chapter 7 · Operators &amp; Maths</div>
-    <div class="pgnum">20</div>
+    <div class="pgnum">21</div>
   </div>
 </section>
 
@@ -3300,7 +3601,7 @@
   <div class="pagefoot">
     <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
     <div>Chapter 7 · Operators &amp; Maths</div>
-    <div class="pgnum">21</div>
+    <div class="pgnum">22</div>
   </div>
 </section>
 
@@ -3400,10 +3701,16 @@
     <div class="tickrow"><div class="box"></div> I built a Vedic multiplier in Scratch!</div>
   </div>
 
+  <div class="ai-box">
+    <div><span class="ai-lbl">Ask A.I.</span><h4>Stuck? Try this prompt &mdash;</h4></div>
+    <div class="prompt">I'm using the <b>Urdhva-Tiryagbhyam (vertically &amp; crosswise)</b> sutra in Scratch to multiply two 2-digit numbers like <b>23 × 12</b>. I have variables <b>a, b, c, d, ones, tens, hundreds, result</b>. I'm stuck on the green <b>operator</b> blocks for <b>tens</b>, which should equal <b>(a × d) + (b × c)</b>. How do I <b>nest</b> the green × and + blocks correctly inside one <b>set tens to</b> block?</div>
+    <p class="tip">💡 The word <b>"nest"</b> tells A.I. you mean blocks-inside-blocks — super useful for the green Operators family.</p>
+  </div>
+
   <div class="pagefoot">
     <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
     <div>Chapter 7 · Operators &amp; Maths</div>
-    <div class="pgnum">22</div>
+    <div class="pgnum">23</div>
   </div>
 </section>
 
