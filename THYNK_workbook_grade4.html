@@ -355,6 +355,12 @@
   .divider.d2 .div-inner { background: linear-gradient(150deg, #0e3b3a 0%, #137a72 70%, var(--mint) 110%); }
   .divider.d3 .div-inner { background: linear-gradient(150deg, #6b4a00 0%, #c08a00 70%, var(--sun) 110%); color: #1a1a2e; }
   .divider.d4 .div-inner { background: linear-gradient(150deg, #6a1d1d 0%, #c43838 70%, var(--coral) 110%); }
+  .divider.d5 .div-inner { background: linear-gradient(150deg, #2a1659 0%, #5a3aaf 65%, var(--grape) 110%); }
+  .divider.d6 .div-inner { background: linear-gradient(150deg, #134d20 0%, #2e9442 65%, var(--leaf)  110%); }
+  .divider.d7 .div-inner { background: linear-gradient(150deg, #5a0a25 0%, #b51e54 65%, var(--rose)  110%); }
+  .divider.d5 .ch-num,
+  .divider.d6 .ch-num,
+  .divider.d7 .ch-num { color: var(--gold); }
   .divider .ch-eyebrow {
     text-transform: uppercase;
     letter-spacing: 6px;
@@ -827,6 +833,249 @@
   /* tiny utility */
   .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
   .row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5mm; }
+
+  /* ============================================================
+     VARIABLE / LIST VISUALS
+     ============================================================ */
+  .var-box {
+    display: inline-flex;
+    align-items: stretch;
+    border: 2px solid var(--s-vars);
+    border-radius: 2.5mm;
+    overflow: hidden;
+    margin: 1mm 2mm 1mm 0;
+    box-shadow: 0 0.5mm 1.5mm rgba(0,0,0,0.10);
+    font-family: "Segoe UI", sans-serif;
+  }
+  .var-box .vlabel {
+    background: var(--s-vars);
+    color: #fff;
+    padding: 1.5mm 4mm;
+    font-size: 10pt;
+    font-weight: 700;
+    display: flex; align-items: center;
+  }
+  .var-box .vval {
+    background: #fff;
+    color: #1a1a2e;
+    padding: 1.5mm 4mm;
+    font-size: 11pt;
+    font-weight: 700;
+    min-width: 14mm;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .list-visual {
+    background: #fff;
+    border: 1.5px solid var(--s-vars);
+    border-radius: 2mm;
+    overflow: hidden;
+    width: 100%;
+    max-width: 70mm;
+    margin: 2mm 0;
+    box-shadow: 0 0.5mm 1.5mm rgba(0,0,0,0.10);
+  }
+  .list-visual .lhead {
+    background: var(--s-vars);
+    color: #fff;
+    padding: 1.5mm 3mm;
+    font-size: 9.5pt;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+  }
+  .list-visual .lhead .count {
+    background: rgba(0,0,0,0.18);
+    padding: 0.3mm 2mm;
+    border-radius: 6mm;
+    font-size: 8.5pt;
+  }
+  .list-visual .lrow {
+    display: grid;
+    grid-template-columns: 7mm 1fr;
+    border-top: 1px solid #f1d8b8;
+    font-size: 10pt;
+  }
+  .list-visual .lrow:first-of-type { border-top: none; }
+  .list-visual .lrow .idx {
+    background: #fff7e6;
+    color: var(--s-vars);
+    text-align: center;
+    font-weight: 700;
+    padding: 1.2mm 0;
+    font-size: 9pt;
+  }
+  .list-visual .lrow .lval {
+    padding: 1.2mm 3mm;
+    color: var(--ink);
+  }
+  .list-visual .lfoot {
+    background: #fafbfe;
+    padding: 1.5mm 3mm;
+    font-size: 9pt;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--line);
+    display: flex; gap: 3mm; align-items: center;
+  }
+  .list-visual .lfoot input {
+    flex: 1;
+    border: 1px solid var(--line);
+    border-radius: 1mm;
+    height: 5mm;
+    background: #fff;
+  }
+
+  /* ============================================================
+     DECISION DIAMOND (for conditionals)
+     ============================================================ */
+  .decision {
+    display: grid;
+    grid-template-columns: 1fr 36mm 1fr;
+    gap: 4mm;
+    align-items: center;
+    margin: 4mm 0;
+  }
+  .diamond {
+    background: var(--coral);
+    color: #fff;
+    width: 36mm;
+    height: 36mm;
+    transform: rotate(45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3mm;
+    box-shadow: 0 2mm 4mm rgba(0,0,0,0.15);
+    margin: 0 auto;
+  }
+  .diamond .dtxt {
+    transform: rotate(-45deg);
+    text-align: center;
+    font-family: Georgia, serif;
+    font-size: 10.5pt;
+    font-weight: 700;
+    line-height: 1.2;
+    padding: 2mm;
+  }
+  .branch {
+    padding: 4mm 5mm;
+    border-radius: 3mm;
+    font-size: 10pt;
+  }
+  .branch.yes {
+    background: var(--leaf-soft);
+    border-left: 5px solid var(--leaf);
+  }
+  .branch.no {
+    background: var(--coral-soft);
+    border-left: 5px solid var(--coral);
+  }
+  .branch .lbl {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 9pt;
+    font-weight: 700;
+    margin-bottom: 1.5mm;
+    display: block;
+  }
+  .branch.yes .lbl { color: var(--leaf); }
+  .branch.no  .lbl { color: var(--coral); }
+
+  /* if-else C-block (with else slot) */
+  .c-block .c-mid {
+    background: var(--s-control);
+    color: #1a1a2e;
+    font-weight: 600;
+    font-size: 9.5pt;
+    padding: 2mm 4mm;
+    display: inline-flex;
+    align-items: center;
+    min-height: 6.5mm;
+    box-shadow: 0 0.4mm 0 rgba(0,0,0,0.18);
+  }
+
+  /* ============================================================
+     VEDIC ALGORITHM WALKTHROUGH
+     ============================================================ */
+  .vedic-walk {
+    background: #fff;
+    border: 1.5px solid var(--gold);
+    border-radius: 3mm;
+    overflow: hidden;
+    margin: 3mm 0 4mm;
+  }
+  .vedic-walk .vw-head {
+    background: linear-gradient(90deg, var(--gold) 0%, #e9b834 100%);
+    color: #1a1a2e;
+    padding: 3mm 5mm;
+    font-family: Georgia, serif;
+    font-size: 12pt;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .vedic-walk .vw-head .sutra-name {
+    font-style: italic;
+    font-size: 10pt;
+    font-weight: 400;
+  }
+  .vedic-walk table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10pt;
+  }
+  .vedic-walk th,
+  .vedic-walk td {
+    padding: 2.5mm 4mm;
+    border-bottom: 1px solid var(--line);
+    text-align: left;
+    vertical-align: top;
+  }
+  .vedic-walk th {
+    background: #fff7e0;
+    color: var(--navy);
+    font-size: 9pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 22mm;
+  }
+  .vedic-walk td .num {
+    font-family: Georgia, serif;
+    font-weight: 700;
+    color: var(--gold);
+    font-size: 12pt;
+  }
+  .vedic-walk tr:last-child th,
+  .vedic-walk tr:last-child td { border-bottom: none; }
+  .vedic-walk .answer-row td,
+  .vedic-walk .answer-row th {
+    background: var(--leaf-soft);
+    border-top: 2px solid var(--leaf);
+  }
+  .vedic-walk .answer-row th { color: var(--leaf); }
+
+  /* Quiz preview line */
+  .qline {
+    border-bottom: 1.5px solid var(--ink-soft);
+    height: 6mm;
+    margin: 2mm 0;
+  }
+
+  /* "I did it!" tickbox row */
+  .tickrow {
+    display: flex;
+    align-items: center;
+    gap: 3mm;
+    margin-top: 3mm;
+    font-size: 10pt;
+  }
+  .tickrow .box {
+    width: 5mm; height: 5mm;
+    border: 1.5px solid var(--navy);
+    border-radius: 1mm;
+    display: inline-block;
+  }
 
   /* ============================================================
      PRINT TWEAKS
@@ -2088,6 +2337,1094 @@
     <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
     <div>Chapter 4 · Loops</div>
     <div class="pgnum">12</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 17 · CHAPTER 5 DIVIDER · VARIABLES & LISTS
+     ============================================================ -->
+<section class="page divider d5">
+  <div class="div-inner">
+    <div class="ch-eyebrow">Chapter Five</div>
+    <div class="ch-num">05</div>
+    <div class="ch-title">Variables &amp; Lists</div>
+    <div class="ch-kicker">Tiny labelled boxes inside the computer's brain — they remember your scores, names and answers so your code can do magic with them.</div>
+    <div class="ch-pills">
+      <div class="ch-pill">Variables</div>
+      <div class="ch-pill">Set / Change</div>
+      <div class="ch-pill">Lists</div>
+      <div class="ch-pill">Vedic Quiz</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 18 · 5.1 WHAT IS A VARIABLE?
+     ============================================================ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>5.1 &nbsp;What is a <span class="accent">Variable</span>?</h1>
+    </div>
+    <div class="crumb"><b>Chapter 5</b>Variables &amp; Lists</div>
+  </div>
+
+  <div class="big-idea">
+    <div class="star">★</div>
+    <div>
+      <h3>Big Idea</h3>
+      <p>A <b>variable</b> is a <b>labelled box</b> in the computer's memory. We give it a <i>name</i>, and we can put a <i>number</i> or a <i>word</i> inside. Later we can take it out, change it, or use it in our code.</p>
+    </div>
+  </div>
+
+  <h2 class="section">Think of variables like school lockers 🎒</h2>
+  <div class="row2">
+    <div>
+      <p>Every locker has —</p>
+      <ul>
+        <li>A <b>name plate</b> ("Riya", "Aarav") so you know whose it is.</li>
+        <li>An <b>inside</b> where you store something (a book, a tiffin).</li>
+        <li>A <b>door</b> you can open to <i>change</i> what's inside.</li>
+      </ul>
+      <p>A variable is exactly the same — only the locker is invisible and lives <i>inside</i> the computer.</p>
+    </div>
+    <div>
+      <h3 class="sub" style="margin-top: 0;">My Scratch lockers right now —</h3>
+      <div style="display: flex; flex-wrap: wrap; gap: 2mm;">
+        <div class="var-box"><div class="vlabel">score</div><div class="vval">0</div></div>
+        <div class="var-box"><div class="vlabel">player</div><div class="vval">Riya</div></div>
+        <div class="var-box"><div class="vlabel">lives</div><div class="vval">3</div></div>
+        <div class="var-box"><div class="vlabel">level</div><div class="vval">1</div></div>
+      </div>
+      <p style="font-size: 10pt; color: var(--ink-soft); margin-top: 3mm;">
+      <i>The orange tag is the variable's <b>name</b>; the white box is the <b>value</b> inside.</i>
+      </p>
+    </div>
+  </div>
+
+  <h2 class="section">How to make a variable in Scratch</h2>
+  <div class="steps grape">
+    <div class="step"><div class="n">1</div><div><h4>Click the orange <b>Variables</b> category</h4><p>It's the second-last category in the block palette.</p></div></div>
+    <div class="step"><div class="n">2</div><div><h4>Click <b>"Make a Variable"</b></h4><p>A small window pops up.</p></div></div>
+    <div class="step"><div class="n">3</div><div><h4>Type a name</h4><p>Use a name that <i>describes</i> what's inside — like <b>score</b>, not <b>x</b>. Coders are clear, not lazy!</p></div></div>
+    <div class="step"><div class="n">4</div><div><h4>Click OK</h4><p>Boom! 💥 New blocks appear and a tiny orange box pops up on the stage showing your variable.</p></div></div>
+  </div>
+
+  <h2 class="section">The 4 super-power blocks of variables</h2>
+  <div class="cards-2">
+    <div class="kc sun">
+      <h4>📥 Set</h4>
+      <p>Put a <i>fresh</i> value into the box (throws away whatever was there before).</p>
+      <div class="block-stack" style="margin-top: 2mm;"><span class="blk vars">set <span class="val dropdown">score</span> to <span class="val">0</span></span></div>
+    </div>
+    <div class="kc coral">
+      <h4>➕ Change</h4>
+      <p>Add a number to whatever is already inside.</p>
+      <div class="block-stack" style="margin-top: 2mm;"><span class="blk vars">change <span class="val dropdown">score</span> by <span class="val">1</span></span></div>
+    </div>
+    <div class="kc sky">
+      <h4>👀 Show</h4>
+      <p>Make the variable's box visible on the stage.</p>
+      <div class="block-stack" style="margin-top: 2mm;"><span class="blk vars">show variable <span class="val dropdown">score</span></span></div>
+    </div>
+    <div class="kc grape">
+      <h4>🙈 Hide</h4>
+      <p>Hide the box from the stage (it still keeps the value!).</p>
+      <div class="block-stack" style="margin-top: 2mm;"><span class="blk vars">hide variable <span class="val dropdown">score</span></span></div>
+    </div>
+  </div>
+
+  <div class="didyou">
+    <span class="lbl">Set vs. Change — careful!</span>
+    <b>set score to 5</b> means "make score equal to 5". &nbsp;
+    <b>change score by 5</b> means "add 5 to whatever score already is".
+    Mixing them up is the #1 reason quiz scores look wrong!
+  </div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Chapter 5 · Variables &amp; Lists</div>
+    <div class="pgnum">13</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 19 · 5.2 USING VARIABLES — SCORE EXAMPLE
+     ============================================================ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>5.2 &nbsp;Variables in <span class="accent">Action</span> · A Tiny Score</h1>
+    </div>
+    <div class="crumb"><b>Chapter 5</b>Variables &amp; Lists</div>
+  </div>
+
+  <p>Let's see how variables actually <i>change</i> while a program runs. Every line in the code below tells us
+  what the variable looks like <b>at that moment</b>.</p>
+
+  <h2 class="section">Walk-through · "Catch the Star" 🌟</h2>
+  <div class="row2">
+    <div>
+      <h3 class="sub">The script</h3>
+      <div class="blocks-stage">
+        <div class="cap">Sprite: Star · runs when ⚑ clicked</div>
+        <div class="block-stack">
+          <span class="blk events hat">when ⚑ clicked</span>
+          <span class="blk vars">set <span class="val dropdown">score</span> to <span class="val">0</span></span>
+          <div class="c-block">
+            <div class="c-top">forever</div>
+            <div class="c-body">
+              <div class="c-arm"></div>
+              <div class="c-inside">
+                <span class="blk motion">go to random position</span>
+                <span class="blk control">wait <span class="val">1</span> seconds</span>
+                <span class="blk vars">change <span class="val dropdown">score</span> by <span class="val">1</span></span>
+              </div>
+            </div>
+            <div class="c-bottom">&nbsp;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3 class="sub">What's inside <i>score</i> ?</h3>
+      <table style="width:100%; border-collapse: collapse; font-size: 10pt;">
+        <thead>
+          <tr style="background: var(--bg-tint);">
+            <th style="text-align:left; padding: 2mm 3mm; color: var(--navy);">Time</th>
+            <th style="text-align:left; padding: 2mm 3mm; color: var(--navy);">Block running</th>
+            <th style="text-align:left; padding: 2mm 3mm; color: var(--navy);">score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding: 2mm 3mm; border-bottom: 1px solid var(--line);">0 sec</td><td style="padding: 2mm 3mm; border-bottom: 1px solid var(--line);">flag clicked</td><td style="padding: 2mm 3mm; border-bottom: 1px solid var(--line);"><span class="var-box"><div class="vlabel" style="padding: 0.5mm 2mm; font-size: 9pt;">score</div><div class="vval" style="padding: 0.5mm 2mm; font-size: 10pt; min-width: 8mm;">—</div></span></td></tr>
+          <tr><td style="padding: 2mm 3mm; border-bottom: 1px solid var(--line);">just after</td><td style="padding: 2mm 3mm; border-bottom: 1px solid var(--line);">set score to 0</td><td style="padding: 2mm 3mm; border-bottom: 1px solid var(--line);"><span class="var-box"><div class="vlabel" style="padding: 0.5mm 2mm; font-size: 9pt;">score</div><div class="vval" style="padding: 0.5mm 2mm; font-size: 10pt; min-width: 8mm;">0</div></span></td></tr>
+          <tr><td style="padding: 2mm 3mm; border-bottom: 1px solid var(--line);">1 sec</td><td style="padding: 2mm 3mm; border-bottom: 1px solid var(--line);">change by 1</td><td style="padding: 2mm 3mm; border-bottom: 1px solid var(--line);"><span class="var-box"><div class="vlabel" style="padding: 0.5mm 2mm; font-size: 9pt;">score</div><div class="vval" style="padding: 0.5mm 2mm; font-size: 10pt; min-width: 8mm;">1</div></span></td></tr>
+          <tr><td style="padding: 2mm 3mm; border-bottom: 1px solid var(--line);">2 sec</td><td style="padding: 2mm 3mm; border-bottom: 1px solid var(--line);">change by 1</td><td style="padding: 2mm 3mm; border-bottom: 1px solid var(--line);"><span class="var-box"><div class="vlabel" style="padding: 0.5mm 2mm; font-size: 9pt;">score</div><div class="vval" style="padding: 0.5mm 2mm; font-size: 10pt; min-width: 8mm;">2</div></span></td></tr>
+          <tr><td style="padding: 2mm 3mm; border-bottom: 1px solid var(--line);">3 sec</td><td style="padding: 2mm 3mm; border-bottom: 1px solid var(--line);">change by 1</td><td style="padding: 2mm 3mm; border-bottom: 1px solid var(--line);"><span class="var-box"><div class="vlabel" style="padding: 0.5mm 2mm; font-size: 9pt;">score</div><div class="vval" style="padding: 0.5mm 2mm; font-size: 10pt; min-width: 8mm;">3</div></span></td></tr>
+          <tr><td style="padding: 2mm 3mm;">…</td><td style="padding: 2mm 3mm;">forever</td><td style="padding: 2mm 3mm;"><span class="var-box"><div class="vlabel" style="padding: 0.5mm 2mm; font-size: 9pt;">score</div><div class="vval" style="padding: 0.5mm 2mm; font-size: 10pt; min-width: 8mm;">∞</div></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <h2 class="section">Vedic Connect — variables are <i>Dhāraṇā</i> (मेमरी)</h2>
+  <div class="vedic-bridge">
+    <div class="col left">
+      <span class="lbl">Vedic Idea</span>
+      <h4>Hold the number in your head</h4>
+      <p>In mental maths, you often <b>hold a partial answer</b> in your head while doing the next step (e.g. "2+3=5… now add 7… now 12"). That holding place is a variable!</p>
+    </div>
+    <div class="arrow">→</div>
+    <div class="col right">
+      <span class="lbl">In Scratch</span>
+      <h4>The variable IS your scratchpad</h4>
+      <p>Use a variable called <b>running_total</b> or <b>answer</b> to remember the in-between number. Your sprite never forgets.</p>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="lbl">Your Turn · Activity 5.A</div>
+    <h3>Coin Counter</h3>
+    <ol>
+      <li>Make a variable called <b>coins</b>.</li>
+      <li>Write a script: <b>when ⚑ clicked → set coins to 0</b>.</li>
+      <li>Add another script: <b>when this sprite clicked → change coins by 1</b>.</li>
+      <li>Click your sprite 5 times. The coins box on the stage should jump from 0 → 5. ✅</li>
+    </ol>
+    <div class="tickrow"><div class="box"></div> I made my first counter!</div>
+  </div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Chapter 5 · Variables &amp; Lists</div>
+    <div class="pgnum">14</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 20 · 5.3 LISTS — A ROW OF BOXES
+     ============================================================ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>5.3 &nbsp;What is a <span class="accent">List</span>?</h1>
+    </div>
+    <div class="crumb"><b>Chapter 5</b>Variables &amp; Lists</div>
+  </div>
+
+  <div class="big-idea">
+    <div class="star">★</div>
+    <div>
+      <h3>Big Idea</h3>
+      <p>A variable holds <b>one</b> thing. A <b>list</b> is many variables in a neat row — each item has a number called its <b>index</b>, starting from <b>1</b>.</p>
+    </div>
+  </div>
+
+  <h2 class="section">Lists you already use every day</h2>
+  <div class="cards-3">
+    <div class="kc rose">
+      <h4>🛒 Shopping list</h4>
+      <p>Bread, milk, eggs, apples — items listed in order so nothing is forgotten.</p>
+    </div>
+    <div class="kc sun">
+      <h4>📅 Class timetable</h4>
+      <p>Period 1, Period 2, Period 3… each slot has a subject.</p>
+    </div>
+    <div class="kc mint">
+      <h4>🏆 Top scorers</h4>
+      <p>1st, 2nd, 3rd place — exactly like a list of scores in a game.</p>
+    </div>
+  </div>
+
+  <h2 class="section">A list looks like this on the stage</h2>
+  <div class="row2">
+    <div>
+      <h3 class="sub">List name: <i>quiz_answers</i></h3>
+      <div class="list-visual">
+        <div class="lhead"><span>quiz_answers</span><span class="count">length 5</span></div>
+        <div class="lrow"><div class="idx">1</div><div class="lval">99</div></div>
+        <div class="lrow"><div class="idx">2</div><div class="lval">88</div></div>
+        <div class="lrow"><div class="idx">3</div><div class="lval">9801</div></div>
+        <div class="lrow"><div class="idx">4</div><div class="lval">12</div></div>
+        <div class="lrow"><div class="idx">5</div><div class="lval">144</div></div>
+        <div class="lfoot"><span style="color: var(--s-vars); font-weight: 700;">+</span><input/></div>
+      </div>
+      <p style="font-size: 9.5pt; color: var(--ink-soft);">
+        Position 1 holds 99, position 2 holds 88, and so on.
+      </p>
+    </div>
+    <div>
+      <h3 class="sub">The 5 most useful list blocks</h3>
+      <div class="block-stack">
+        <span class="blk vars">add <span class="val">5</span> to <span class="val dropdown">quiz_answers</span></span>
+        <span class="blk vars">delete <span class="val">1</span> of <span class="val dropdown">quiz_answers</span></span>
+        <span class="blk vars">delete all of <span class="val dropdown">quiz_answers</span></span>
+        <span class="blk vars">replace item <span class="val">2</span> of <span class="val dropdown">quiz_answers</span> with <span class="val">42</span></span>
+        <span class="blk vars">item <span class="val">3</span> of <span class="val dropdown">quiz_answers</span></span>
+      </div>
+      <p style="font-size: 9.5pt; color: var(--ink-soft); margin-top: 3mm;">
+      Use <b>add</b> when collecting answers as the player plays. Use <b>item N of …</b> to read an answer back later.
+      </p>
+    </div>
+  </div>
+
+  <h2 class="section">Building a list as the user plays</h2>
+  <div class="blocks-stage">
+    <div class="cap">A list grows automatically as the player answers each question</div>
+    <div class="block-stack">
+      <span class="blk events hat">when ⚑ clicked</span>
+      <span class="blk vars">delete all of <span class="val dropdown">quiz_answers</span></span>
+      <div class="c-block">
+        <div class="c-top">repeat <span class="val">5</span></div>
+        <div class="c-body">
+          <div class="c-arm"></div>
+          <div class="c-inside">
+            <span class="blk sensing">ask <span class="val">What is the answer?</span> and wait</span>
+            <span class="blk vars">add <span class="val op">answer</span> to <span class="val dropdown">quiz_answers</span></span>
+          </div>
+        </div>
+        <div class="c-bottom">&nbsp;</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="didyou">
+    <span class="lbl">Index starts at 1</span>
+    Most professional coding languages start counting at 0 — but <b>Scratch is friendly</b> and starts at 1, just like a class register.
+  </div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Chapter 5 · Variables &amp; Lists</div>
+    <div class="pgnum">15</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 21 · 5.4 MINI-PROJECT · VEDIC MENTAL-MATHS QUIZ (PART 1)
+     ============================================================ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>5.4 &nbsp;Mini-Project · <span class="accent">Vedic Quiz</span> · Score Keeper</h1>
+    </div>
+    <div class="crumb"><b>Chapter 5</b>Variables &amp; Lists</div>
+  </div>
+
+  <div class="big-idea">
+    <div class="star">★</div>
+    <div>
+      <h3>What we're building</h3>
+      <p>A 5-question mental-maths quiz. The cat <b>asks</b> a question, the player <b>types</b> the answer, and Scratch keeps the <b>score</b> in a variable + saves every reply in a list. (We'll add the "Right or Wrong" check in the next chapter — for now, just the structure!)</p>
+    </div>
+  </div>
+
+  <h2 class="section">Variables &amp; List we'll need</h2>
+  <div class="row3">
+    <div class="kc grape">
+      <h4>📊 score <span style="color: var(--ink-soft); font-weight: 400; font-size: 9.5pt;">(variable)</span></h4>
+      <p>Starts at 0. Goes up by 1 each correct answer.</p>
+    </div>
+    <div class="kc grape">
+      <h4>🔢 q_no <span style="color: var(--ink-soft); font-weight: 400; font-size: 9.5pt;">(variable)</span></h4>
+      <p>Tells us which question we're on (1, 2, 3, 4, 5).</p>
+    </div>
+    <div class="kc grape">
+      <h4>📝 player_answers <span style="color: var(--ink-soft); font-weight: 400; font-size: 9.5pt;">(list)</span></h4>
+      <p>Stores every answer the player typed.</p>
+    </div>
+  </div>
+
+  <h2 class="section">The complete script</h2>
+  <div class="blocks-stage">
+    <div class="cap">Sprite: Maths-Cat · runs when ⚑ clicked</div>
+    <div class="block-stack">
+      <span class="blk events hat">when ⚑ clicked</span>
+      <span class="blk vars">set <span class="val dropdown">score</span> to <span class="val">0</span></span>
+      <span class="blk vars">set <span class="val dropdown">q_no</span> to <span class="val">0</span></span>
+      <span class="blk vars">delete all of <span class="val dropdown">player_answers</span></span>
+      <span class="blk looks">say <span class="val">Welcome! 5 quick Vedic questions.</span> for <span class="val">2</span> secs</span>
+      <div class="c-block">
+        <div class="c-top">repeat <span class="val">5</span></div>
+        <div class="c-body">
+          <div class="c-arm"></div>
+          <div class="c-inside">
+            <span class="blk vars">change <span class="val dropdown">q_no</span> by <span class="val">1</span></span>
+            <span class="blk sensing">ask <span class="val">Question…</span> and wait</span>
+            <span class="blk vars">add <span class="val op">answer</span> to <span class="val dropdown">player_answers</span></span>
+          </div>
+        </div>
+        <div class="c-bottom">&nbsp;</div>
+      </div>
+      <span class="blk looks">say <span class="val">Quiz over! Check your answers list 🎉</span> for <span class="val">3</span> secs</span>
+    </div>
+  </div>
+
+  <h2 class="section">After the quiz, the stage looks like —</h2>
+  <div class="row2">
+    <div>
+      <div style="display: flex; flex-wrap: wrap; gap: 2mm;">
+        <div class="var-box"><div class="vlabel">score</div><div class="vval">0</div></div>
+        <div class="var-box"><div class="vlabel">q_no</div><div class="vval">5</div></div>
+      </div>
+      <p style="font-size: 10pt; color: var(--ink-soft); margin-top: 2mm;">
+        Score is still 0 because we haven't checked answers yet (that's Chapter&nbsp;6's job).
+        But <b>q_no</b> proudly shows we asked all 5 questions.
+      </p>
+    </div>
+    <div>
+      <div class="list-visual">
+        <div class="lhead"><span>player_answers</span><span class="count">length 5</span></div>
+        <div class="lrow"><div class="idx">1</div><div class="lval">99</div></div>
+        <div class="lrow"><div class="idx">2</div><div class="lval">88</div></div>
+        <div class="lrow"><div class="idx">3</div><div class="lval">9801</div></div>
+        <div class="lrow"><div class="idx">4</div><div class="lval">12</div></div>
+        <div class="lrow"><div class="idx">5</div><div class="lval">144</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="lbl">Your Turn · Activity 5.B</div>
+    <h3>Type your 5 Vedic questions</h3>
+    <p>Plan your quiz <i>before</i> coding. Write 5 fun mental-maths questions you'd like the cat to ask:</p>
+    <ol>
+      <li>Q1: <span style="border-bottom: 1px dotted var(--ink-soft); display:inline-block; min-width: 95mm;">&nbsp;</span></li>
+      <li>Q2: <span style="border-bottom: 1px dotted var(--ink-soft); display:inline-block; min-width: 95mm;">&nbsp;</span></li>
+      <li>Q3: <span style="border-bottom: 1px dotted var(--ink-soft); display:inline-block; min-width: 95mm;">&nbsp;</span></li>
+      <li>Q4: <span style="border-bottom: 1px dotted var(--ink-soft); display:inline-block; min-width: 95mm;">&nbsp;</span></li>
+      <li>Q5: <span style="border-bottom: 1px dotted var(--ink-soft); display:inline-block; min-width: 95mm;">&nbsp;</span></li>
+    </ol>
+    <div class="tickrow"><div class="box"></div> I built the quiz skeleton!</div>
+  </div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Chapter 5 · Variables &amp; Lists</div>
+    <div class="pgnum">16</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 22 · CHAPTER 6 DIVIDER · CONDITIONALS
+     ============================================================ -->
+<section class="page divider d6">
+  <div class="div-inner">
+    <div class="ch-eyebrow">Chapter Six</div>
+    <div class="ch-num">06</div>
+    <div class="ch-title">Conditionals (if / else)</div>
+    <div class="ch-kicker">Teach your sprite to <em>think</em> — to ask "is this true?" and choose what to do next, just like you do every day.</div>
+    <div class="ch-pills">
+      <div class="ch-pill">If</div>
+      <div class="ch-pill">If / Else</div>
+      <div class="ch-pill">Comparisons</div>
+      <div class="ch-pill">Quiz Checker</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 23 · 6.1 WHAT IS A CONDITION?
+     ============================================================ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>6.1 &nbsp;Yes or No · The <span class="accent">Condition</span></h1>
+    </div>
+    <div class="crumb"><b>Chapter 6</b>Conditionals</div>
+  </div>
+
+  <div class="big-idea">
+    <div class="star">★</div>
+    <div>
+      <h3>Big Idea</h3>
+      <p>A <b>condition</b> is a question that has only two answers — <b>YES</b> (true) or <b>NO</b> (false). Code uses conditions to <b>choose</b> what happens next.</p>
+    </div>
+  </div>
+
+  <h2 class="section">You make condition-decisions every day</h2>
+  <div class="cards-3">
+    <div class="kc sky">
+      <h4>🌧️ Is it raining?</h4>
+      <p><b>YES</b> → take an umbrella.<br/><b>NO</b> → leave it at home.</p>
+    </div>
+    <div class="kc sun">
+      <h4>🥛 Is the milk hot?</h4>
+      <p><b>YES</b> → wait 5 minutes.<br/><b>NO</b> → drink it now.</p>
+    </div>
+    <div class="kc coral">
+      <h4>📚 Did I finish my homework?</h4>
+      <p><b>YES</b> → play.<br/><b>NO</b> → finish first!</p>
+    </div>
+  </div>
+
+  <h2 class="section">In code, this looks like a fork in the road 🛣️</h2>
+  <div class="decision">
+    <div class="branch yes">
+      <span class="lbl">If YES</span>
+      <p>Run the green blocks — go this way.</p>
+    </div>
+    <div class="diamond">
+      <div class="dtxt">answer = 99 ?</div>
+    </div>
+    <div class="branch no">
+      <span class="lbl">If NO</span>
+      <p>Run the red blocks — go that way instead.</p>
+    </div>
+  </div>
+
+  <h2 class="section">The two control blocks you'll use</h2>
+  <div class="row2">
+    <div>
+      <h3 class="sub">🟠 if &lt; … &gt; then</h3>
+      <div class="blocks-stage">
+        <div class="cap">Run the inside blocks ONLY when answer is YES</div>
+        <div class="c-block">
+          <div class="c-top">if <span class="val op">answer = 99</span> then</div>
+          <div class="c-body">
+            <div class="c-arm"></div>
+            <div class="c-inside">
+              <span class="blk looks">say <span class="val">Correct! 🎉</span> for <span class="val">2</span> secs</span>
+            </div>
+          </div>
+          <div class="c-bottom">&nbsp;</div>
+        </div>
+      </div>
+      <p>Use this when there's <b>only something to do if YES</b> — and nothing to do if NO.</p>
+    </div>
+    <div>
+      <h3 class="sub">🟠 if &lt; … &gt; then / else</h3>
+      <div class="blocks-stage">
+        <div class="cap">Two paths — one for YES, one for NO</div>
+        <div class="c-block">
+          <div class="c-top">if <span class="val op">answer = 99</span> then</div>
+          <div class="c-body">
+            <div class="c-arm"></div>
+            <div class="c-inside">
+              <span class="blk looks">say <span class="val">Correct! 🎉</span></span>
+            </div>
+          </div>
+          <div class="c-mid">else</div>
+          <div class="c-body">
+            <div class="c-arm"></div>
+            <div class="c-inside">
+              <span class="blk looks">say <span class="val">Try again 💪</span></span>
+            </div>
+          </div>
+          <div class="c-bottom">&nbsp;</div>
+        </div>
+      </div>
+      <p>Use this when <b>both</b> answers (YES and NO) need to do something.</p>
+    </div>
+  </div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Chapter 6 · Conditionals</div>
+    <div class="pgnum">17</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 24 · 6.2 THE COMPARISON OPERATORS
+     ============================================================ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>6.2 &nbsp;Asking Yes/No · the green <span class="accent">Operator</span> blocks</h1>
+    </div>
+    <div class="crumb"><b>Chapter 6</b>Conditionals</div>
+  </div>
+
+  <p>Inside the diamond hole at the top of an <i>if</i> block, you slot a <b>green operator block</b>. That block asks the YES/NO question — and Scratch answers it for you.</p>
+
+  <h2 class="section">The 3 most-used comparison blocks</h2>
+  <div class="cards-3">
+    <div class="kc leaf">
+      <h4>= &nbsp;Equal to</h4>
+      <div class="block-stack" style="margin: 2mm 0;"><span class="blk operators"><span class="val">5</span> = <span class="val">5</span></span></div>
+      <p>YES if both sides are exactly the same.</p>
+    </div>
+    <div class="kc leaf">
+      <h4>&lt; &nbsp;Less than</h4>
+      <div class="block-stack" style="margin: 2mm 0;"><span class="blk operators"><span class="val">3</span> &lt; <span class="val">7</span></span></div>
+      <p>YES if the <i>left</i> number is smaller.</p>
+    </div>
+    <div class="kc leaf">
+      <h4>&gt; &nbsp;Greater than</h4>
+      <div class="block-stack" style="margin: 2mm 0;"><span class="blk operators"><span class="val">9</span> &gt; <span class="val">2</span></span></div>
+      <p>YES if the <i>left</i> number is bigger.</p>
+    </div>
+  </div>
+
+  <h2 class="section">Mini-quiz · what's the answer?</h2>
+  <div class="cards-2">
+    <div class="kc grape">
+      <h4>Read each green block and circle YES or NO</h4>
+      <table style="width: 100%; border-collapse: collapse; font-size: 10.5pt;">
+        <tr><td style="padding: 1.5mm 0;"><span class="blk operators"><span class="val">10</span> = <span class="val">10</span></span></td><td style="text-align: right;"><b>YES</b> &nbsp;&nbsp; <b>NO</b></td></tr>
+        <tr><td style="padding: 1.5mm 0;"><span class="blk operators"><span class="val">5</span> &lt; <span class="val">3</span></span></td><td style="text-align: right;"><b>YES</b> &nbsp;&nbsp; <b>NO</b></td></tr>
+        <tr><td style="padding: 1.5mm 0;"><span class="blk operators"><span class="val">7</span> &gt; <span class="val">2</span></span></td><td style="text-align: right;"><b>YES</b> &nbsp;&nbsp; <b>NO</b></td></tr>
+        <tr><td style="padding: 1.5mm 0;"><span class="blk operators"><span class="val">99</span> = <span class="val">100</span></span></td><td style="text-align: right;"><b>YES</b> &nbsp;&nbsp; <b>NO</b></td></tr>
+      </table>
+    </div>
+    <div class="kc rose">
+      <h4>Combining conditions</h4>
+      <p>Sometimes one question isn't enough. You can <b>combine</b> two questions using:</p>
+      <div class="block-stack" style="margin: 2mm 0;">
+        <span class="blk operators"><span class="val op"> &nbsp; </span> and <span class="val op"> &nbsp; </span></span>
+        <span class="blk operators"><span class="val op"> &nbsp; </span> or <span class="val op"> &nbsp; </span></span>
+        <span class="blk operators">not <span class="val op"> &nbsp; </span></span>
+      </div>
+      <p style="font-size: 9.5pt;"><b>and</b> = both must be YES. <b>or</b> = at least one is YES. <b>not</b> = flips YES↔NO.</p>
+    </div>
+  </div>
+
+  <h2 class="section">Real-life example · "Can I go play?"</h2>
+  <div class="blocks-stage">
+    <div class="cap">Two conditions joined with "and" — both must be YES</div>
+    <div class="c-block">
+      <div class="c-top">if <span class="val op">homework_done = yes</span> &nbsp;<span class="val op">and</span>&nbsp; <span class="val op">time &lt; 7</span> then</div>
+      <div class="c-body">
+        <div class="c-arm"></div>
+        <div class="c-inside">
+          <span class="blk looks">say <span class="val">Yay! Time to play 🎮</span></span>
+        </div>
+      </div>
+      <div class="c-mid">else</div>
+      <div class="c-body">
+        <div class="c-arm"></div>
+        <div class="c-inside">
+          <span class="blk looks">say <span class="val">Finish work first 📘</span></span>
+        </div>
+      </div>
+      <div class="c-bottom">&nbsp;</div>
+    </div>
+  </div>
+
+  <div class="vedic-bridge">
+    <div class="col left">
+      <span class="lbl">Vedic Connect</span>
+      <h4>Yāvadūnam <span style="font-weight: 400; font-style: italic;">— "by the deficiency"</span></h4>
+      <p>Vedic Maths often asks: "How far is this number <b>from 100</b>?" — that's a comparison question, just like our <b>=</b> and <b>&lt;</b> blocks.</p>
+    </div>
+    <div class="arrow">→</div>
+    <div class="col right">
+      <span class="lbl">In Scratch</span>
+      <h4>Compare → decide → act</h4>
+      <p>The green operator does the comparing. The orange <b>if</b> block decides. Together they make your sprite <i>think</i>.</p>
+    </div>
+  </div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Chapter 6 · Conditionals</div>
+    <div class="pgnum">18</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 25 · 6.3 MINI-PROJECT · QUIZ CHECKER (PART 2 OF VEDIC QUIZ)
+     ============================================================ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>6.3 &nbsp;Mini-Project · <span class="accent">Quiz Checker</span></h1>
+    </div>
+    <div class="crumb"><b>Chapter 6</b>Conditionals</div>
+  </div>
+
+  <div class="big-idea">
+    <div class="star">★</div>
+    <div>
+      <h3>What we're upgrading</h3>
+      <p>We're going back to the Vedic Quiz from Chapter&nbsp;5 and giving the cat a <b>brain</b>. After every question, the cat will <i>compare</i> the player's answer with the correct Vedic answer and say <b>"Right!"</b> or <b>"Try again"</b>.</p>
+    </div>
+  </div>
+
+  <h2 class="section">The plan</h2>
+  <div class="steps coral">
+    <div class="step"><div class="n">1</div><div><h4>Ask the question</h4><p>Use the blue <b>ask</b> block. The player's reply lands in <b>answer</b> automatically.</p></div></div>
+    <div class="step"><div class="n">2</div><div><h4>Compare with the correct answer</h4><p>Use the green <b>=</b> block: <i>answer = 99 ?</i></p></div></div>
+    <div class="step"><div class="n">3</div><div><h4>Use if-else to give feedback</h4><p>YES → say "Right!" + change score by 1. &nbsp; NO → say "Almost — the answer was 99".</p></div></div>
+    <div class="step"><div class="n">4</div><div><h4>Repeat for all 5 questions</h4><p>(Or use a list of correct answers — that's a Grade-5 trick!)</p></div></div>
+  </div>
+
+  <h2 class="section">Sample question · 99 × 1 (using <i>Nikhilam</i> sutra)</h2>
+  <div class="row2">
+    <div>
+      <h3 class="sub">The script for ONE question</h3>
+      <div class="blocks-stage">
+        <div class="cap">Add this inside the repeat-5 loop</div>
+        <div class="block-stack">
+          <span class="blk sensing">ask <span class="val">100 − 1 = ?</span> and wait</span>
+          <div class="c-block">
+            <div class="c-top">if <span class="val op">answer = 99</span> then</div>
+            <div class="c-body">
+              <div class="c-arm"></div>
+              <div class="c-inside">
+                <span class="blk looks">say <span class="val">Right! 🎉</span> for <span class="val">1</span> sec</span>
+                <span class="blk vars">change <span class="val dropdown">score</span> by <span class="val">1</span></span>
+              </div>
+            </div>
+            <div class="c-mid">else</div>
+            <div class="c-body">
+              <div class="c-arm"></div>
+              <div class="c-inside">
+                <span class="blk looks">say <span class="val">Oops! It was 99</span> for <span class="val">2</span> secs</span>
+              </div>
+            </div>
+            <div class="c-bottom">&nbsp;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3 class="sub">What you'll see on the Stage 🎬</h3>
+      <div class="stage-preview">
+        <div class="frame">
+          <svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+            <rect x="0" y="0" width="480" height="200" fill="#ffffff"/>
+            <text x="10" y="18" font-family="Segoe UI" font-size="10" fill="#575E75">Stage</text>
+            <!-- Score box -->
+            <rect x="10" y="28" width="90" height="22" rx="3" fill="#FF8C1A"/>
+            <text x="20" y="44" font-family="Segoe UI" font-size="11" fill="#fff" font-weight="700">score  3</text>
+            <!-- Cat -->
+            <g transform="translate(60,90)">
+              <ellipse cx="40" cy="60" rx="48" ry="28" fill="#ff8c1a"/>
+              <circle cx="22" cy="36" r="20" fill="#ff8c1a"/>
+              <polygon points="4,16 14,38 24,22" fill="#ff8c1a"/>
+              <polygon points="42,16 32,38 22,22" fill="#ff8c1a"/>
+              <circle cx="16" cy="34" r="2.8" fill="#000"/>
+              <circle cx="28" cy="34" r="2.8" fill="#000"/>
+              <path d="M18 44 q4 4 8 0" stroke="#000" stroke-width="1.6" fill="none"/>
+            </g>
+            <!-- Speech bubble -->
+            <g transform="translate(170,40)">
+              <rect x="0" y="0" width="120" height="42" rx="10" fill="#fff" stroke="#1a1a2e" stroke-width="1.5"/>
+              <polygon points="20,42 28,58 36,42" fill="#fff" stroke="#1a1a2e" stroke-width="1.5"/>
+              <polygon points="22,42 28,56 34,42" fill="#fff"/>
+              <text x="20" y="26" font-family="Segoe UI" font-size="13" fill="#2a9d8f" font-weight="700">Right! 🎉</text>
+            </g>
+            <!-- Question + answer area -->
+            <rect x="170" y="120" width="290" height="50" rx="3" fill="#f7faff" stroke="#cfd9ff"/>
+            <text x="180" y="140" font-family="Segoe UI" font-size="11" fill="#1a1a2e">100 − 1 = ?</text>
+            <rect x="180" y="146" width="270" height="18" rx="3" fill="#fff" stroke="#cfd9ff"/>
+            <text x="190" y="159" font-family="Segoe UI" font-size="11" fill="#1a1a2e" font-weight="700">99</text>
+            <polygon points="438,148 452,155 438,162" fill="#4cbb17"/>
+          </svg>
+        </div>
+        <div class="cap">When the player answers 99, the cat cheers and the score box ticks up.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="vedic-bridge">
+    <div class="col left">
+      <span class="lbl">Vedic Sutra</span>
+      <h4>Nikhilam Navataścaramaṁ Daśataḥ</h4>
+      <p><i>"All from 9 and the last from 10."</i> — the trick we used to compute <b>100 − 1 = 99</b> in one second, no borrowing needed.</p>
+    </div>
+    <div class="arrow">→</div>
+    <div class="col right">
+      <span class="lbl">In Scratch</span>
+      <h4>The if-else is the judge</h4>
+      <p>The cat doesn't know maths — it just <b>compares</b> the player's number with the correct one. Smart code, simple thinking.</p>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="lbl">Your Turn · Activity 6.A</div>
+    <h3>Add 4 more checked questions</h3>
+    <ol>
+      <li>Copy the if-else above 4 more times — once for each of your 5 questions.</li>
+      <li>Change the question text and the correct answer in the green <b>=</b> block.</li>
+      <li>Test by purposely typing <i>wrong</i> answers — the cat should say "Oops!" 😺</li>
+    </ol>
+    <div class="tickrow"><div class="box"></div> My quiz now scores by itself!</div>
+  </div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Chapter 6 · Conditionals</div>
+    <div class="pgnum">19</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 26 · CHAPTER 7 DIVIDER · OPERATORS & MATHS BLOCKS
+     ============================================================ -->
+<section class="page divider d7">
+  <div class="div-inner">
+    <div class="ch-eyebrow">Chapter Seven</div>
+    <div class="ch-num">07</div>
+    <div class="ch-title">Operators &amp; Maths Blocks</div>
+    <div class="ch-kicker">The <em>green</em> family — the maths brain of Scratch. We'll bring two famous Vedic sutras to life inside our code.</div>
+    <div class="ch-pills">
+      <div class="ch-pill">+ − × ÷</div>
+      <div class="ch-pill">join &amp; pick</div>
+      <div class="ch-pill">Nikhilam</div>
+      <div class="ch-pill">Urdhva-Tiryagbhyām</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 27 · 7.1 THE GREEN OPERATOR FAMILY
+     ============================================================ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>7.1 &nbsp;The <span class="accent">Green</span> Operators Family</h1>
+    </div>
+    <div class="crumb"><b>Chapter 7</b>Operators &amp; Maths</div>
+  </div>
+
+  <div class="big-idea">
+    <div class="star">★</div>
+    <div>
+      <h3>Big Idea</h3>
+      <p>Operators are the <b>maths and logic blocks</b>. They are shaped like <b>green pills</b> 🟢 because they always <i>fit inside</i> other blocks — they don't run on their own, they help other blocks decide and calculate.</p>
+    </div>
+  </div>
+
+  <h2 class="section">The maths operators (the four old friends)</h2>
+  <div class="cards-4">
+    <div class="kc leaf">
+      <h4>➕ Addition</h4>
+      <div class="block-stack" style="margin: 2mm 0;"><span class="blk operators"><span class="val">5</span> + <span class="val">3</span></span></div>
+      <p>Gives <b>8</b>.</p>
+    </div>
+    <div class="kc leaf">
+      <h4>➖ Subtraction</h4>
+      <div class="block-stack" style="margin: 2mm 0;"><span class="blk operators"><span class="val">9</span> − <span class="val">4</span></span></div>
+      <p>Gives <b>5</b>.</p>
+    </div>
+    <div class="kc leaf">
+      <h4>✖️ Multiplication</h4>
+      <div class="block-stack" style="margin: 2mm 0;"><span class="blk operators"><span class="val">6</span> ✕ <span class="val">7</span></span></div>
+      <p>Gives <b>42</b>.</p>
+    </div>
+    <div class="kc leaf">
+      <h4>➗ Division</h4>
+      <div class="block-stack" style="margin: 2mm 0;"><span class="blk operators"><span class="val">12</span> ⁄ <span class="val">4</span></span></div>
+      <p>Gives <b>3</b>.</p>
+    </div>
+  </div>
+
+  <h2 class="section">Two more very useful operators</h2>
+  <div class="cards-2">
+    <div class="kc leaf">
+      <h4>🎲 pick random</h4>
+      <div class="block-stack" style="margin: 2mm 0;"><span class="blk operators">pick random <span class="val">1</span> to <span class="val">10</span></span></div>
+      <p>Gives a surprise number every time. Perfect for quiz questions and dice.</p>
+    </div>
+    <div class="kc leaf">
+      <h4>🪢 join (glue text together)</h4>
+      <div class="block-stack" style="margin: 2mm 0;"><span class="blk operators">join <span class="val">Score: </span> <span class="val varpill">score</span></span></div>
+      <p>Glues words and numbers into one sentence. Makes your sprite say smart things.</p>
+    </div>
+  </div>
+
+  <h2 class="section">Operators slot <i>inside</i> other blocks</h2>
+  <p>Notice how each green pill sits <b>inside</b> a white circle of another block. That's the magic of Scratch — small pieces fit together like LEGO!</p>
+  <div class="blocks-stage">
+    <div class="cap">3 ways operators are used</div>
+    <div class="block-stack">
+      <span class="blk vars">set <span class="val dropdown">total</span> to <span class="val op"><span class="val">5</span> + <span class="val">3</span></span></span>
+      <span class="blk looks">say <span class="val op">join <span class="val">Total = </span> <span class="val varpill">total</span></span> for <span class="val">2</span> secs</span>
+      <span class="blk motion">move <span class="val op">pick random <span class="val">10</span> to <span class="val">50</span></span> steps</span>
+    </div>
+  </div>
+
+  <div class="didyou">
+    <span class="lbl">Order matters in maths too!</span>
+    Scratch follows the same rules you learn in school: <b>BODMAS</b> (Brackets → Of → Division → Multiplication → Addition → Subtraction).
+    Use <b>nested green pills</b> to control the order, e.g. <b>(2 + 3) × 4 = 20</b>, but <b>2 + 3 × 4 = 14</b>.
+  </div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Chapter 7 · Operators &amp; Maths</div>
+    <div class="pgnum">20</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 28 · 7.2 NIKHILAM SUBTRACTION
+     ============================================================ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>7.2 &nbsp;Vedic Algorithm 1 · <span class="accent">Nikhilam</span> Subtraction</h1>
+    </div>
+    <div class="crumb"><b>Chapter 7</b>Operators &amp; Maths</div>
+  </div>
+
+  <div class="big-idea">
+    <div class="star">★</div>
+    <div>
+      <h3>The Sutra</h3>
+      <p><b>Nikhilam Navataścaramaṁ Daśataḥ</b> — <i>"All from 9 and the last from 10."</i> A magical way to subtract from 100, 1000, 10000 — without borrowing!</p>
+    </div>
+  </div>
+
+  <h2 class="section">How a human does it (mentally)</h2>
+  <p>Goal: <b>1000 − 437 = ?</b></p>
+  <div class="vedic-walk">
+    <div class="vw-head">
+      Subtract from <b>1000</b>
+      <span class="sutra-name">Nikhilam · "All from 9, last from 10"</span>
+    </div>
+    <table>
+      <tr><th>Step 1</th><td><span class="num">4</span> &nbsp;→&nbsp; <span class="num">9 − 4 = 5</span> &nbsp;<i>(all from 9)</i></td></tr>
+      <tr><th>Step 2</th><td><span class="num">3</span> &nbsp;→&nbsp; <span class="num">9 − 3 = 6</span> &nbsp;<i>(all from 9)</i></td></tr>
+      <tr><th>Step 3</th><td><span class="num">7</span> &nbsp;→&nbsp; <span class="num">10 − 7 = 3</span> &nbsp;<i>(last from 10)</i></td></tr>
+      <tr class="answer-row"><th>Answer</th><td><span class="num" style="font-size: 16pt; color: var(--leaf);">5 6 3</span> &nbsp; ✅ &nbsp; 1000 − 437 = <b>563</b></td></tr>
+    </table>
+  </div>
+
+  <h2 class="section">Now let's teach Scratch to do it</h2>
+  <p>We'll keep it simple — for any 3-digit number, our cat will <b>read each digit</b>, apply the sutra, and show the answer.</p>
+
+  <h3 class="sub">Variables we need</h3>
+  <div style="display: flex; flex-wrap: wrap; gap: 2mm; margin-bottom: 4mm;">
+    <div class="var-box"><div class="vlabel">number</div><div class="vval">437</div></div>
+    <div class="var-box"><div class="vlabel">d1</div><div class="vval">4</div></div>
+    <div class="var-box"><div class="vlabel">d2</div><div class="vval">3</div></div>
+    <div class="var-box"><div class="vlabel">d3</div><div class="vval">7</div></div>
+    <div class="var-box"><div class="vlabel">answer</div><div class="vval">563</div></div>
+  </div>
+
+  <h3 class="sub">The script</h3>
+  <div class="blocks-stage">
+    <div class="cap">Step-by-step Nikhilam in Scratch (for 1000 − number)</div>
+    <div class="block-stack">
+      <span class="blk events hat">when ⚑ clicked</span>
+      <span class="blk sensing">ask <span class="val">Enter a 3-digit number under 1000</span> and wait</span>
+      <span class="blk vars">set <span class="val dropdown">number</span> to <span class="val varpill">answer</span></span>
+
+      <span class="blk vars">set <span class="val dropdown">d1</span> to <span class="val op">letter <span class="val">1</span> of <span class="val varpill">number</span></span></span>
+      <span class="blk vars">set <span class="val dropdown">d2</span> to <span class="val op">letter <span class="val">2</span> of <span class="val varpill">number</span></span></span>
+      <span class="blk vars">set <span class="val dropdown">d3</span> to <span class="val op">letter <span class="val">3</span> of <span class="val varpill">number</span></span></span>
+
+      <span class="blk vars">set <span class="val dropdown">d1</span> to <span class="val op"><span class="val">9</span> − <span class="val varpill">d1</span></span></span>
+      <span class="blk vars">set <span class="val dropdown">d2</span> to <span class="val op"><span class="val">9</span> − <span class="val varpill">d2</span></span></span>
+      <span class="blk vars">set <span class="val dropdown">d3</span> to <span class="val op"><span class="val">10</span> − <span class="val varpill">d3</span></span></span>
+
+      <span class="blk vars">set <span class="val dropdown">answer</span> to <span class="val op">join <span class="val varpill">d1</span> <span class="val op">join <span class="val varpill">d2</span> <span class="val varpill">d3</span></span></span></span>
+      <span class="blk looks">say <span class="val op">join <span class="val">1000 − number = </span> <span class="val varpill">answer</span></span> for <span class="val">3</span> secs</span>
+    </div>
+  </div>
+
+  <div class="didyou">
+    <span class="lbl">Why it works</span>
+    The <b>letter N of</b> operator (from the green family) lets us peek at one digit of a number — exactly what the sutra asks us to do, one digit at a time. We then <b>join</b> the three results to get the final answer.
+  </div>
+
+  <div class="activity">
+    <div class="lbl">Your Turn · Activity 7.A</div>
+    <h3>Try it with three different numbers</h3>
+    <p>Run your project and write your own results below.</p>
+    <table style="width:100%; border-collapse: collapse; font-size: 10.5pt; margin-top: 2mm;">
+      <tr style="background: var(--bg-tint);"><th style="text-align:left; padding: 2mm 3mm; color: var(--navy);">Input</th><th style="text-align:left; padding: 2mm 3mm; color: var(--navy);">Cat said…</th><th style="text-align:left; padding: 2mm 3mm; color: var(--navy);">My check</th></tr>
+      <tr><td style="padding: 2.5mm 3mm; border-bottom: 1px solid var(--line);">1000 − 248</td><td style="padding: 2.5mm 3mm; border-bottom: 1px solid var(--line);"><div class="qline" style="margin: 0;"></div></td><td style="padding: 2.5mm 3mm; border-bottom: 1px solid var(--line);"><div class="qline" style="margin: 0;"></div></td></tr>
+      <tr><td style="padding: 2.5mm 3mm; border-bottom: 1px solid var(--line);">1000 − 591</td><td style="padding: 2.5mm 3mm; border-bottom: 1px solid var(--line);"><div class="qline" style="margin: 0;"></div></td><td style="padding: 2.5mm 3mm; border-bottom: 1px solid var(--line);"><div class="qline" style="margin: 0;"></div></td></tr>
+      <tr><td style="padding: 2.5mm 3mm;">1000 − 803</td><td style="padding: 2.5mm 3mm;"><div class="qline" style="margin: 0;"></div></td><td style="padding: 2.5mm 3mm;"><div class="qline" style="margin: 0;"></div></td></tr>
+    </table>
+    <div class="tickrow"><div class="box"></div> My Scratch sprite knows Nikhilam!</div>
+  </div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Chapter 7 · Operators &amp; Maths</div>
+    <div class="pgnum">21</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 29 · 7.3 URDHVA-TIRYAGBHYAM MULTIPLICATION
+     ============================================================ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>7.3 &nbsp;Vedic Algorithm 2 · <span class="accent">Urdhva</span> Multiplication</h1>
+    </div>
+    <div class="crumb"><b>Chapter 7</b>Operators &amp; Maths</div>
+  </div>
+
+  <div class="big-idea">
+    <div class="star">★</div>
+    <div>
+      <h3>The Sutra</h3>
+      <p><b>Urdhva-Tiryagbhyām</b> — <i>"Vertically and Crosswise."</i> The most famous Vedic shortcut for multiplying two numbers in one line.</p>
+    </div>
+  </div>
+
+  <h2 class="section">How a human does it (for two 2-digit numbers)</h2>
+  <p>Goal: <b>23 × 12 = ?</b> &nbsp;Let's call it <b>(a b) × (c d)</b> where <b>a=2, b=3, c=1, d=2</b>.</p>
+
+  <div class="vedic-walk">
+    <div class="vw-head">
+      Multiply <b>23 × 12</b>
+      <span class="sutra-name">Urdhva · "Vertically &amp; Crosswise"</span>
+    </div>
+    <table>
+      <tr><th>Vertical (right)</th><td><span class="num">b × d</span> &nbsp;=&nbsp; <span class="num">3 × 2 = 6</span> &nbsp; → ones place</td></tr>
+      <tr><th>Crosswise</th><td><span class="num">(a × d) + (b × c)</span> &nbsp;=&nbsp; <span class="num">(2×2) + (3×1) = 7</span> &nbsp; → tens place</td></tr>
+      <tr><th>Vertical (left)</th><td><span class="num">a × c</span> &nbsp;=&nbsp; <span class="num">2 × 1 = 2</span> &nbsp; → hundreds place</td></tr>
+      <tr class="answer-row"><th>Answer</th><td><span class="num" style="font-size: 16pt; color: var(--leaf);">2 7 6</span> &nbsp; ✅ &nbsp; 23 × 12 = <b>276</b> &nbsp; <i>(carry handled if needed)</i></td></tr>
+    </table>
+  </div>
+
+  <h2 class="section">In Scratch — the cat becomes a Vedic calculator</h2>
+  <h3 class="sub">Variables we need</h3>
+  <div style="display: flex; flex-wrap: wrap; gap: 2mm; margin-bottom: 3mm;">
+    <div class="var-box"><div class="vlabel">a</div><div class="vval">2</div></div>
+    <div class="var-box"><div class="vlabel">b</div><div class="vval">3</div></div>
+    <div class="var-box"><div class="vlabel">c</div><div class="vval">1</div></div>
+    <div class="var-box"><div class="vlabel">d</div><div class="vval">2</div></div>
+    <div class="var-box"><div class="vlabel">ones</div><div class="vval">6</div></div>
+    <div class="var-box"><div class="vlabel">tens</div><div class="vval">7</div></div>
+    <div class="var-box"><div class="vlabel">hundreds</div><div class="vval">2</div></div>
+    <div class="var-box"><div class="vlabel">result</div><div class="vval">276</div></div>
+  </div>
+
+  <h3 class="sub">The script</h3>
+  <div class="blocks-stage">
+    <div class="cap">Reads two 2-digit numbers and uses the sutra to multiply them</div>
+    <div class="block-stack">
+      <span class="blk events hat">when ⚑ clicked</span>
+      <span class="blk sensing">ask <span class="val">First 2-digit number?</span> and wait</span>
+      <span class="blk vars">set <span class="val dropdown">a</span> to <span class="val op">letter <span class="val">1</span> of <span class="val varpill">answer</span></span></span>
+      <span class="blk vars">set <span class="val dropdown">b</span> to <span class="val op">letter <span class="val">2</span> of <span class="val varpill">answer</span></span></span>
+      <span class="blk sensing">ask <span class="val">Second 2-digit number?</span> and wait</span>
+      <span class="blk vars">set <span class="val dropdown">c</span> to <span class="val op">letter <span class="val">1</span> of <span class="val varpill">answer</span></span></span>
+      <span class="blk vars">set <span class="val dropdown">d</span> to <span class="val op">letter <span class="val">2</span> of <span class="val varpill">answer</span></span></span>
+
+      <span class="blk vars">set <span class="val dropdown">ones</span> to <span class="val op"><span class="val varpill">b</span> ✕ <span class="val varpill">d</span></span></span>
+      <span class="blk vars">set <span class="val dropdown">tens</span> to <span class="val op"><span class="val op"><span class="val varpill">a</span> ✕ <span class="val varpill">d</span></span> + <span class="val op"><span class="val varpill">b</span> ✕ <span class="val varpill">c</span></span></span></span>
+      <span class="blk vars">set <span class="val dropdown">hundreds</span> to <span class="val op"><span class="val varpill">a</span> ✕ <span class="val varpill">c</span></span></span>
+
+      <span class="blk vars">set <span class="val dropdown">result</span> to <span class="val op"><span class="val op"><span class="val varpill">hundreds</span> ✕ <span class="val">100</span></span> + <span class="val op"><span class="val op"><span class="val varpill">tens</span> ✕ <span class="val">10</span></span> + <span class="val varpill">ones</span></span></span></span>
+      <span class="blk looks">say <span class="val op">join <span class="val">Answer = </span> <span class="val varpill">result</span></span> for <span class="val">3</span> secs</span>
+    </div>
+  </div>
+
+  <div class="vedic-bridge">
+    <div class="col left">
+      <span class="lbl">Why this rocks</span>
+      <h4>One line · One sutra · One answer</h4>
+      <p>The same sutra works for 3-digit × 3-digit, 4-digit × 4-digit, and beyond — just more crosswise pairs!</p>
+    </div>
+    <div class="arrow">→</div>
+    <div class="col right">
+      <span class="lbl">In Scratch</span>
+      <h4>Maths sutra → Maths code</h4>
+      <p>You just translated an ancient sutra into a working program. <b>That</b>, dear coder, is real magic. ✨</p>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="lbl">Your Turn · Activity 7.B</div>
+    <h3>Vedic vs. Calculator Race</h3>
+    <ol>
+      <li>Run your Scratch project and ask it: <b>23 × 12</b>, <b>14 × 21</b>, <b>32 × 13</b>.</li>
+      <li>Solve the same questions <i>mentally</i> using the sutra.</li>
+      <li>Time yourself with a stopwatch — who's faster, you or Scratch? 🏁</li>
+    </ol>
+    <div class="tickrow"><div class="box"></div> I built a Vedic multiplier in Scratch!</div>
+  </div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Chapter 7 · Operators &amp; Maths</div>
+    <div class="pgnum">22</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 30 · CONGRATULATIONS · END OF WORKBOOK
+     ============================================================ -->
+<section class="page divider d1">
+  <div class="div-inner">
+    <div class="ch-eyebrow">Well Done, Coder!</div>
+    <div class="ch-num">★</div>
+    <div class="ch-title">You finished <em>Volume 1</em></div>
+    <div class="ch-kicker">From your first sprite to your own Vedic calculator — every block you snapped, every sutra you used, every bug you fixed has made you a stronger thinker. See you in <b>Volume 2 · Builders</b> for Grade 5!</div>
+    <div class="ch-pills">
+      <div class="ch-pill">Sequencing ✓</div>
+      <div class="ch-pill">Loops ✓</div>
+      <div class="ch-pill">Variables &amp; Lists ✓</div>
+      <div class="ch-pill">Conditionals ✓</div>
+      <div class="ch-pill">Operators ✓</div>
+      <div class="ch-pill">Vedic Sutras ✓</div>
+    </div>
   </div>
 </section>
 
