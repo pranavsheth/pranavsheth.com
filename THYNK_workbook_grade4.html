@@ -1,0 +1,2096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>T.H.Y.N.K — My Scratch Adventure · Workbook · Grade 4</title>
+<style>
+  /* ============================================================
+     PAGE / PRINT SETUP
+     ============================================================ */
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    /* Brand */
+    --navy: #0a1a3a;
+    --navy-2: #142a5e;
+    --gold: #d4a017;
+    --gold-soft: #fff4d1;
+
+    /* Ink */
+    --ink: #1a1a2e;
+    --ink-soft: #4a4a5e;
+    --line: #e6e6ee;
+
+    /* Backgrounds */
+    --bg-cream: #fff9ee;
+    --bg-tint:  #eef4ff;
+    --bg-paper: #ffffff;
+
+    /* Kid-friendly accent palette (one per chapter) */
+    --sky:   #3ec1ff;   --sky-soft:   #e0f4ff;
+    --mint:  #2ec4b6;   --mint-soft:  #d6f5f1;
+    --coral: #ff6b6b;   --coral-soft: #ffe2e2;
+    --sun:   #ffb703;   --sun-soft:   #fff1cc;
+    --grape: #8e6cd5;   --grape-soft: #ece4ff;
+    --leaf:  #5fc06b;   --leaf-soft:  #dff5e1;
+    --rose:  #e91e63;   --rose-soft:  #ffd9e5;
+
+    /* Scratch block colours (canonical) */
+    --s-motion:    #4C97FF;
+    --s-looks:     #9966FF;
+    --s-sound:     #CF63CF;
+    --s-events:    #FFBF00;
+    --s-control:   #FFAB19;
+    --s-sensing:   #5CB1D6;
+    --s-operators: #59C059;
+    --s-vars:      #FF8C1A;
+    --s-myblocks:  #FF6680;
+  }
+
+  html, body {
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    background: #cfd2d8;
+    line-height: 1.55;
+    font-size: 11pt;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    background: var(--bg-paper);
+    margin: 16px auto;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+    padding: 14mm 14mm 12mm;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+    display: flex;
+    flex-direction: column;
+  }
+  .page:last-child { page-break-after: auto; }
+  .page > .pagefoot { margin-top: auto; }
+
+  p { margin-bottom: 2.5mm; }
+  ul, ol { padding-left: 6mm; margin-bottom: 3mm; }
+  li { margin: 1.2mm 0; }
+
+  /* ============================================================
+     COVER PAGE
+     ============================================================ */
+  .cover { padding: 0; }
+  .cover-top {
+    flex: 1 1 auto;
+    background:
+      radial-gradient(circle at 12% 18%, rgba(255,255,255,0.08) 0 1.2px, transparent 1.8px),
+      radial-gradient(circle at 78% 28%, rgba(212,160,23,0.18) 0 1.2px, transparent 1.8px),
+      radial-gradient(circle at 30% 78%, rgba(62,193,255,0.20) 0 1.2px, transparent 1.8px),
+      linear-gradient(160deg, #0a1a3a 0%, #142a5e 60%, #0b5fff 100%);
+    background-size: 20mm 20mm, 24mm 24mm, 28mm 28mm, auto;
+    color: #fff;
+    padding: 18mm 18mm 14mm;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+  }
+  .cover-logo {
+    width: 56mm;
+    height: auto;
+    background: #fff;
+    padding: 4mm 6mm;
+    border-radius: 4mm;
+    box-shadow: 0 3mm 8mm rgba(0,0,0,0.25);
+  }
+  .cover-eyebrow {
+    margin-top: 10mm;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 10pt;
+    color: var(--gold);
+  }
+  .cover-title {
+    margin-top: 5mm;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 40pt;
+    line-height: 1.05;
+    letter-spacing: 0.5px;
+  }
+  .cover-title em { color: var(--gold); font-style: normal; }
+  .cover-sub {
+    margin-top: 6mm;
+    font-size: 13pt;
+    font-style: italic;
+    color: #cfd9ff;
+    max-width: 150mm;
+  }
+  .cover-badges {
+    margin-top: 10mm;
+    display: flex;
+    gap: 5mm;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .cover-badge {
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #fff;
+    padding: 2mm 5mm;
+    border-radius: 12mm;
+    font-size: 10pt;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .cover-badge b { color: var(--gold); margin-right: 1.5mm; }
+
+  .cover-bottom {
+    background: var(--bg-cream);
+    padding: 10mm 18mm 14mm;
+  }
+  .cover-bottom h3 {
+    font-family: Georgia, serif;
+    font-size: 15pt;
+    color: var(--navy);
+    margin-bottom: 4mm;
+  }
+  .name-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6mm 10mm;
+    margin-top: 4mm;
+  }
+  .name-row { font-size: 11pt; color: var(--ink); }
+  .name-row .lbl {
+    display: block;
+    text-transform: uppercase;
+    font-size: 8.5pt;
+    letter-spacing: 2px;
+    color: var(--ink-soft);
+    margin-bottom: 1.5mm;
+  }
+  .name-row .line {
+    border-bottom: 1.5px solid var(--navy);
+    height: 7mm;
+  }
+  .cover-tagline {
+    margin-top: 10mm;
+    text-align: center;
+    font-family: Georgia, serif;
+    font-size: 13pt;
+    color: var(--navy);
+  }
+  .cover-tagline span { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     INNER PAGE HEADER
+     ============================================================ */
+  .ph {
+    border-bottom: 3px solid var(--navy);
+    padding-bottom: 4mm;
+    margin-bottom: 6mm;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6mm;
+  }
+  .ph .ph-left { display: flex; align-items: center; gap: 5mm; }
+  .ph .ph-logo {
+    width: 18mm;
+    height: 18mm;
+    object-fit: contain;
+  }
+  .ph h1 {
+    font-family: Georgia, serif;
+    font-size: 22pt;
+    line-height: 1.1;
+    color: var(--navy);
+  }
+  .ph h1 .accent { color: var(--gold); }
+  .ph .crumb {
+    font-size: 9pt;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--ink-soft);
+    text-align: right;
+  }
+  .ph .crumb b { color: var(--navy); display: block; font-size: 10pt; letter-spacing: 1px; }
+
+  h2.section {
+    font-family: Georgia, serif;
+    font-size: 15pt;
+    color: var(--navy);
+    margin: 6mm 0 3mm;
+    padding-bottom: 1.5mm;
+    border-bottom: 1px solid var(--line);
+  }
+  h3.sub {
+    font-family: Georgia, serif;
+    font-size: 12.5pt;
+    color: var(--navy);
+    margin: 4mm 0 2mm;
+  }
+
+  /* ============================================================
+     INDEX / TABLE OF CONTENTS PAGE
+     ============================================================ */
+  .toc-hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+    color: #fff;
+    padding: 8mm 10mm;
+    border-radius: 3mm;
+    margin-bottom: 6mm;
+    display: flex;
+    align-items: center;
+    gap: 8mm;
+  }
+  .toc-hero img { width: 26mm; background: #fff; padding: 2mm 3mm; border-radius: 2mm; }
+  .toc-hero .ribbon {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 9pt;
+    color: var(--gold);
+  }
+  .toc-hero h1 {
+    font-family: Georgia, serif;
+    font-size: 26pt;
+    line-height: 1.1;
+    margin-top: 2mm;
+  }
+  .toc-hero h1 em { color: var(--gold); font-style: normal; }
+  .toc-hero p { color: #cfd9ff; margin-top: 3mm; font-size: 11pt; }
+
+  .toc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5mm;
+  }
+  .toc-card {
+    background: #fff;
+    border: 1.5px solid var(--line);
+    border-left: 6px solid var(--sky);
+    border-radius: 3mm;
+    padding: 5mm 6mm 5mm 6mm;
+    display: grid;
+    grid-template-columns: 14mm 1fr;
+    gap: 4mm;
+    align-items: start;
+  }
+  .toc-card.c1 { border-left-color: var(--sky);   }
+  .toc-card.c2 { border-left-color: var(--mint);  }
+  .toc-card.c3 { border-left-color: var(--sun);   }
+  .toc-card.c4 { border-left-color: var(--coral); }
+  .toc-card.c5 { border-left-color: var(--grape); }
+  .toc-card.c6 { border-left-color: var(--leaf);  }
+  .toc-card.c7 { border-left-color: var(--rose);  }
+
+  .toc-card .num {
+    width: 14mm; height: 14mm;
+    border-radius: 50%;
+    color: #fff;
+    font-family: Georgia, serif;
+    font-size: 16pt;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0.6mm 2mm rgba(0,0,0,0.15);
+  }
+  .toc-card.c1 .num { background: var(--sky);   }
+  .toc-card.c2 .num { background: var(--mint);  }
+  .toc-card.c3 .num { background: var(--sun); color: #1a1a2e; }
+  .toc-card.c4 .num { background: var(--coral); }
+  .toc-card.c5 .num { background: var(--grape); }
+  .toc-card.c6 .num { background: var(--leaf);  }
+  .toc-card.c7 .num { background: var(--rose);  }
+
+  .toc-card h3 {
+    font-family: Georgia, serif;
+    font-size: 13pt;
+    color: var(--navy);
+    margin: 1mm 0 1.5mm;
+  }
+  .toc-card p {
+    font-size: 9.5pt;
+    color: var(--ink-soft);
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  .toc-foot {
+    margin-top: 6mm;
+    background: var(--gold-soft);
+    border-left: 4px solid var(--gold);
+    padding: 4mm 5mm;
+    border-radius: 1mm;
+    font-size: 10pt;
+    color: var(--ink);
+  }
+  .toc-foot b { color: var(--navy); }
+
+  /* ============================================================
+     CHAPTER DIVIDER (each big topic)
+     ============================================================ */
+  .divider {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding: 0;
+  }
+  .div-inner {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30mm 20mm;
+    position: relative;
+    overflow: hidden;
+  }
+  .divider.d1 .div-inner { background: linear-gradient(150deg, #0a1a3a 0%, #1d3a85 70%, var(--sky) 110%); }
+  .divider.d2 .div-inner { background: linear-gradient(150deg, #0e3b3a 0%, #137a72 70%, var(--mint) 110%); }
+  .divider.d3 .div-inner { background: linear-gradient(150deg, #6b4a00 0%, #c08a00 70%, var(--sun) 110%); color: #1a1a2e; }
+  .divider.d4 .div-inner { background: linear-gradient(150deg, #6a1d1d 0%, #c43838 70%, var(--coral) 110%); }
+  .divider .ch-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    font-size: 10pt;
+    opacity: 0.9;
+  }
+  .divider .ch-num {
+    margin-top: 6mm;
+    font-family: Georgia, serif;
+    font-size: 60pt;
+    line-height: 1;
+    color: var(--gold);
+  }
+  .divider.d3 .ch-num { color: #1a1a2e; }
+  .divider .ch-title {
+    margin-top: 4mm;
+    font-family: Georgia, serif;
+    font-size: 36pt;
+    line-height: 1.1;
+    max-width: 160mm;
+  }
+  .divider .ch-kicker {
+    margin-top: 8mm;
+    font-size: 13pt;
+    font-style: italic;
+    max-width: 150mm;
+    opacity: 0.92;
+  }
+  .divider .ch-pills {
+    margin-top: 14mm;
+    display: flex;
+    gap: 4mm;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .ch-pill {
+    background: rgba(255,255,255,0.14);
+    border: 1px solid rgba(255,255,255,0.28);
+    padding: 2mm 5mm;
+    border-radius: 12mm;
+    font-size: 9.5pt;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .divider.d3 .ch-pill { background: rgba(0,0,0,0.08); border-color: rgba(0,0,0,0.18); color: #1a1a2e; }
+
+  /* ============================================================
+     CONTENT BLOCKS (kid-friendly)
+     ============================================================ */
+  .big-idea {
+    display: grid;
+    grid-template-columns: 14mm 1fr;
+    gap: 5mm;
+    background: var(--gold-soft);
+    border: 1.5px solid #f0d680;
+    border-left: 6px solid var(--gold);
+    padding: 5mm 6mm;
+    border-radius: 3mm;
+    margin: 4mm 0 5mm;
+    align-items: center;
+  }
+  .big-idea .star {
+    width: 14mm; height: 14mm;
+    background: var(--gold);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Georgia, serif;
+    font-weight: 700;
+    font-size: 18pt;
+    box-shadow: 0 0.5mm 2mm rgba(0,0,0,0.15);
+  }
+  .big-idea h3 {
+    font-family: Georgia, serif;
+    font-size: 13pt;
+    color: var(--navy);
+    margin: 0 0 1mm;
+  }
+  .big-idea p { font-size: 11pt; color: var(--ink); margin: 0; }
+
+  /* Friendly fact / definition box */
+  .def-box {
+    background: var(--sky-soft);
+    border-left: 5px solid var(--sky);
+    padding: 4mm 5mm;
+    border-radius: 2mm;
+    margin: 3mm 0 4mm;
+    font-size: 11pt;
+  }
+  .def-box .lbl {
+    display: inline-block;
+    background: var(--sky);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 8.5pt;
+    letter-spacing: 1.5px;
+    padding: 1mm 3mm;
+    border-radius: 6mm;
+    margin-bottom: 2mm;
+    font-weight: 700;
+  }
+  .def-box b { color: var(--navy); }
+
+  /* Colourful info cards (2 / 3 / 4 cols) */
+  .cards-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin: 3mm 0 5mm; }
+  .cards-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm; margin: 3mm 0 5mm; }
+  .cards-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 4mm; margin: 3mm 0 5mm; }
+
+  .kc {
+    background: #fff;
+    border: 1.5px solid var(--line);
+    border-top: 5px solid var(--sky);
+    border-radius: 3mm;
+    padding: 4mm 5mm;
+  }
+  .kc.sky   { border-top-color: var(--sky);   }
+  .kc.mint  { border-top-color: var(--mint);  }
+  .kc.sun   { border-top-color: var(--sun);   }
+  .kc.coral { border-top-color: var(--coral); }
+  .kc.grape { border-top-color: var(--grape); }
+  .kc.leaf  { border-top-color: var(--leaf);  }
+  .kc.rose  { border-top-color: var(--rose);  }
+  .kc h4 {
+    font-family: Georgia, serif;
+    font-size: 12pt;
+    color: var(--navy);
+    margin-bottom: 2mm;
+  }
+  .kc p, .kc li { font-size: 10pt; color: var(--ink); }
+  .kc ul { padding-left: 5mm; margin: 0; }
+  .kc.sky   li::marker { color: var(--sky);   }
+  .kc.mint  li::marker { color: var(--mint);  }
+  .kc.sun   li::marker { color: var(--sun);   }
+  .kc.coral li::marker { color: var(--coral); }
+  .kc.grape li::marker { color: var(--grape); }
+  .kc.leaf  li::marker { color: var(--leaf);  }
+  .kc.rose  li::marker { color: var(--rose);  }
+
+  /* Numbered "do-this" steps */
+  .steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3mm;
+    margin: 3mm 0 5mm;
+  }
+  .steps .step {
+    background: #fff;
+    border: 1.5px solid var(--line);
+    border-left: 5px solid var(--sky);
+    border-radius: 3mm;
+    padding: 4mm 5mm 4mm 5mm;
+    display: grid;
+    grid-template-columns: 11mm 1fr;
+    gap: 4mm;
+    align-items: start;
+  }
+  .steps.mint .step  { border-left-color: var(--mint); }
+  .steps.sun .step   { border-left-color: var(--sun); }
+  .steps.coral .step { border-left-color: var(--coral); }
+  .steps.grape .step { border-left-color: var(--grape); }
+  .steps .step .n {
+    width: 11mm; height: 11mm;
+    border-radius: 50%;
+    background: var(--sky); color: #fff;
+    font-family: Georgia, serif;
+    font-weight: 700;
+    font-size: 13pt;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .steps.mint  .step .n { background: var(--mint); }
+  .steps.sun   .step .n { background: var(--sun); color: #1a1a2e; }
+  .steps.coral .step .n { background: var(--coral); }
+  .steps.grape .step .n { background: var(--grape); }
+  .steps .step h4 {
+    font-family: Georgia, serif;
+    font-size: 12pt;
+    color: var(--navy);
+    margin: 0 0 1mm;
+  }
+  .steps .step p { font-size: 10pt; color: var(--ink); margin: 0; }
+
+  /* Friendly "did-you-know" callout */
+  .didyou {
+    background: var(--mint-soft);
+    border: 1.5px dashed var(--mint);
+    border-radius: 3mm;
+    padding: 4mm 5mm;
+    margin: 3mm 0 5mm;
+    font-size: 10.5pt;
+    color: var(--ink);
+  }
+  .didyou .lbl {
+    text-transform: uppercase;
+    font-size: 9pt;
+    letter-spacing: 2px;
+    color: var(--mint);
+    font-weight: 700;
+    margin-bottom: 1.5mm;
+    display: block;
+  }
+
+  /* Try-it / Activity box */
+  .activity {
+    background: var(--coral-soft);
+    border: 1.5px solid #f5b1b1;
+    border-left: 5px solid var(--coral);
+    border-radius: 3mm;
+    padding: 4mm 5mm;
+    margin: 4mm 0 5mm;
+  }
+  .activity .lbl {
+    text-transform: uppercase;
+    font-size: 9pt;
+    letter-spacing: 2px;
+    color: var(--coral);
+    font-weight: 700;
+  }
+  .activity h3 {
+    font-family: Georgia, serif;
+    font-size: 13pt;
+    color: var(--navy);
+    margin: 1mm 0 2mm;
+  }
+  .activity ol { padding-left: 6mm; font-size: 10.5pt; }
+
+  /* Vedic Maths bridge — gold/navy themed link */
+  .vedic-bridge {
+    background: linear-gradient(135deg, #fff7e0 0%, #ffeec0 100%);
+    border: 1.5px solid #f0d680;
+    border-radius: 3mm;
+    padding: 5mm 6mm;
+    margin: 4mm 0 5mm;
+    display: grid;
+    grid-template-columns: 1fr 12mm 1fr;
+    gap: 0;
+    align-items: stretch;
+  }
+  .vedic-bridge .col {
+    padding: 1mm 4mm;
+  }
+  .vedic-bridge .col.left { border-right: 1.5px dashed var(--gold); }
+  .vedic-bridge .col .lbl {
+    text-transform: uppercase;
+    font-size: 9pt;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 1.5mm;
+    display: block;
+  }
+  .vedic-bridge .col.left .lbl  { color: var(--gold); }
+  .vedic-bridge .col.right .lbl { color: var(--navy); }
+  .vedic-bridge .col h4 {
+    font-family: Georgia, serif;
+    font-size: 12pt;
+    color: var(--navy);
+    margin-bottom: 1.5mm;
+  }
+  .vedic-bridge .col p { font-size: 10pt; color: var(--ink); }
+  .vedic-bridge .arrow {
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22pt;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* ============================================================
+     SCRATCH BLOCK VISUALS
+     ============================================================ */
+  .blocks-stage {
+    background: #f3f6fb;
+    border: 1.5px solid var(--line);
+    border-radius: 3mm;
+    padding: 5mm 6mm;
+    margin: 3mm 0;
+  }
+  .blocks-stage .cap {
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--ink-soft);
+    margin-bottom: 3mm;
+  }
+  .block-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+  .blk {
+    color: #fff;
+    font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+    font-size: 9.5pt;
+    font-weight: 600;
+    padding: 2mm 4mm;
+    border-radius: 1.4mm;
+    margin: 0.4mm 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 2mm;
+    box-shadow: 0 0.4mm 0 rgba(0,0,0,0.18);
+    line-height: 1.1;
+    min-height: 6.5mm;
+    white-space: nowrap;
+  }
+  .blk.events    { background: var(--s-events);    color: #1a1a2e; }
+  .blk.motion    { background: var(--s-motion);    }
+  .blk.looks     { background: var(--s-looks);     }
+  .blk.sound     { background: var(--s-sound);     }
+  .blk.control   { background: var(--s-control);   color: #1a1a2e; }
+  .blk.sensing   { background: var(--s-sensing);   }
+  .blk.operators { background: var(--s-operators); }
+  .blk.vars      { background: var(--s-vars);      }
+  .blk.myblocks  { background: var(--s-myblocks);  }
+
+  .blk.hat {
+    border-top-left-radius: 5mm;
+    border-top-right-radius: 5mm;
+    padding-left: 5mm;
+    padding-right: 5mm;
+  }
+
+  /* C-shaped wrapper for loops / control */
+  .c-block { display: flex; flex-direction: column; align-items: flex-start; margin: 0.4mm 0; }
+  .c-block .c-top {
+    background: var(--s-control); color: #1a1a2e;
+    font-weight: 600; font-size: 9.5pt;
+    padding: 2mm 4mm;
+    border-radius: 1.4mm 1.4mm 0 0;
+    display: inline-flex; align-items: center; gap: 2mm;
+    min-height: 6.5mm;
+    box-shadow: 0 0.4mm 0 rgba(0,0,0,0.18);
+  }
+  .c-block .c-body { display: flex; align-items: stretch; gap: 0; }
+  .c-block .c-arm {
+    background: var(--s-control);
+    width: 4mm;
+    align-self: stretch;
+  }
+  .c-block .c-inside {
+    padding: 1mm 0 1mm 1.5mm;
+    display: flex; flex-direction: column; gap: 0;
+  }
+  .c-block .c-bottom {
+    background: var(--s-control); color: #1a1a2e;
+    font-weight: 600; font-size: 9.5pt;
+    padding: 2mm 4mm;
+    border-radius: 0 0 1.4mm 1.4mm;
+    min-height: 5mm;
+    display: inline-flex; align-items: center;
+    box-shadow: 0 0.4mm 0 rgba(0,0,0,0.18);
+  }
+
+  /* Inline values inside blocks */
+  .val {
+    background: #fff; color: #1a1a2e;
+    font-weight: 700;
+    border-radius: 8mm;
+    padding: 0.3mm 2.5mm;
+    font-size: 9pt;
+    min-width: 6mm;
+    display: inline-block;
+    text-align: center;
+    border: 0.4mm solid rgba(0,0,0,0.10);
+  }
+  .val.dropdown {
+    background: rgba(0,0,0,0.18); color: #fff; border: none;
+    padding-right: 4mm; position: relative;
+  }
+  .val.dropdown::after {
+    content: "▾";
+    position: absolute;
+    right: 1.5mm; top: 50%;
+    transform: translateY(-50%);
+    font-size: 7pt; color: #fff;
+  }
+
+  /* ============================================================
+     SCRATCH UI MOCK (used in "Intro to Scratch")
+     ============================================================ */
+  .ide-mock {
+    margin: 4mm 0;
+    border: 1.5px solid var(--line);
+    border-radius: 3mm;
+    overflow: hidden;
+    background: #fff;
+  }
+  .ide-mock svg { display: block; width: 100%; height: auto; }
+  .ide-caption {
+    background: #fafbfe;
+    padding: 2.5mm 4mm;
+    font-size: 9.5pt;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--line);
+  }
+
+  /* Label callouts under IDE */
+  .ide-legend {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3mm 5mm;
+    margin: 3mm 0 4mm;
+  }
+  .ide-legend .row {
+    display: flex; align-items: flex-start; gap: 3mm;
+    font-size: 10pt; color: var(--ink);
+  }
+  .ide-legend .row .tag {
+    flex: 0 0 8mm; height: 7mm;
+    background: var(--navy); color: #fff;
+    border-radius: 1.5mm;
+    font-family: Georgia, serif;
+    font-weight: 700;
+    font-size: 11pt;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 0.5mm;
+  }
+  .ide-legend .row b { color: var(--navy); }
+
+  /* ============================================================
+     MINI SCRATCH STAGE PREVIEW
+     ============================================================ */
+  .stage-preview {
+    background: #fff;
+    border: 1.5px solid var(--line);
+    border-radius: 3mm;
+    overflow: hidden;
+    margin: 3mm 0 4mm;
+  }
+  .stage-preview .frame {
+    background: #ffffff;
+    height: 55mm;
+    position: relative;
+    border-bottom: 1px solid var(--line);
+  }
+  .stage-preview .frame svg { display: block; width: 100%; height: 100%; }
+  .stage-preview .cap {
+    background: #fafbfe;
+    padding: 2.5mm 4mm;
+    font-size: 9.5pt;
+    color: var(--ink-soft);
+  }
+
+  /* ============================================================
+     FOOTER
+     ============================================================ */
+  .pagefoot {
+    border-top: 1.5px solid var(--line);
+    margin-top: 7mm;
+    padding-top: 3mm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 8.5pt;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+  .pagefoot .brand { color: var(--navy); font-weight: 700; }
+  .pagefoot .brand .dot { color: var(--gold); }
+  .pagefoot .pgnum {
+    background: var(--navy);
+    color: #fff;
+    padding: 1mm 3mm;
+    border-radius: 8mm;
+    letter-spacing: 1px;
+  }
+
+  /* tiny utility */
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+  .row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5mm; }
+
+  /* ============================================================
+     PRINT TWEAKS
+     ============================================================ */
+  @media print {
+    body { background: #fff; }
+    .page { margin: 0; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+
+
+<!-- ============================================================
+     PAGE 1 · COVER
+     ============================================================ -->
+<section class="page cover">
+  <div class="cover-top">
+    <img class="cover-logo" src="logo4.jpg" alt="THYNK Logo" />
+    <div class="cover-eyebrow">Workbook · Volume 1 · Grade 4</div>
+    <div class="cover-title">My Scratch<br/><em>Adventure</em></div>
+    <div class="cover-sub">Where Coding meets Vedic Maths — and learning becomes a super-power.</div>
+    <div class="cover-badges">
+      <div class="cover-badge"><b>24</b> Sessions</div>
+      <div class="cover-badge"><b>7</b> Big Topics</div>
+      <div class="cover-badge"><b>Loads</b> of Fun</div>
+    </div>
+  </div>
+
+  <div class="cover-bottom">
+    <h3>This workbook belongs to —</h3>
+    <div class="name-grid">
+      <div class="name-row"><span class="lbl">My Name</span><div class="line"></div></div>
+      <div class="name-row"><span class="lbl">My Class &amp; Section</span><div class="line"></div></div>
+      <div class="name-row"><span class="lbl">My School</span><div class="line"></div></div>
+      <div class="name-row"><span class="lbl">My Teacher</span><div class="line"></div></div>
+    </div>
+    <div class="cover-tagline">
+      <span>Think Today</span> · <span>Learn Smart</span> · <span>Lead Tomorrow</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 2 · INDEX (TABLE OF CONTENTS)
+     ============================================================ -->
+<section class="page">
+  <div class="toc-hero">
+    <img src="logo4.jpg" alt="THYNK Logo" />
+    <div>
+      <div class="ribbon">Your Map for the Year</div>
+      <h1>What's <em>Inside</em> My Workbook?</h1>
+      <p>Seven exciting topics that turn you into a real coder — one block, one sutra, one project at a time.</p>
+    </div>
+  </div>
+
+  <div class="toc-grid">
+    <div class="toc-card c1">
+      <div class="num">1</div>
+      <div>
+        <h3>Introduction</h3>
+        <p>What is coding? Why are <b>YOU</b> here? How will coding + Vedic Maths make you a smarter, faster thinker?</p>
+      </div>
+    </div>
+
+    <div class="toc-card c2">
+      <div class="num">2</div>
+      <div>
+        <h3>Introduction to Scratch</h3>
+        <p>Meet your new playground — sprites, stage, blocks &amp; the magic coding screen.</p>
+      </div>
+    </div>
+
+    <div class="toc-card c3">
+      <div class="num">3</div>
+      <div>
+        <h3>Sequencing &amp; Events</h3>
+        <p>Make things happen in the right order — click, press a key, watch the magic begin.</p>
+      </div>
+    </div>
+
+    <div class="toc-card c4">
+      <div class="num">4</div>
+      <div>
+        <h3>Loops</h3>
+        <p><i>Repeat</i> and <i>forever</i> — paired with the Vedic sutra <b>Ekadhikena Purvena</b>.</p>
+      </div>
+    </div>
+
+    <div class="toc-card c5">
+      <div class="num">5</div>
+      <div>
+        <h3>Variables &amp; Lists</h3>
+        <p>Tiny boxes that remember numbers, names and scores for your games.</p>
+      </div>
+    </div>
+
+    <div class="toc-card c6">
+      <div class="num">6</div>
+      <div>
+        <h3>Conditionals (if / else)</h3>
+        <p>Teach the computer to make smart choices — just like you do every day.</p>
+      </div>
+    </div>
+
+    <div class="toc-card c7">
+      <div class="num">7</div>
+      <div>
+        <h3>Operators &amp; Maths Blocks</h3>
+        <p>Add, subtract, multiply — and bring Vedic Maths to life inside your code.</p>
+      </div>
+    </div>
+
+    <div class="toc-card c1" style="border-left-color: var(--navy); grid-column: span 2;">
+      <div class="num" style="background: var(--navy);">★</div>
+      <div>
+        <h3>Mini-Projects at the End of Every Chapter</h3>
+        <p>Each big topic ends with a fun project — a dancing cat, a counting caterpillar, a number-guessing game and many more — so you don't just <i>learn</i> coding, you <i>build</i> things.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="toc-foot">
+    <b>How to use this workbook:</b> Read the colourful boxes, try the blocks on screen, finish the activities, and tick the
+    "I did it!" box at the end of every topic. Keep this book safe — by the end of the year it will be full of <i>your</i>
+    ideas and <i>your</i> code.
+  </div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Index</div>
+    <div class="pgnum">02</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 3 · CHAPTER 1 DIVIDER · INTRODUCTION
+     ============================================================ -->
+<section class="page divider d1">
+  <div class="div-inner">
+    <div class="ch-eyebrow">Chapter One</div>
+    <div class="ch-num">01</div>
+    <div class="ch-title">Introduction</div>
+    <div class="ch-kicker">Welcome, young coder! Before we touch a single block, let's understand <em>why</em> we are about to do something amazing.</div>
+    <div class="ch-pills">
+      <div class="ch-pill">What is coding?</div>
+      <div class="ch-pill">Why YOU?</div>
+      <div class="ch-pill">Why Vedic Maths?</div>
+      <div class="ch-pill">What you'll learn</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 4 · WHAT IS CODING?
+     ============================================================ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>1.1 &nbsp;What is <span class="accent">Coding</span>?</h1>
+    </div>
+    <div class="crumb"><b>Chapter 1</b>Introduction</div>
+  </div>
+
+  <div class="big-idea">
+    <div class="star">★</div>
+    <div>
+      <h3>Big Idea</h3>
+      <p>Coding is the way we <b>talk to a computer</b>. We give it small, clear instructions — and the computer does exactly what we say, very, very fast.</p>
+    </div>
+  </div>
+
+  <div class="def-box">
+    <span class="lbl">Definition</span>
+    A <b>computer</b> is a machine that follows orders. It cannot think on its own. <b>You</b> are the boss — and the orders you give it are called <b>code</b>.
+  </div>
+
+  <h2 class="section">Coding is everywhere around you</h2>
+  <p>You probably use code every day without even knowing it. Look at these everyday things — every single one of them runs on code that someone wrote.</p>
+
+  <div class="cards-3">
+    <div class="kc sky">
+      <h4>📱 Mobile Apps</h4>
+      <p>YouTube Kids, WhatsApp, your favourite game — all built using code.</p>
+    </div>
+    <div class="kc mint">
+      <h4>🎮 Video Games</h4>
+      <p>Every jump, score and explosion in a game is one tiny piece of code.</p>
+    </div>
+    <div class="kc sun">
+      <h4>🚦 Traffic Signals</h4>
+      <p>Red → Yellow → Green is just code repeating the same steps, day and night.</p>
+    </div>
+    <div class="kc coral">
+      <h4>🚗 Cars</h4>
+      <p>Modern cars use code to brake safely, lock doors and even park themselves.</p>
+    </div>
+    <div class="kc grape">
+      <h4>🤖 Robots</h4>
+      <p>From toy robots to factory machines, all of them follow code we write.</p>
+    </div>
+    <div class="kc leaf">
+      <h4>📺 Smart TVs</h4>
+      <p>Picking a Netflix show, changing volume — all powered by tiny lines of code.</p>
+    </div>
+  </div>
+
+  <div class="didyou">
+    <span class="lbl">Did you know?</span>
+    The very first computer programmer was a girl named <b>Ada Lovelace</b>, almost <b>180 years ago</b> — long before computers even had screens!
+  </div>
+
+  <h2 class="section">So… how is code different from English?</h2>
+  <div class="row2">
+    <div class="kc sky">
+      <h4>When you talk to a friend</h4>
+      <p>"Hey, please get me a glass of water if you have time."</p>
+      <p style="color: var(--ink-soft); font-size: 9.5pt;"><i>Your friend can guess what you mean.</i></p>
+    </div>
+    <div class="kc coral">
+      <h4>When you talk to a computer</h4>
+      <p>"Walk to kitchen. Open cupboard. Take glass. Walk to filter. Press button. Stop at full."</p>
+      <p style="color: var(--ink-soft); font-size: 9.5pt;"><i>The computer follows every step exactly.</i></p>
+    </div>
+  </div>
+
+  <p>Coding teaches us to <b>think clearly, step by step</b> — and that skill helps in <i>everything</i> we do.</p>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Chapter 1 · Introduction</div>
+    <div class="pgnum">03</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 5 · HOW WILL CODING HELP YOU?
+     ============================================================ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>1.2 &nbsp;How will Coding help <span class="accent">YOU</span>?</h1>
+    </div>
+    <div class="crumb"><b>Chapter 1</b>Introduction</div>
+  </div>
+
+  <p>You may be thinking — <i>"I'm only in Grade 4. Why should I learn coding now?"</i> Great question!
+  Learning to code at your age gives you <b>super-powers for life</b>. Here are six big ones.</p>
+
+  <div class="cards-2">
+    <div class="kc sky">
+      <h4>🧠 Sharper Thinking</h4>
+      <p>Coding is like solving puzzles. Your brain learns to break a BIG problem into tiny, easy steps.</p>
+    </div>
+    <div class="kc mint">
+      <h4>🎨 Wild Creativity</h4>
+      <p>You stop being just a <i>player</i> of games — you become a <b>maker</b> of games, stories and animations.</p>
+    </div>
+    <div class="kc sun">
+      <h4>🔁 Patience &amp; Practice</h4>
+      <p>Code doesn't always work the first time. You learn how to <i>try, fix, try again</i> — without giving up.</p>
+    </div>
+    <div class="kc coral">
+      <h4>🧩 Better at Maths</h4>
+      <p>Loops, numbers, patterns — Scratch <i>shows</i> you what maths really looks like.</p>
+    </div>
+    <div class="kc grape">
+      <h4>👫 Teamwork</h4>
+      <p>You'll build projects with friends, share ideas, and discover that two coders are smarter than one.</p>
+    </div>
+    <div class="kc leaf">
+      <h4>🚀 Future-Ready</h4>
+      <p>Doctors, designers, pilots, gamers — everyone uses code today. You're getting a head start.</p>
+    </div>
+  </div>
+
+  <h2 class="section">Why <b>now</b> — and not later?</h2>
+  <div class="def-box">
+    <span class="lbl">Science says</span>
+    Your brain at age <b>9 or 10</b> is <i>most</i> ready to learn new languages — and that includes <b>coding languages</b>.
+    The earlier you start, the easier and more natural it feels.
+  </div>
+
+  <h2 class="section">What will be different about <b>you</b> after this year?</h2>
+  <div class="steps mint">
+    <div class="step">
+      <div class="n">1</div>
+      <div>
+        <h4>You will think like a problem-solver</h4>
+        <p>Stuck on homework? You'll break it down the same way you break down a Scratch project.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="n">2</div>
+      <div>
+        <h4>You will not be afraid of mistakes</h4>
+        <p>In coding, mistakes are clues — not failures. They tell you exactly what to fix next.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="n">3</div>
+      <div>
+        <h4>You will be able to <i>build</i> what you imagine</h4>
+        <p>Dream of a game where your dog flies? By end of year you'll be able to build it.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="n">4</div>
+      <div>
+        <h4>You will explain ideas clearly</h4>
+        <p>Coding makes you say <i>exactly</i> what you mean — a skill teachers and friends will love.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Chapter 1 · Introduction</div>
+    <div class="pgnum">04</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 6 · WHY VEDIC MATHS + WHY THIS CLASS
+     ============================================================ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>1.3 &nbsp;Why <span class="accent">Vedic Maths</span> + Coding?</h1>
+    </div>
+    <div class="crumb"><b>Chapter 1</b>Introduction</div>
+  </div>
+
+  <div class="big-idea">
+    <div class="star">★</div>
+    <div>
+      <h3>Big Idea</h3>
+      <p><b>Vedic Maths</b> teaches your brain to do calculations <i>super-fast</i>. <b>Coding</b> teaches your brain to think <i>super-clearly</i>. Together — you become unstoppable.</p>
+    </div>
+  </div>
+
+  <div class="def-box">
+    <span class="lbl">What is Vedic Maths?</span>
+    Vedic Maths is a special way of doing arithmetic that comes from <b>ancient India</b>.
+    It uses <b>16 short rules called Sutras</b> (one-line tricks) to solve big sums in seconds — often without writing them down!
+  </div>
+
+  <h2 class="section">Five reasons Vedic Maths makes you a better coder</h2>
+  <div class="cards-2">
+    <div class="kc sun">
+      <h4>⚡ Lightning Mental Maths</h4>
+      <p>You won't depend on a calculator. Your brain becomes the calculator.</p>
+    </div>
+    <div class="kc grape">
+      <h4>🔍 Spotting Patterns</h4>
+      <p>Sutras are pattern recipes. Coding is also full of patterns. Same skill!</p>
+    </div>
+    <div class="kc sky">
+      <h4>🪜 Step-by-Step Thinking</h4>
+      <p>Both Vedic Maths and code break big problems into tiny clean steps.</p>
+    </div>
+    <div class="kc coral">
+      <h4>💪 Confidence in Numbers</h4>
+      <p>When you stop fearing maths, you start <i>playing</i> with it — inside your code.</p>
+    </div>
+  </div>
+
+  <h2 class="section">A peek at the Sutras you'll meet this year</h2>
+  <div class="cards-3">
+    <div class="kc sky">
+      <h4>Ekadhikena Purvena</h4>
+      <p style="font-style: italic; color: var(--ink-soft);">"By one more than the previous."</p>
+      <p>Helps us understand <b>loops</b> &amp; counting up.</p>
+    </div>
+    <div class="kc mint">
+      <h4>Nikhilam Navataścaramaṁ</h4>
+      <p style="font-style: italic; color: var(--ink-soft);">"All from 9 and the last from 10."</p>
+      <p>Subtracting from 100, 1000 — done in a blink.</p>
+    </div>
+    <div class="kc coral">
+      <h4>Urdhva-Tiryagbhyām</h4>
+      <p style="font-style: italic; color: var(--ink-soft);">"Vertically and crosswise."</p>
+      <p>The famous multiplication shortcut.</p>
+    </div>
+  </div>
+
+  <h2 class="section">Why did <b>you</b> join this class?</h2>
+  <p>Whatever your reason, this is what you'll <i>actually</i> walk away with:</p>
+  <div class="cards-2">
+    <div class="kc leaf">
+      <h4>🎯 The Joy of Making</h4>
+      <p>Building something on a computer that <b>moves, talks and reacts</b> — and being able to say "I made this!"</p>
+    </div>
+    <div class="kc rose">
+      <h4>🏆 A Real Project Every Term</h4>
+      <p>By the end of the year, you'll have a portfolio of games and animations to show your family.</p>
+    </div>
+  </div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Chapter 1 · Introduction</div>
+    <div class="pgnum">05</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 7 · WHAT YOU'LL LEARN + PARENT BENEFITS
+     ============================================================ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>1.4 &nbsp;What you'll <span class="accent">learn</span> · Why parents <span class="accent">smile</span></h1>
+    </div>
+    <div class="crumb"><b>Chapter 1</b>Introduction</div>
+  </div>
+
+  <h2 class="section">By the end of this workbook, <b>you</b> will be able to —</h2>
+  <div class="cards-2">
+    <div class="kc sky">
+      <h4>✨ Use Scratch like a pro</h4>
+      <ul>
+        <li>Move and dress sprites</li>
+        <li>Make scenes change with backdrops</li>
+        <li>Add sounds, music &amp; voices</li>
+      </ul>
+    </div>
+    <div class="kc mint">
+      <h4>🧱 Build with code blocks</h4>
+      <ul>
+        <li>Sequence steps in the right order</li>
+        <li>Use loops to repeat actions</li>
+        <li>Make smart "if-else" choices</li>
+      </ul>
+    </div>
+    <div class="kc sun">
+      <h4>🔢 Mix Maths with Code</h4>
+      <ul>
+        <li>Use variables to keep scores</li>
+        <li>Add &amp; multiply with operator blocks</li>
+        <li>Apply Vedic sutras inside Scratch</li>
+      </ul>
+    </div>
+    <div class="kc coral">
+      <h4>🎮 Create your own projects</h4>
+      <ul>
+        <li>A counting game</li>
+        <li>An animated short story</li>
+        <li>A simple quiz with a score</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="section">A note for <b>parents</b> — what THYNK gives your child</h2>
+  <div class="cards-3">
+    <div class="kc grape">
+      <h4>👨‍👩‍👧 Confidence with Screens</h4>
+      <p>Your child stops being a <i>consumer</i> of YouTube and games — and becomes a <b>creator</b>.</p>
+    </div>
+    <div class="kc leaf">
+      <h4>📚 Stronger School Marks</h4>
+      <p>The logical thinking from coding directly helps in Maths, Science and even English.</p>
+    </div>
+    <div class="kc rose">
+      <h4>🧘 Calmer, Focused Mind</h4>
+      <p>Vedic Maths warm-ups build the kind of focus that helps in exams and life.</p>
+    </div>
+    <div class="kc sky">
+      <h4>🌍 Future-Ready Skills</h4>
+      <p>Coding is the new literacy. Your child will be ready for the world of 2035, not 1995.</p>
+    </div>
+    <div class="kc sun">
+      <h4>🎁 Healthy Screen Time</h4>
+      <p>30–40 minutes a week of <i>productive</i> screen time, with something real built at the end.</p>
+    </div>
+    <div class="kc mint">
+      <h4>🤝 Habit of Sharing</h4>
+      <p>Children show their projects at home — a beautiful conversation starter every weekend.</p>
+    </div>
+  </div>
+
+  <div class="didyou">
+    <span class="lbl">Parent Tip</span>
+    Ask your child <i>"What did you make today?"</i> instead of <i>"What did you study today?"</i>
+    You'll be amazed at what they show you.
+  </div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Chapter 1 · Introduction</div>
+    <div class="pgnum">06</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 8 · CHAPTER 2 DIVIDER · INTRO TO SCRATCH
+     ============================================================ -->
+<section class="page divider d2">
+  <div class="div-inner">
+    <div class="ch-eyebrow">Chapter Two</div>
+    <div class="ch-num">02</div>
+    <div class="ch-title">Meet Scratch</div>
+    <div class="ch-kicker">Your colourful playground where blocks click together like LEGO — and bring sprites to life.</div>
+    <div class="ch-pills">
+      <div class="ch-pill">The Stage</div>
+      <div class="ch-pill">Sprites</div>
+      <div class="ch-pill">Block Palette</div>
+      <div class="ch-pill">Code Area</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 9 · INTRO TO SCRATCH — IDE WALKTHROUGH
+     ============================================================ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>2.1 &nbsp;The Scratch <span class="accent">Screen</span></h1>
+    </div>
+    <div class="crumb"><b>Chapter 2</b>Introduction to Scratch</div>
+  </div>
+
+  <div class="big-idea">
+    <div class="star">★</div>
+    <div>
+      <h3>Big Idea</h3>
+      <p>Scratch is a <b>free coding tool</b> made for children, by MIT. Open <b>scratch.mit.edu</b> in any browser and you're ready to code — no installation, no typing tricky words.</p>
+    </div>
+  </div>
+
+  <p>Below is a friendly map of the Scratch screen. The five letters <b>A</b> to <b>E</b> show the five most important areas — learn these and you can find everything!</p>
+
+  <div class="ide-mock">
+    <!-- SVG MOCK OF SCRATCH IDE -->
+    <svg viewBox="0 0 1100 620" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+      <!-- Outer window -->
+      <rect x="0" y="0" width="1100" height="620" fill="#f4f6fa" />
+
+      <!-- Top menu bar -->
+      <rect x="0" y="0" width="1100" height="46" fill="#4C97FF" />
+      <text x="20" y="29" font-family="Segoe UI, Arial" font-size="18" fill="#fff" font-weight="700">Scratch</text>
+      <text x="100" y="30" font-family="Segoe UI, Arial" font-size="13" fill="#fff">File &nbsp;&nbsp; Edit &nbsp;&nbsp; Tutorials</text>
+      <rect x="300" y="11" width="260" height="24" rx="4" fill="#fff" opacity="0.95"/>
+      <text x="310" y="28" font-family="Segoe UI, Arial" font-size="12" fill="#999">Untitled-1</text>
+      <rect x="980" y="10" width="100" height="26" rx="4" fill="#fff" opacity="0.9"/>
+      <text x="998" y="28" font-family="Segoe UI, Arial" font-size="12" fill="#4C97FF" font-weight="700">Sign in</text>
+
+      <!-- Tabs row (Code / Costumes / Sounds) -->
+      <rect x="0" y="46" width="280" height="34" fill="#ffffff" />
+      <rect x="14" y="52" width="76" height="24" rx="4" fill="#4C97FF"/>
+      <text x="34" y="69" font-family="Segoe UI, Arial" font-size="12" fill="#fff" font-weight="700">Code</text>
+      <text x="105" y="69" font-family="Segoe UI, Arial" font-size="12" fill="#575E75">Costumes</text>
+      <text x="190" y="69" font-family="Segoe UI, Arial" font-size="12" fill="#575E75">Sounds</text>
+      <line x1="0" y1="80" x2="1100" y2="80" stroke="#dcdee5" stroke-width="1"/>
+
+      <!-- Block category palette (A) -->
+      <rect x="0" y="80" width="70" height="430" fill="#ffffff" />
+      <!-- category dots -->
+      <circle cx="35" cy="105" r="14" fill="#4C97FF"/><text x="35" y="135" font-size="9" fill="#575E75" text-anchor="middle">Motion</text>
+      <circle cx="35" cy="150" r="14" fill="#9966FF"/><text x="35" y="180" font-size="9" fill="#575E75" text-anchor="middle">Looks</text>
+      <circle cx="35" cy="195" r="14" fill="#CF63CF"/><text x="35" y="225" font-size="9" fill="#575E75" text-anchor="middle">Sound</text>
+      <circle cx="35" cy="240" r="14" fill="#FFBF00"/><text x="35" y="270" font-size="9" fill="#575E75" text-anchor="middle">Events</text>
+      <circle cx="35" cy="285" r="14" fill="#FFAB19"/><text x="35" y="315" font-size="9" fill="#575E75" text-anchor="middle">Control</text>
+      <circle cx="35" cy="330" r="14" fill="#5CB1D6"/><text x="35" y="360" font-size="9" fill="#575E75" text-anchor="middle">Sensing</text>
+      <circle cx="35" cy="375" r="14" fill="#59C059"/><text x="35" y="405" font-size="9" fill="#575E75" text-anchor="middle">Operators</text>
+      <circle cx="35" cy="420" r="14" fill="#FF8C1A"/><text x="35" y="450" font-size="9" fill="#575E75" text-anchor="middle">Variables</text>
+      <circle cx="35" cy="465" r="14" fill="#FF6680"/><text x="35" y="495" font-size="9" fill="#575E75" text-anchor="middle">My Blocks</text>
+
+      <!-- Block palette (B) -->
+      <rect x="70" y="80" width="200" height="430" fill="#f9f9f9" />
+      <text x="84" y="102" font-family="Segoe UI" font-size="12" fill="#4C97FF" font-weight="700">Motion</text>
+      <!-- Sample blocks -->
+      <rect x="84" y="112" width="170" height="24" rx="3" fill="#4C97FF"/>
+      <text x="92" y="129" font-family="Segoe UI" font-size="11" fill="#fff">move  10  steps</text>
+      <rect x="84" y="142" width="170" height="24" rx="3" fill="#4C97FF"/>
+      <text x="92" y="159" font-family="Segoe UI" font-size="11" fill="#fff">turn   ↻  15 degrees</text>
+      <rect x="84" y="172" width="170" height="24" rx="3" fill="#4C97FF"/>
+      <text x="92" y="189" font-family="Segoe UI" font-size="11" fill="#fff">go to  x: 0  y: 0</text>
+      <rect x="84" y="202" width="170" height="24" rx="3" fill="#4C97FF"/>
+      <text x="92" y="219" font-family="Segoe UI" font-size="11" fill="#fff">glide 1 secs to ...</text>
+
+      <text x="84" y="246" font-family="Segoe UI" font-size="12" fill="#FFBF00" font-weight="700">Events</text>
+      <path d="M84 256 q14 -10 24 0 h146 v24 h-170 z" fill="#FFBF00"/>
+      <text x="98" y="273" font-family="Segoe UI" font-size="11" fill="#1a1a2e" font-weight="700">when  ⚑  clicked</text>
+
+      <!-- Coding area (C) -->
+      <rect x="270" y="80" width="540" height="430" fill="#ffffff" />
+      <pattern id="dots" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse">
+        <circle cx="2" cy="2" r="1" fill="#e3e3eb"/>
+      </pattern>
+      <rect x="270" y="80" width="540" height="430" fill="url(#dots)"/>
+
+      <!-- Example block stack inside coding area -->
+      <g transform="translate(330,140)">
+        <path d="M0 0 q16 -12 28 0 h170 v24 h-198 z" fill="#FFBF00"/>
+        <text x="20" y="17" font-family="Segoe UI" font-size="11" fill="#1a1a2e" font-weight="700">when  ⚑  clicked</text>
+        <rect x="0" y="24" width="198" height="24" rx="2" fill="#4C97FF"/>
+        <text x="10" y="41" font-family="Segoe UI" font-size="11" fill="#fff" font-weight="600">move  10  steps</text>
+        <rect x="0" y="48" width="198" height="24" rx="2" fill="#9966FF"/>
+        <text x="10" y="65" font-family="Segoe UI" font-size="11" fill="#fff" font-weight="600">say  Hello!  for 2 secs</text>
+      </g>
+
+      <!-- Stage area (D) -->
+      <rect x="810" y="80" width="290" height="280" fill="#ffffff" stroke="#dcdee5"/>
+      <rect x="820" y="92" width="270" height="200" fill="#fafbff" stroke="#cfd9ff"/>
+      <!-- Simple sprite (cat) -->
+      <g transform="translate(900,160)">
+        <ellipse cx="40" cy="60" rx="48" ry="28" fill="#ff8c1a"/>
+        <circle cx="22" cy="36" r="18" fill="#ff8c1a"/>
+        <polygon points="6,18 14,36 22,22" fill="#ff8c1a"/>
+        <polygon points="40,18 32,36 24,22" fill="#ff8c1a"/>
+        <circle cx="17" cy="32" r="2.5" fill="#000"/>
+        <circle cx="27" cy="32" r="2.5" fill="#000"/>
+        <path d="M18 42 q4 4 8 0" stroke="#000" stroke-width="1.5" fill="none"/>
+      </g>
+      <!-- Green flag / stop buttons -->
+      <text x="828" y="305" font-family="Segoe UI" font-size="13" fill="#4cbb17">⚑</text>
+      <text x="850" y="305" font-family="Segoe UI" font-size="12" fill="#e74c3c">■</text>
+      <text x="880" y="306" font-family="Segoe UI" font-size="10" fill="#575E75">Stage</text>
+
+      <!-- Sprite list (E) -->
+      <rect x="810" y="360" width="290" height="150" fill="#ffffff" stroke="#dcdee5"/>
+      <text x="820" y="378" font-family="Segoe UI" font-size="11" fill="#575E75" font-weight="700">Sprite</text>
+      <rect x="820" y="386" width="120" height="20" rx="3" fill="#f4f6fa"/>
+      <text x="826" y="400" font-family="Segoe UI" font-size="10" fill="#1a1a2e">Sprite1</text>
+      <rect x="820" y="410" width="56" height="56" rx="4" fill="#fafbff" stroke="#dcdee5"/>
+      <g transform="translate(836,422) scale(0.5)">
+        <ellipse cx="40" cy="60" rx="48" ry="28" fill="#ff8c1a"/>
+        <circle cx="22" cy="36" r="18" fill="#ff8c1a"/>
+      </g>
+
+      <!-- Backpack bar -->
+      <rect x="0" y="510" width="1100" height="110" fill="#ffffff" stroke="#dcdee5"/>
+      <text x="20" y="540" font-family="Segoe UI" font-size="12" fill="#575E75" font-weight="700">Backpack &nbsp; ▾</text>
+
+      <!-- LABEL CALLOUTS A-E -->
+      <g font-family="Georgia, serif" font-weight="700" font-size="18" fill="#fff">
+        <circle cx="35" cy="60" r="14" fill="#0a1a3a"/><text x="35" y="66" text-anchor="middle">A</text>
+        <circle cx="170" cy="280" r="14" fill="#0a1a3a"/><text x="170" y="286" text-anchor="middle">B</text>
+        <circle cx="540" cy="300" r="14" fill="#0a1a3a"/><text x="540" y="306" text-anchor="middle">C</text>
+        <circle cx="955" cy="100" r="14" fill="#0a1a3a"/><text x="955" y="106" text-anchor="middle">D</text>
+        <circle cx="955" cy="380" r="14" fill="#0a1a3a"/><text x="955" y="386" text-anchor="middle">E</text>
+      </g>
+    </svg>
+    <div class="ide-caption">A simplified picture of the Scratch screen, marked with letters A&ndash;E.
+    The real Scratch website looks just like this — open <b>scratch.mit.edu</b> and follow along!</div>
+  </div>
+
+  <div class="ide-legend">
+    <div class="row"><div class="tag">A</div><div><b>Block Categories</b> — coloured circles like <i>Motion, Looks, Sound, Events…</i> Click one to see its blocks.</div></div>
+    <div class="row"><div class="tag">B</div><div><b>Block Palette</b> — the box of colourful blocks you can drag out and use.</div></div>
+    <div class="row"><div class="tag">C</div><div><b>Code Area</b> — your workspace. Drag blocks here and snap them together like LEGO.</div></div>
+    <div class="row"><div class="tag">D</div><div><b>Stage</b> — the white screen where your sprites move. Click the green flag <span style="color:#4cbb17;font-weight:700;">⚑</span> to start.</div></div>
+    <div class="row"><div class="tag">E</div><div><b>Sprite List</b> — every character in your project lives here. Add new ones with the cat-icon button.</div></div>
+  </div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Chapter 2 · Meet Scratch</div>
+    <div class="pgnum">07</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 10 · INTRO TO SCRATCH — BLOCK CATEGORIES & TABS
+     ============================================================ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>2.2 &nbsp;The <span class="accent">9 Colours</span> of Scratch Blocks</h1>
+    </div>
+    <div class="crumb"><b>Chapter 2</b>Introduction to Scratch</div>
+  </div>
+
+  <p>Every block in Scratch belongs to a coloured family. Once you remember the colours, you'll know where every block lives!</p>
+
+  <div class="cards-3">
+    <div class="kc" style="border-top-color: var(--s-motion);">
+      <h4 style="color: var(--s-motion);">🔵 Motion</h4>
+      <p>Move, turn, glide. Anything to do with <b>movement</b>.</p>
+      <div class="block-stack" style="margin-top:2mm;"><span class="blk motion">move <span class="val">10</span> steps</span></div>
+    </div>
+    <div class="kc" style="border-top-color: var(--s-looks);">
+      <h4 style="color: var(--s-looks);">🟣 Looks</h4>
+      <p>Say things, change costumes, grow or shrink.</p>
+      <div class="block-stack" style="margin-top:2mm;"><span class="blk looks">say <span class="val">Hi!</span> for <span class="val">2</span> secs</span></div>
+    </div>
+    <div class="kc" style="border-top-color: var(--s-sound);">
+      <h4 style="color: var(--s-sound);">🟪 Sound</h4>
+      <p>Play music &amp; sound effects, change the volume.</p>
+      <div class="block-stack" style="margin-top:2mm;"><span class="blk sound">play sound <span class="val dropdown">Meow</span></span></div>
+    </div>
+    <div class="kc" style="border-top-color: var(--s-events);">
+      <h4 style="color: var(--s-events);">🟡 Events</h4>
+      <p>"When something happens…" — the <b>start</b> of every script.</p>
+      <div class="block-stack" style="margin-top:2mm;"><span class="blk events hat">when ⚑ clicked</span></div>
+    </div>
+    <div class="kc" style="border-top-color: var(--s-control);">
+      <h4 style="color: var(--s-control);">🟠 Control</h4>
+      <p>Loops &amp; choices — <i>repeat</i>, <i>forever</i>, <i>if&hellip;then</i>.</p>
+      <div class="block-stack" style="margin-top:2mm;"><span class="blk control">repeat <span class="val">10</span></span></div>
+    </div>
+    <div class="kc" style="border-top-color: var(--s-sensing);">
+      <h4 style="color: var(--s-sensing);">🩵 Sensing</h4>
+      <p>Touch, ask, hear — your sprite's senses.</p>
+      <div class="block-stack" style="margin-top:2mm;"><span class="blk sensing">touching <span class="val dropdown">edge</span> ?</span></div>
+    </div>
+    <div class="kc" style="border-top-color: var(--s-operators);">
+      <h4 style="color: var(--s-operators);">🟢 Operators</h4>
+      <p>Maths &amp; comparisons — add, subtract, &lt; &gt;.</p>
+      <div class="block-stack" style="margin-top:2mm;"><span class="blk operators"><span class="val">5</span> + <span class="val">3</span></span></div>
+    </div>
+    <div class="kc" style="border-top-color: var(--s-vars);">
+      <h4 style="color: var(--s-vars);">🟧 Variables</h4>
+      <p>Boxes that remember numbers, scores &amp; names.</p>
+      <div class="block-stack" style="margin-top:2mm;"><span class="blk vars">change <span class="val dropdown">score</span> by <span class="val">1</span></span></div>
+    </div>
+    <div class="kc" style="border-top-color: var(--s-myblocks);">
+      <h4 style="color: var(--s-myblocks);">💗 My Blocks</h4>
+      <p>Make your <i>own</i> blocks — your private super-powers!</p>
+      <div class="block-stack" style="margin-top:2mm;"><span class="blk myblocks">jump high</span></div>
+    </div>
+  </div>
+
+  <h2 class="section">Three tabs above the block palette</h2>
+  <div class="cards-3">
+    <div class="kc sky">
+      <h4>📜 Code</h4>
+      <p>The default tab. This is where you build your scripts.</p>
+    </div>
+    <div class="kc grape">
+      <h4>👕 Costumes</h4>
+      <p>Change how your sprite <i>looks</i> — draw, colour, even add a moustache.</p>
+    </div>
+    <div class="kc rose">
+      <h4>🎵 Sounds</h4>
+      <p>Add or record sounds — meows, claps, your own voice.</p>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="lbl">Try It! · 5 minutes</div>
+    <h3>Hello, Scratch!</h3>
+    <ol>
+      <li>Open <b>scratch.mit.edu</b> and click <b>Create</b>.</li>
+      <li>Find the yellow <b>Events</b> category. Drag <b>when ⚑ clicked</b> into the Code Area.</li>
+      <li>From purple <b>Looks</b>, drag <b>say Hello! for 2 seconds</b> and snap it under the yellow block.</li>
+      <li>Click the green flag ⚑ at the top of the Stage. Did the cat speak? 🎉</li>
+    </ol>
+  </div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Chapter 2 · Meet Scratch</div>
+    <div class="pgnum">08</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 11 · CHAPTER 3 DIVIDER · SEQUENCING & EVENTS
+     ============================================================ -->
+<section class="page divider d3">
+  <div class="div-inner">
+    <div class="ch-eyebrow">Chapter Three</div>
+    <div class="ch-num">03</div>
+    <div class="ch-title">Sequencing &amp; Events</div>
+    <div class="ch-kicker">First, second, third&hellip; coding is all about doing things <i>in the right order</i> — and starting them at the right moment.</div>
+    <div class="ch-pills">
+      <div class="ch-pill">Sequence</div>
+      <div class="ch-pill">When ⚑ clicked</div>
+      <div class="ch-pill">Key press</div>
+      <div class="ch-pill">First script!</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 12 · SEQUENCING — WHAT & WHY
+     ============================================================ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>3.1 &nbsp;What is a <span class="accent">Sequence</span>?</h1>
+    </div>
+    <div class="crumb"><b>Chapter 3</b>Sequencing &amp; Events</div>
+  </div>
+
+  <div class="big-idea">
+    <div class="star">★</div>
+    <div>
+      <h3>Big Idea</h3>
+      <p>A <b>sequence</b> is a list of steps done <b>one after the other</b>, in a fixed order. Every program ever written is just a smart sequence of small steps.</p>
+    </div>
+  </div>
+
+  <h2 class="section">Your morning is a sequence</h2>
+  <p>Think about how you get ready for school. Without even thinking, you follow a sequence:</p>
+
+  <div class="steps">
+    <div class="step"><div class="n">1</div><div><h4>Wake up</h4><p>Alarm rings → you open your eyes.</p></div></div>
+    <div class="step"><div class="n">2</div><div><h4>Brush your teeth</h4><p>Open tap → squeeze toothpaste → brush → rinse.</p></div></div>
+    <div class="step"><div class="n">3</div><div><h4>Wear your uniform</h4><p>Shirt first, <b>then</b> tie. Not the other way around!</p></div></div>
+    <div class="step"><div class="n">4</div><div><h4>Eat breakfast &amp; leave</h4><p>Eat → wear shoes → pick bag → walk to bus.</p></div></div>
+  </div>
+
+  <div class="didyou">
+    <span class="lbl">What happens if order changes?</span>
+    Imagine wearing your <b>shoes before</b> your socks, or eating breakfast <i>after</i> brushing your teeth.
+    Funny — but it doesn't work, right? <b>Order matters</b>. The same is true in code.
+  </div>
+
+  <h2 class="section">In Scratch, blocks <i>snap</i> in sequence</h2>
+  <p>When you stack Scratch blocks <b>from top to bottom</b>, they run in that exact order.
+  The top block runs first, then the next, then the next.</p>
+
+  <div class="row2">
+    <div>
+      <h3 class="sub">🧱 Block stack</h3>
+      <div class="blocks-stage">
+        <div class="cap">Code Area · top → bottom</div>
+        <div class="block-stack">
+          <span class="blk events hat">when ⚑ clicked</span>
+          <span class="blk motion">move <span class="val">50</span> steps</span>
+          <span class="blk looks">say <span class="val">Hi friend!</span> for <span class="val">2</span> secs</span>
+          <span class="blk sound">play sound <span class="val dropdown">Meow</span> until done</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3 class="sub">🗣 In simple words</h3>
+      <ol style="font-size: 11pt;">
+        <li>Wait till someone clicks the green flag.</li>
+        <li><b>First</b>, walk 50 steps forward.</li>
+        <li><b>Then</b> say "Hi friend!" for 2 seconds.</li>
+        <li><b>Finally</b>, play the meow sound.</li>
+      </ol>
+      <div class="def-box" style="margin-top: 4mm;">
+        <span class="lbl">Remember</span>
+        Swap any two blocks and the result <b>changes</b>. Coders must be careful planners!
+      </div>
+    </div>
+  </div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Chapter 3 · Sequencing &amp; Events</div>
+    <div class="pgnum">09</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 13 · EVENTS — WHAT TRIGGERS A SEQUENCE
+     ============================================================ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>3.2 &nbsp;What is an <span class="accent">Event</span>?</h1>
+    </div>
+    <div class="crumb"><b>Chapter 3</b>Sequencing &amp; Events</div>
+  </div>
+
+  <div class="def-box">
+    <span class="lbl">Definition</span>
+    An <b>event</b> is something that <b>happens</b> — like a click, a key being pressed, or a message being sent.
+    Events are the <b>starting whistle</b> for our sequences.
+  </div>
+
+  <h2 class="section">Yellow "Hat" blocks live in the <b>Events</b> family</h2>
+  <p>Event blocks are shaped like a <i>hat</i> — round on top. They <b>sit at the top</b> of every script.
+  Nothing snaps above them, because nothing comes <i>before</i> the start!</p>
+
+  <div class="cards-3">
+    <div class="kc sun">
+      <h4>🚩 Green Flag</h4>
+      <div class="block-stack" style="margin: 2mm 0;"><span class="blk events hat">when ⚑ clicked</span></div>
+      <p>Runs when you click the green flag above the stage.</p>
+    </div>
+    <div class="kc sun">
+      <h4>⌨️ Key Press</h4>
+      <div class="block-stack" style="margin: 2mm 0;"><span class="blk events hat">when <span class="val dropdown">space</span> key pressed</span></div>
+      <p>Runs the moment you press the chosen key.</p>
+    </div>
+    <div class="kc sun">
+      <h4>🐱 Sprite Click</h4>
+      <div class="block-stack" style="margin: 2mm 0;"><span class="blk events hat">when this sprite clicked</span></div>
+      <p>Runs when you click <i>this</i> sprite on the stage.</p>
+    </div>
+  </div>
+
+  <h2 class="section">Sample Project · "Greeting Cat" 🐱</h2>
+  <p><b>Goal:</b> When you click the green flag, the cat walks and greets you. When you press <b>space</b>, it dances by spinning.</p>
+
+  <div class="row2">
+    <div>
+      <h3 class="sub">Script 1 · Greeting</h3>
+      <div class="blocks-stage">
+        <div class="cap">When the green flag is clicked</div>
+        <div class="block-stack">
+          <span class="blk events hat">when ⚑ clicked</span>
+          <span class="blk motion">go to x: <span class="val">-150</span> y: <span class="val">0</span></span>
+          <span class="blk motion">glide <span class="val">2</span> secs to x: <span class="val">0</span> y: <span class="val">0</span></span>
+          <span class="blk looks">say <span class="val">Hello, I'm Scratchy!</span> for <span class="val">2</span> secs</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3 class="sub">Script 2 · Dance</h3>
+      <div class="blocks-stage">
+        <div class="cap">When the SPACE key is pressed</div>
+        <div class="block-stack">
+          <span class="blk events hat">when <span class="val dropdown">space</span> key pressed</span>
+          <span class="blk motion">turn ↻ <span class="val">360</span> degrees</span>
+          <span class="blk sound">play sound <span class="val dropdown">Meow</span> until done</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section">What you'll see on the Stage 🎬</h2>
+  <div class="stage-preview">
+    <div class="frame">
+      <svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <!-- Stage backdrop -->
+        <rect x="0" y="0" width="480" height="200" fill="#ffffff"/>
+        <line x1="0" y1="160" x2="480" y2="160" stroke="#cfd9ff" stroke-dasharray="4,3"/>
+        <text x="10" y="18" font-family="Segoe UI" font-size="10" fill="#575E75">Stage</text>
+
+        <!-- Cat at center -->
+        <g transform="translate(190,90)">
+          <ellipse cx="40" cy="60" rx="48" ry="28" fill="#ff8c1a"/>
+          <circle cx="22" cy="36" r="20" fill="#ff8c1a"/>
+          <polygon points="4,16 14,38 24,22" fill="#ff8c1a"/>
+          <polygon points="42,16 32,38 22,22" fill="#ff8c1a"/>
+          <circle cx="16" cy="34" r="2.8" fill="#000"/>
+          <circle cx="28" cy="34" r="2.8" fill="#000"/>
+          <path d="M18 44 q4 4 8 0" stroke="#000" stroke-width="1.6" fill="none"/>
+          <line x1="86" y1="58" x2="100" y2="50" stroke="#ff8c1a" stroke-width="3"/>
+        </g>
+
+        <!-- Speech bubble -->
+        <g transform="translate(285,30)">
+          <rect x="0" y="0" width="170" height="50" rx="10" fill="#fff" stroke="#1a1a2e" stroke-width="1.5"/>
+          <polygon points="20,50 30,68 40,50" fill="#fff" stroke="#1a1a2e" stroke-width="1.5"/>
+          <polygon points="22,50 30,66 38,50" fill="#fff"/>
+          <text x="14" y="22" font-family="Segoe UI" font-size="12" fill="#1a1a2e" font-weight="700">Hello, I'm</text>
+          <text x="14" y="40" font-family="Segoe UI" font-size="12" fill="#1a1a2e" font-weight="700">Scratchy!</text>
+        </g>
+
+        <!-- Trail arrow showing glide -->
+        <path d="M50 130 Q120 140 200 130" stroke="#4cbb17" stroke-width="2" fill="none" stroke-dasharray="5,4"/>
+        <polygon points="200,124 212,130 200,136" fill="#4cbb17"/>
+        <text x="60" y="155" font-family="Segoe UI" font-size="10" fill="#4cbb17">cat glides 2 sec →</text>
+      </svg>
+    </div>
+    <div class="cap">After clicking ⚑ — the cat glides to the centre and greets you. Press <b>space</b> and watch it spin!</div>
+  </div>
+
+  <div class="activity">
+    <div class="lbl">Your Turn · Activity 3.A</div>
+    <h3>Make Scratchy reply with your name</h3>
+    <ol>
+      <li>Open the Greeting Cat project above.</li>
+      <li>Change the speech text from "Scratchy" to your own name.</li>
+      <li>Add a third script that runs <b>when this sprite clicked</b> and makes the cat say "Ouch!" for 1 second.</li>
+      <li>☐ &nbsp;I did it!</li>
+    </ol>
+  </div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Chapter 3 · Sequencing &amp; Events</div>
+    <div class="pgnum">10</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 14 · CHAPTER 4 DIVIDER · LOOPS
+     ============================================================ -->
+<section class="page divider d4">
+  <div class="div-inner">
+    <div class="ch-eyebrow">Chapter Four</div>
+    <div class="ch-num">04</div>
+    <div class="ch-title">Loops</div>
+    <div class="ch-kicker">Why write the same step 100 times when you can tell the computer <em>"do this 100 times"</em> just once?</div>
+    <div class="ch-pills">
+      <div class="ch-pill">Repeat</div>
+      <div class="ch-pill">Forever</div>
+      <div class="ch-pill">Ekadhikena Purvena</div>
+      <div class="ch-pill">Draw a square</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 15 · LOOPS — REPEAT & FOREVER
+     ============================================================ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>4.1 &nbsp;Why do we need <span class="accent">Loops</span>?</h1>
+    </div>
+    <div class="crumb"><b>Chapter 4</b>Loops</div>
+  </div>
+
+  <div class="big-idea">
+    <div class="star">★</div>
+    <div>
+      <h3>Big Idea</h3>
+      <p>A <b>loop</b> tells the computer to <b>repeat</b> a set of steps. Loops save time, save typing, and let one tiny piece of code do BIG things.</p>
+    </div>
+  </div>
+
+  <h2 class="section">Loops in real life</h2>
+  <div class="cards-3">
+    <div class="kc coral">
+      <h4>🪥 Brushing</h4>
+      <p>Move brush up-down, up-down, up-down… 40 times. That's a loop!</p>
+    </div>
+    <div class="kc sky">
+      <h4>🪜 Climbing stairs</h4>
+      <p>Lift foot → step up → repeat for every step till you reach the top.</p>
+    </div>
+    <div class="kc sun">
+      <h4>🌬️ Breathing</h4>
+      <p>Breathe in, breathe out — <b>forever</b>. Your body never stops looping.</p>
+    </div>
+  </div>
+
+  <h2 class="section">Two famous loop blocks in Scratch</h2>
+  <div class="row2">
+    <div>
+      <h3 class="sub">🔁 repeat (a fixed number of times)</h3>
+      <div class="blocks-stage">
+        <div class="cap">Repeats inside blocks 10 times, then stops</div>
+        <div class="c-block">
+          <div class="c-top">repeat <span class="val">10</span></div>
+          <div class="c-body">
+            <div class="c-arm"></div>
+            <div class="c-inside">
+              <span class="blk motion">move <span class="val">10</span> steps</span>
+              <span class="blk looks">next costume</span>
+            </div>
+          </div>
+          <div class="c-bottom">&nbsp;</div>
+        </div>
+      </div>
+      <p>Use this when you know <b>exactly how many</b> times you want something to happen.</p>
+    </div>
+    <div>
+      <h3 class="sub">♾️ forever (never stops)</h3>
+      <div class="blocks-stage">
+        <div class="cap">Keeps running until you press the red stop button</div>
+        <div class="c-block">
+          <div class="c-top">forever</div>
+          <div class="c-body">
+            <div class="c-arm"></div>
+            <div class="c-inside">
+              <span class="blk motion">move <span class="val">5</span> steps</span>
+              <span class="blk motion">if on edge, bounce</span>
+            </div>
+          </div>
+          <div class="c-bottom">&nbsp;</div>
+        </div>
+      </div>
+      <p>Use this for things that should <b>keep going</b> — like a sprite that always follows the mouse.</p>
+    </div>
+  </div>
+
+  <h2 class="section">The Magic Bridge · Vedic Sutra meets Code</h2>
+  <div class="vedic-bridge">
+    <div class="col left">
+      <span class="lbl">Vedic Sutra</span>
+      <h4>Ekadhikena Purvena</h4>
+      <p><i>"By one more than the previous."</i></p>
+      <p style="margin-top: 1mm;">Counting <b>1, 2, 3, 4&hellip;</b> is nothing but starting at 1 and adding <b>one more</b> every time.
+      That is exactly what a loop does in code.</p>
+    </div>
+    <div class="arrow">→</div>
+    <div class="col right">
+      <span class="lbl">In Scratch</span>
+      <h4>repeat &amp; counter</h4>
+      <p>Each time the loop runs, our counter becomes <b>one more than the previous</b> — the sutra in action!</p>
+      <div class="block-stack" style="margin-top: 2mm;">
+        <span class="blk vars">set <span class="val dropdown">count</span> to <span class="val">0</span></span>
+        <span class="blk control">repeat <span class="val">10</span></span>
+        <span class="blk vars">change <span class="val dropdown">count</span> by <span class="val">1</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Chapter 4 · Loops</div>
+    <div class="pgnum">11</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 16 · LOOPS — PROJECT: DRAW A SQUARE
+     ============================================================ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>4.2 &nbsp;Mini-Project · <span class="accent">Draw a Square</span></h1>
+    </div>
+    <div class="crumb"><b>Chapter 4</b>Loops</div>
+  </div>
+
+  <p>A square has <b>4 equal sides</b> and <b>4 right angles</b>. To draw it, our sprite must do the same two steps four times:
+  <b>move</b> forward, then <b>turn</b> 90°. Perfect job for a loop!</p>
+
+  <h2 class="section">Step 1 · Set up the pen</h2>
+  <p>Scratch has a built-in <b>Pen</b> extension that lets a sprite draw on the stage. Click the blue
+  <b>"Add Extension"</b> button at the bottom-left of the screen and choose <b>Pen</b>. New dark-green blocks will appear!</p>
+
+  <div class="row2">
+    <div>
+      <h3 class="sub">Without a loop 😩</h3>
+      <div class="blocks-stage">
+        <div class="cap">8 blocks. So much typing!</div>
+        <div class="block-stack">
+          <span class="blk events hat">when ⚑ clicked</span>
+          <span class="blk motion">move <span class="val">100</span> steps</span>
+          <span class="blk motion">turn ↻ <span class="val">90</span> degrees</span>
+          <span class="blk motion">move <span class="val">100</span> steps</span>
+          <span class="blk motion">turn ↻ <span class="val">90</span> degrees</span>
+          <span class="blk motion">move <span class="val">100</span> steps</span>
+          <span class="blk motion">turn ↻ <span class="val">90</span> degrees</span>
+          <span class="blk motion">move <span class="val">100</span> steps</span>
+          <span class="blk motion">turn ↻ <span class="val">90</span> degrees</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3 class="sub">With a loop 🤩</h3>
+      <div class="blocks-stage">
+        <div class="cap">Just 4 blocks — same result!</div>
+        <div class="block-stack">
+          <span class="blk events hat">when ⚑ clicked</span>
+          <span class="blk looks" style="background:#0fbd8c">pen down</span>
+          <div class="c-block">
+            <div class="c-top">repeat <span class="val">4</span></div>
+            <div class="c-body">
+              <div class="c-arm"></div>
+              <div class="c-inside">
+                <span class="blk motion">move <span class="val">100</span> steps</span>
+                <span class="blk motion">turn ↻ <span class="val">90</span> degrees</span>
+              </div>
+            </div>
+            <div class="c-bottom">&nbsp;</div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size: 9.5pt; color: var(--ink-soft); margin-top: 1mm;">
+        <i>"pen down" is from the Pen extension — it acts like a coloured marker stuck to the sprite.</i>
+      </p>
+    </div>
+  </div>
+
+  <h2 class="section">What you'll see on the Stage 🎬</h2>
+  <div class="stage-preview">
+    <div class="frame">
+      <svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <rect x="0" y="0" width="480" height="200" fill="#ffffff"/>
+        <text x="10" y="18" font-family="Segoe UI" font-size="10" fill="#575E75">Stage</text>
+
+        <!-- Drawn square -->
+        <rect x="170" y="50" width="100" height="100" fill="none" stroke="#3ec1ff" stroke-width="3.5"/>
+        <!-- Tiny corner numbers -->
+        <text x="160" y="46" font-family="Segoe UI" font-size="10" fill="#3ec1ff" font-weight="700">1</text>
+        <text x="276" y="46" font-family="Segoe UI" font-size="10" fill="#3ec1ff" font-weight="700">2</text>
+        <text x="276" y="164" font-family="Segoe UI" font-size="10" fill="#3ec1ff" font-weight="700">3</text>
+        <text x="160" y="164" font-family="Segoe UI" font-size="10" fill="#3ec1ff" font-weight="700">4</text>
+
+        <!-- Cat at top-left corner of square -->
+        <g transform="translate(130,16)">
+          <ellipse cx="40" cy="60" rx="34" ry="20" fill="#ff8c1a"/>
+          <circle cx="26" cy="42" r="14" fill="#ff8c1a"/>
+          <polygon points="14,28 20,42 26,32" fill="#ff8c1a"/>
+          <polygon points="38,28 32,42 26,32" fill="#ff8c1a"/>
+          <circle cx="22" cy="40" r="2" fill="#000"/>
+          <circle cx="30" cy="40" r="2" fill="#000"/>
+        </g>
+
+        <!-- Caption arrows for repeat count -->
+        <text x="320" y="100" font-family="Segoe UI" font-size="12" fill="#1a1a2e">repeat 4 times</text>
+        <text x="320" y="120" font-family="Segoe UI" font-size="10" fill="#575E75">→ move 100 → turn 90</text>
+      </svg>
+    </div>
+    <div class="cap">The sprite draws all four sides of a perfect square, one corner after another.</div>
+  </div>
+
+  <h2 class="section">Think like a coder 🧠</h2>
+  <div class="cards-2">
+    <div class="kc grape">
+      <h4>What if we change repeat to 3?</h4>
+      <p>You will get a <b>triangle</b>… <i>almost</i>! The turn must change to <b>120°</b>, because 360 ÷ 3 = 120.</p>
+    </div>
+    <div class="kc leaf">
+      <h4>What if we change repeat to 6?</h4>
+      <p>You'll draw a <b>hexagon</b> — use a <b>60°</b> turn. (360 ÷ 6 = 60). See the pattern?</p>
+    </div>
+  </div>
+
+  <div class="vedic-bridge">
+    <div class="col left">
+      <span class="lbl">Vedic Connect</span>
+      <h4>One more than the previous</h4>
+      <p>From triangle (3 sides) → square (4) → pentagon (5) → hexagon (6)…
+      every new shape is <b>Ekadhikena Purvena</b> — one more side than the previous!</p>
+    </div>
+    <div class="arrow">→</div>
+    <div class="col right">
+      <span class="lbl">Try this</span>
+      <h4>Shape factory</h4>
+      <p>Change <b>repeat <span class="val">N</span></b> and turn by <b>360 ÷ N</b> degrees. Make a new shape every minute and stick them in your workbook!</p>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="lbl">Your Turn · Activity 4.A</div>
+    <h3>Build the Shape Factory</h3>
+    <ol>
+      <li>Make the cat draw a <b>square</b> (repeat 4, turn 90).</li>
+      <li>Stop, change to repeat 3 + turn 120 — get a <b>triangle</b>.</li>
+      <li>Now try repeat 6 + turn 60 — get a <b>hexagon</b>.</li>
+      <li>Bonus 🌟: repeat 36 + turn 10 — what shape did you get? Draw your guess below:</li>
+    </ol>
+    <div style="border: 1.2px dashed var(--coral); border-radius: 2mm; height: 22mm; margin-top: 2mm;"></div>
+  </div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Chapter 4 · Loops</div>
+    <div class="pgnum">12</div>
+  </div>
+</section>
+
+
+</body>
+</html>
