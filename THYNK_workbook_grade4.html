@@ -3,1301 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>T.H.Y.N.K — My Scratch Adventure · Workbook · Grade 4</title>
-<style>
-  /* ============================================================
-     PAGE / PRINT SETUP
-     ============================================================ */
-  @page { size: A4; margin: 0; }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    /* Brand */
-    --navy: #0a1a3a;
-    --navy-2: #142a5e;
-    --gold: #d4a017;
-    --gold-soft: #fff4d1;
-
-    /* Ink */
-    --ink: #1a1a2e;
-    --ink-soft: #4a4a5e;
-    --line: #e6e6ee;
-
-    /* Backgrounds */
-    --bg-cream: #fff9ee;
-    --bg-tint:  #eef4ff;
-    --bg-paper: #ffffff;
-
-    /* Kid-friendly accent palette (one per chapter) */
-    --sky:   #3ec1ff;   --sky-soft:   #e0f4ff;
-    --mint:  #2ec4b6;   --mint-soft:  #d6f5f1;
-    --coral: #ff6b6b;   --coral-soft: #ffe2e2;
-    --sun:   #ffb703;   --sun-soft:   #fff1cc;
-    --grape: #8e6cd5;   --grape-soft: #ece4ff;
-    --leaf:  #5fc06b;   --leaf-soft:  #dff5e1;
-    --rose:  #e91e63;   --rose-soft:  #ffd9e5;
-
-    /* Scratch block colours (canonical) */
-    --s-motion:    #4C97FF;
-    --s-looks:     #9966FF;
-    --s-sound:     #CF63CF;
-    --s-events:    #FFBF00;
-    --s-control:   #FFAB19;
-    --s-sensing:   #5CB1D6;
-    --s-operators: #59C059;
-    --s-vars:      #FF8C1A;
-    --s-myblocks:  #FF6680;
-  }
-
-  html, body {
-    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-    color: var(--ink);
-    background: #cfd2d8;
-    line-height: 1.55;
-    font-size: 11pt;
-  }
-
-  .page {
-    width: 210mm;
-    min-height: 297mm;
-    background: var(--bg-paper);
-    margin: 16px auto;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.18);
-    padding: 14mm 14mm 12mm;
-    position: relative;
-    overflow: hidden;
-    page-break-after: always;
-    display: flex;
-    flex-direction: column;
-  }
-  .page:last-child { page-break-after: auto; }
-  .page > .pagefoot { margin-top: auto; }
-
-  p { margin-bottom: 2.5mm; }
-  ul, ol { padding-left: 6mm; margin-bottom: 3mm; }
-  li { margin: 1.2mm 0; }
-
-  /* ============================================================
-     COVER PAGE
-     ============================================================ */
-  .cover { padding: 0; }
-  .cover-top {
-    flex: 1 1 auto;
-    background:
-      radial-gradient(circle at 12% 18%, rgba(255,255,255,0.08) 0 1.2px, transparent 1.8px),
-      radial-gradient(circle at 78% 28%, rgba(212,160,23,0.18) 0 1.2px, transparent 1.8px),
-      radial-gradient(circle at 30% 78%, rgba(62,193,255,0.20) 0 1.2px, transparent 1.8px),
-      linear-gradient(160deg, #0a1a3a 0%, #142a5e 60%, #0b5fff 100%);
-    background-size: 20mm 20mm, 24mm 24mm, 28mm 28mm, auto;
-    color: #fff;
-    padding: 18mm 18mm 14mm;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    position: relative;
-  }
-  .cover-logo {
-    width: 56mm;
-    height: auto;
-    background: #fff;
-    padding: 4mm 6mm;
-    border-radius: 4mm;
-    box-shadow: 0 3mm 8mm rgba(0,0,0,0.25);
-  }
-  .cover-eyebrow {
-    margin-top: 10mm;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    font-size: 10pt;
-    color: var(--gold);
-  }
-  .cover-title {
-    margin-top: 5mm;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 40pt;
-    line-height: 1.05;
-    letter-spacing: 0.5px;
-  }
-  .cover-title em { color: var(--gold); font-style: normal; }
-  .cover-sub {
-    margin-top: 6mm;
-    font-size: 13pt;
-    font-style: italic;
-    color: #cfd9ff;
-    max-width: 150mm;
-  }
-  .cover-badges {
-    margin-top: 10mm;
-    display: flex;
-    gap: 5mm;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .cover-badge {
-    background: rgba(255,255,255,0.10);
-    border: 1px solid rgba(255,255,255,0.25);
-    color: #fff;
-    padding: 2mm 5mm;
-    border-radius: 12mm;
-    font-size: 10pt;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-  .cover-badge b { color: var(--gold); margin-right: 1.5mm; }
-
-  .cover-bottom {
-    background: var(--bg-cream);
-    padding: 10mm 18mm 14mm;
-  }
-  .cover-bottom h3 {
-    font-family: Georgia, serif;
-    font-size: 15pt;
-    color: var(--navy);
-    margin-bottom: 4mm;
-  }
-  .name-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6mm 10mm;
-    margin-top: 4mm;
-  }
-  .name-row { font-size: 11pt; color: var(--ink); }
-  .name-row .lbl {
-    display: block;
-    text-transform: uppercase;
-    font-size: 8.5pt;
-    letter-spacing: 2px;
-    color: var(--ink-soft);
-    margin-bottom: 1.5mm;
-  }
-  .name-row .line {
-    border-bottom: 1.5px solid var(--navy);
-    height: 7mm;
-  }
-  .cover-tagline {
-    margin-top: 10mm;
-    text-align: center;
-    font-family: Georgia, serif;
-    font-size: 13pt;
-    color: var(--navy);
-  }
-  .cover-tagline span { color: var(--gold); font-weight: 700; }
-
-  /* ============================================================
-     INNER PAGE HEADER
-     ============================================================ */
-  .ph {
-    border-bottom: 3px solid var(--navy);
-    padding-bottom: 4mm;
-    margin-bottom: 6mm;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 6mm;
-  }
-  .ph .ph-left { display: flex; align-items: center; gap: 5mm; }
-  .ph .ph-logo {
-    width: 18mm;
-    height: 18mm;
-    object-fit: contain;
-  }
-  .ph h1 {
-    font-family: Georgia, serif;
-    font-size: 22pt;
-    line-height: 1.1;
-    color: var(--navy);
-  }
-  .ph h1 .accent { color: var(--gold); }
-  .ph .crumb {
-    font-size: 9pt;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--ink-soft);
-    text-align: right;
-  }
-  .ph .crumb b { color: var(--navy); display: block; font-size: 10pt; letter-spacing: 1px; }
-
-  h2.section {
-    font-family: Georgia, serif;
-    font-size: 15pt;
-    color: var(--navy);
-    margin: 6mm 0 3mm;
-    padding-bottom: 1.5mm;
-    border-bottom: 1px solid var(--line);
-  }
-  h3.sub {
-    font-family: Georgia, serif;
-    font-size: 12.5pt;
-    color: var(--navy);
-    margin: 4mm 0 2mm;
-  }
-
-  /* ============================================================
-     INDEX / TABLE OF CONTENTS PAGE
-     ============================================================ */
-  .toc-hero {
-    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
-    color: #fff;
-    padding: 8mm 10mm;
-    border-radius: 3mm;
-    margin-bottom: 6mm;
-    display: flex;
-    align-items: center;
-    gap: 8mm;
-  }
-  .toc-hero img { width: 26mm; background: #fff; padding: 2mm 3mm; border-radius: 2mm; }
-  .toc-hero .ribbon {
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    font-size: 9pt;
-    color: var(--gold);
-  }
-  .toc-hero h1 {
-    font-family: Georgia, serif;
-    font-size: 26pt;
-    line-height: 1.1;
-    margin-top: 2mm;
-  }
-  .toc-hero h1 em { color: var(--gold); font-style: normal; }
-  .toc-hero p { color: #cfd9ff; margin-top: 3mm; font-size: 11pt; }
-
-  .toc-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5mm;
-  }
-  .toc-card {
-    background: #fff;
-    border: 1.5px solid var(--line);
-    border-left: 6px solid var(--sky);
-    border-radius: 3mm;
-    padding: 5mm 6mm 5mm 6mm;
-    display: grid;
-    grid-template-columns: 14mm 1fr;
-    gap: 4mm;
-    align-items: start;
-  }
-  .toc-card.c1 { border-left-color: var(--sky);   }
-  .toc-card.c2 { border-left-color: var(--mint);  }
-  .toc-card.c3 { border-left-color: var(--sun);   }
-  .toc-card.c4 { border-left-color: var(--coral); }
-  .toc-card.c5 { border-left-color: var(--grape); }
-  .toc-card.c6 { border-left-color: var(--leaf);  }
-  .toc-card.c7 { border-left-color: var(--rose);  }
-
-  .toc-card .num {
-    width: 14mm; height: 14mm;
-    border-radius: 50%;
-    color: #fff;
-    font-family: Georgia, serif;
-    font-size: 16pt;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0.6mm 2mm rgba(0,0,0,0.15);
-  }
-  .toc-card.c1 .num { background: var(--sky);   }
-  .toc-card.c2 .num { background: var(--mint);  }
-  .toc-card.c3 .num { background: var(--sun); color: #1a1a2e; }
-  .toc-card.c4 .num { background: var(--coral); }
-  .toc-card.c5 .num { background: var(--grape); }
-  .toc-card.c6 .num { background: var(--leaf);  }
-  .toc-card.c7 .num { background: var(--rose);  }
-
-  .toc-card h3 {
-    font-family: Georgia, serif;
-    font-size: 13pt;
-    color: var(--navy);
-    margin: 1mm 0 1.5mm;
-  }
-  .toc-card p {
-    font-size: 9.5pt;
-    color: var(--ink-soft);
-    line-height: 1.4;
-    margin: 0;
-  }
-
-  .toc-foot {
-    margin-top: 6mm;
-    background: var(--gold-soft);
-    border-left: 4px solid var(--gold);
-    padding: 4mm 5mm;
-    border-radius: 1mm;
-    font-size: 10pt;
-    color: var(--ink);
-  }
-  .toc-foot b { color: var(--navy); }
-
-  /* ============================================================
-     CHAPTER DIVIDER (each big topic)
-     ============================================================ */
-  .divider {
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: #fff;
-    padding: 0;
-  }
-  .div-inner {
-    flex: 1;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 30mm 20mm;
-    position: relative;
-    overflow: hidden;
-  }
-  .divider.d1 .div-inner { background: linear-gradient(150deg, #0a1a3a 0%, #1d3a85 70%, var(--sky) 110%); }
-  .divider.d2 .div-inner { background: linear-gradient(150deg, #0e3b3a 0%, #137a72 70%, var(--mint) 110%); }
-  .divider.d3 .div-inner { background: linear-gradient(150deg, #6b4a00 0%, #c08a00 70%, var(--sun) 110%); color: #1a1a2e; }
-  .divider.d4 .div-inner { background: linear-gradient(150deg, #6a1d1d 0%, #c43838 70%, var(--coral) 110%); }
-  .divider.d5 .div-inner { background: linear-gradient(150deg, #2a1659 0%, #5a3aaf 65%, var(--grape) 110%); }
-  .divider.d6 .div-inner { background: linear-gradient(150deg, #134d20 0%, #2e9442 65%, var(--leaf)  110%); }
-  .divider.d7 .div-inner { background: linear-gradient(150deg, #5a0a25 0%, #b51e54 65%, var(--rose)  110%); }
-  .divider.d5 .ch-num,
-  .divider.d6 .ch-num,
-  .divider.d7 .ch-num { color: var(--gold); }
-  .divider .ch-eyebrow {
-    text-transform: uppercase;
-    letter-spacing: 6px;
-    font-size: 10pt;
-    opacity: 0.9;
-  }
-  .divider .ch-num {
-    margin-top: 6mm;
-    font-family: Georgia, serif;
-    font-size: 60pt;
-    line-height: 1;
-    color: var(--gold);
-  }
-  .divider.d3 .ch-num { color: #1a1a2e; }
-  .divider .ch-title {
-    margin-top: 4mm;
-    font-family: Georgia, serif;
-    font-size: 36pt;
-    line-height: 1.1;
-    max-width: 160mm;
-  }
-  .divider .ch-kicker {
-    margin-top: 8mm;
-    font-size: 13pt;
-    font-style: italic;
-    max-width: 150mm;
-    opacity: 0.92;
-  }
-  .divider .ch-pills {
-    margin-top: 14mm;
-    display: flex;
-    gap: 4mm;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .ch-pill {
-    background: rgba(255,255,255,0.14);
-    border: 1px solid rgba(255,255,255,0.28);
-    padding: 2mm 5mm;
-    border-radius: 12mm;
-    font-size: 9.5pt;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-  .divider.d3 .ch-pill { background: rgba(0,0,0,0.08); border-color: rgba(0,0,0,0.18); color: #1a1a2e; }
-
-  /* ============================================================
-     CONTENT BLOCKS (kid-friendly)
-     ============================================================ */
-  .big-idea {
-    display: grid;
-    grid-template-columns: 14mm 1fr;
-    gap: 5mm;
-    background: var(--gold-soft);
-    border: 1.5px solid #f0d680;
-    border-left: 6px solid var(--gold);
-    padding: 5mm 6mm;
-    border-radius: 3mm;
-    margin: 4mm 0 5mm;
-    align-items: center;
-  }
-  .big-idea .star {
-    width: 14mm; height: 14mm;
-    background: var(--gold);
-    color: #fff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: Georgia, serif;
-    font-weight: 700;
-    font-size: 18pt;
-    box-shadow: 0 0.5mm 2mm rgba(0,0,0,0.15);
-  }
-  .big-idea h3 {
-    font-family: Georgia, serif;
-    font-size: 13pt;
-    color: var(--navy);
-    margin: 0 0 1mm;
-  }
-  .big-idea p { font-size: 11pt; color: var(--ink); margin: 0; }
-
-  /* Friendly fact / definition box */
-  .def-box {
-    background: var(--sky-soft);
-    border-left: 5px solid var(--sky);
-    padding: 4mm 5mm;
-    border-radius: 2mm;
-    margin: 3mm 0 4mm;
-    font-size: 11pt;
-  }
-  .def-box .lbl {
-    display: inline-block;
-    background: var(--sky);
-    color: #fff;
-    text-transform: uppercase;
-    font-size: 8.5pt;
-    letter-spacing: 1.5px;
-    padding: 1mm 3mm;
-    border-radius: 6mm;
-    margin-bottom: 2mm;
-    font-weight: 700;
-  }
-  .def-box b { color: var(--navy); }
-
-  /* Colourful info cards (2 / 3 / 4 cols) */
-  .cards-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin: 3mm 0 5mm; }
-  .cards-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm; margin: 3mm 0 5mm; }
-  .cards-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 4mm; margin: 3mm 0 5mm; }
-
-  .kc {
-    background: #fff;
-    border: 1.5px solid var(--line);
-    border-top: 5px solid var(--sky);
-    border-radius: 3mm;
-    padding: 4mm 5mm;
-  }
-  .kc.sky   { border-top-color: var(--sky);   }
-  .kc.mint  { border-top-color: var(--mint);  }
-  .kc.sun   { border-top-color: var(--sun);   }
-  .kc.coral { border-top-color: var(--coral); }
-  .kc.grape { border-top-color: var(--grape); }
-  .kc.leaf  { border-top-color: var(--leaf);  }
-  .kc.rose  { border-top-color: var(--rose);  }
-  .kc h4 {
-    font-family: Georgia, serif;
-    font-size: 12pt;
-    color: var(--navy);
-    margin-bottom: 2mm;
-  }
-  .kc p, .kc li { font-size: 10pt; color: var(--ink); }
-  .kc ul { padding-left: 5mm; margin: 0; }
-  .kc.sky   li::marker { color: var(--sky);   }
-  .kc.mint  li::marker { color: var(--mint);  }
-  .kc.sun   li::marker { color: var(--sun);   }
-  .kc.coral li::marker { color: var(--coral); }
-  .kc.grape li::marker { color: var(--grape); }
-  .kc.leaf  li::marker { color: var(--leaf);  }
-  .kc.rose  li::marker { color: var(--rose);  }
-
-  /* Numbered "do-this" steps */
-  .steps {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 3mm;
-    margin: 3mm 0 5mm;
-  }
-  .steps .step {
-    background: #fff;
-    border: 1.5px solid var(--line);
-    border-left: 5px solid var(--sky);
-    border-radius: 3mm;
-    padding: 4mm 5mm 4mm 5mm;
-    display: grid;
-    grid-template-columns: 11mm 1fr;
-    gap: 4mm;
-    align-items: start;
-  }
-  .steps.mint .step  { border-left-color: var(--mint); }
-  .steps.sun .step   { border-left-color: var(--sun); }
-  .steps.coral .step { border-left-color: var(--coral); }
-  .steps.grape .step { border-left-color: var(--grape); }
-  .steps .step .n {
-    width: 11mm; height: 11mm;
-    border-radius: 50%;
-    background: var(--sky); color: #fff;
-    font-family: Georgia, serif;
-    font-weight: 700;
-    font-size: 13pt;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .steps.mint  .step .n { background: var(--mint); }
-  .steps.sun   .step .n { background: var(--sun); color: #1a1a2e; }
-  .steps.coral .step .n { background: var(--coral); }
-  .steps.grape .step .n { background: var(--grape); }
-  .steps .step h4 {
-    font-family: Georgia, serif;
-    font-size: 12pt;
-    color: var(--navy);
-    margin: 0 0 1mm;
-  }
-  .steps .step p { font-size: 10pt; color: var(--ink); margin: 0; }
-
-  /* Friendly "did-you-know" callout */
-  .didyou {
-    background: var(--mint-soft);
-    border: 1.5px dashed var(--mint);
-    border-radius: 3mm;
-    padding: 4mm 5mm;
-    margin: 3mm 0 5mm;
-    font-size: 10.5pt;
-    color: var(--ink);
-  }
-  .didyou .lbl {
-    text-transform: uppercase;
-    font-size: 9pt;
-    letter-spacing: 2px;
-    color: var(--mint);
-    font-weight: 700;
-    margin-bottom: 1.5mm;
-    display: block;
-  }
-
-  /* Try-it / Activity box */
-  .activity {
-    background: var(--coral-soft);
-    border: 1.5px solid #f5b1b1;
-    border-left: 5px solid var(--coral);
-    border-radius: 3mm;
-    padding: 4mm 5mm;
-    margin: 4mm 0 5mm;
-  }
-  .activity .lbl {
-    text-transform: uppercase;
-    font-size: 9pt;
-    letter-spacing: 2px;
-    color: var(--coral);
-    font-weight: 700;
-  }
-  .activity h3 {
-    font-family: Georgia, serif;
-    font-size: 13pt;
-    color: var(--navy);
-    margin: 1mm 0 2mm;
-  }
-  .activity ol { padding-left: 6mm; font-size: 10.5pt; }
-
-  /* Vedic Maths bridge — gold/navy themed link */
-  .vedic-bridge {
-    background: linear-gradient(135deg, #fff7e0 0%, #ffeec0 100%);
-    border: 1.5px solid #f0d680;
-    border-radius: 3mm;
-    padding: 5mm 6mm;
-    margin: 4mm 0 5mm;
-    display: grid;
-    grid-template-columns: 1fr 12mm 1fr;
-    gap: 0;
-    align-items: stretch;
-  }
-  .vedic-bridge .col {
-    padding: 1mm 4mm;
-  }
-  .vedic-bridge .col.left { border-right: 1.5px dashed var(--gold); }
-  .vedic-bridge .col .lbl {
-    text-transform: uppercase;
-    font-size: 9pt;
-    letter-spacing: 2px;
-    font-weight: 700;
-    margin-bottom: 1.5mm;
-    display: block;
-  }
-  .vedic-bridge .col.left .lbl  { color: var(--gold); }
-  .vedic-bridge .col.right .lbl { color: var(--navy); }
-  .vedic-bridge .col h4 {
-    font-family: Georgia, serif;
-    font-size: 12pt;
-    color: var(--navy);
-    margin-bottom: 1.5mm;
-  }
-  .vedic-bridge .col p { font-size: 10pt; color: var(--ink); }
-  .vedic-bridge .arrow {
-    display: flex; align-items: center; justify-content: center;
-    font-size: 22pt;
-    color: var(--gold);
-    font-weight: 700;
-  }
-
-  /* ============================================================
-     SCRATCH BLOCK VISUALS
-     ============================================================ */
-  .blocks-stage {
-    background: #f3f6fb;
-    border: 1.5px solid var(--line);
-    border-radius: 3mm;
-    padding: 5mm 6mm;
-    margin: 3mm 0;
-  }
-  .blocks-stage .cap {
-    font-size: 8.5pt;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--ink-soft);
-    margin-bottom: 3mm;
-  }
-  .block-stack {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
-  }
-  .blk {
-    color: #fff;
-    font-family: "Segoe UI", "Helvetica Neue", sans-serif;
-    font-size: 9.5pt;
-    font-weight: 600;
-    padding: 2mm 4mm;
-    border-radius: 1.4mm;
-    margin: 0.4mm 0;
-    display: inline-flex;
-    align-items: center;
-    gap: 2mm;
-    box-shadow: 0 0.4mm 0 rgba(0,0,0,0.18);
-    line-height: 1.1;
-    min-height: 6.5mm;
-    white-space: nowrap;
-  }
-  .blk.events    { background: var(--s-events);    color: #1a1a2e; }
-  .blk.motion    { background: var(--s-motion);    }
-  .blk.looks     { background: var(--s-looks);     }
-  .blk.sound     { background: var(--s-sound);     }
-  .blk.control   { background: var(--s-control);   color: #1a1a2e; }
-  .blk.sensing   { background: var(--s-sensing);   }
-  .blk.operators { background: var(--s-operators); }
-  .blk.vars      { background: var(--s-vars);      }
-  .blk.myblocks  { background: var(--s-myblocks);  }
-
-  .blk.hat {
-    border-top-left-radius: 5mm;
-    border-top-right-radius: 5mm;
-    padding-left: 5mm;
-    padding-right: 5mm;
-  }
-
-  /* C-shaped wrapper for loops / control */
-  .c-block { display: flex; flex-direction: column; align-items: flex-start; margin: 0.4mm 0; }
-  .c-block .c-top {
-    background: var(--s-control); color: #1a1a2e;
-    font-weight: 600; font-size: 9.5pt;
-    padding: 2mm 4mm;
-    border-radius: 1.4mm 1.4mm 0 0;
-    display: inline-flex; align-items: center; gap: 2mm;
-    min-height: 6.5mm;
-    box-shadow: 0 0.4mm 0 rgba(0,0,0,0.18);
-  }
-  .c-block .c-body { display: flex; align-items: stretch; gap: 0; }
-  .c-block .c-arm {
-    background: var(--s-control);
-    width: 4mm;
-    align-self: stretch;
-  }
-  .c-block .c-inside {
-    padding: 1mm 0 1mm 1.5mm;
-    display: flex; flex-direction: column; gap: 0;
-  }
-  .c-block .c-bottom {
-    background: var(--s-control); color: #1a1a2e;
-    font-weight: 600; font-size: 9.5pt;
-    padding: 2mm 4mm;
-    border-radius: 0 0 1.4mm 1.4mm;
-    min-height: 5mm;
-    display: inline-flex; align-items: center;
-    box-shadow: 0 0.4mm 0 rgba(0,0,0,0.18);
-  }
-
-  /* Inline values inside blocks */
-  .val {
-    background: #fff; color: #1a1a2e;
-    font-weight: 700;
-    border-radius: 8mm;
-    padding: 0.3mm 2.5mm;
-    font-size: 9pt;
-    min-width: 6mm;
-    display: inline-block;
-    text-align: center;
-    border: 0.4mm solid rgba(0,0,0,0.10);
-  }
-  .val.dropdown {
-    background: rgba(0,0,0,0.18); color: #fff; border: none;
-    padding-right: 4mm; position: relative;
-  }
-  .val.dropdown::after {
-    content: "▾";
-    position: absolute;
-    right: 1.5mm; top: 50%;
-    transform: translateY(-50%);
-    font-size: 7pt; color: #fff;
-  }
-
-  /* ============================================================
-     SCRATCH UI MOCK (used in "Intro to Scratch")
-     ============================================================ */
-  .ide-mock {
-    margin: 4mm 0;
-    border: 1.5px solid var(--line);
-    border-radius: 3mm;
-    overflow: hidden;
-    background: #fff;
-  }
-  .ide-mock svg { display: block; width: 100%; height: auto; }
-  .ide-caption {
-    background: #fafbfe;
-    padding: 2.5mm 4mm;
-    font-size: 9.5pt;
-    color: var(--ink-soft);
-    border-top: 1px solid var(--line);
-  }
-
-  /* Label callouts under IDE */
-  .ide-legend {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3mm 5mm;
-    margin: 3mm 0 4mm;
-  }
-  .ide-legend .row {
-    display: flex; align-items: flex-start; gap: 3mm;
-    font-size: 10pt; color: var(--ink);
-  }
-  .ide-legend .row .tag {
-    flex: 0 0 8mm; height: 7mm;
-    background: var(--navy); color: #fff;
-    border-radius: 1.5mm;
-    font-family: Georgia, serif;
-    font-weight: 700;
-    font-size: 11pt;
-    display: flex; align-items: center; justify-content: center;
-    margin-top: 0.5mm;
-  }
-  .ide-legend .row b { color: var(--navy); }
-
-  /* ============================================================
-     MINI SCRATCH STAGE PREVIEW
-     ============================================================ */
-  .stage-preview {
-    background: #fff;
-    border: 1.5px solid var(--line);
-    border-radius: 3mm;
-    overflow: hidden;
-    margin: 3mm 0 4mm;
-  }
-  .stage-preview .frame {
-    background: #ffffff;
-    height: 55mm;
-    position: relative;
-    border-bottom: 1px solid var(--line);
-  }
-  .stage-preview .frame svg { display: block; width: 100%; height: 100%; }
-  .stage-preview .cap {
-    background: #fafbfe;
-    padding: 2.5mm 4mm;
-    font-size: 9.5pt;
-    color: var(--ink-soft);
-  }
-
-  /* ============================================================
-     FOOTER
-     ============================================================ */
-  .pagefoot {
-    border-top: 1.5px solid var(--line);
-    margin-top: 7mm;
-    padding-top: 3mm;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 8.5pt;
-    color: var(--ink-soft);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-  }
-  .pagefoot .brand { color: var(--navy); font-weight: 700; }
-  .pagefoot .brand .dot { color: var(--gold); }
-  .pagefoot .pgnum {
-    background: var(--navy);
-    color: #fff;
-    padding: 1mm 3mm;
-    border-radius: 8mm;
-    letter-spacing: 1px;
-  }
-
-  /* tiny utility */
-  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
-  .row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5mm; }
-
-  /* ============================================================
-     VARIABLE / LIST VISUALS
-     ============================================================ */
-  .var-box {
-    display: inline-flex;
-    align-items: stretch;
-    border: 2px solid var(--s-vars);
-    border-radius: 2.5mm;
-    overflow: hidden;
-    margin: 1mm 2mm 1mm 0;
-    box-shadow: 0 0.5mm 1.5mm rgba(0,0,0,0.10);
-    font-family: "Segoe UI", sans-serif;
-  }
-  .var-box .vlabel {
-    background: var(--s-vars);
-    color: #fff;
-    padding: 1.5mm 4mm;
-    font-size: 10pt;
-    font-weight: 700;
-    display: flex; align-items: center;
-  }
-  .var-box .vval {
-    background: #fff;
-    color: #1a1a2e;
-    padding: 1.5mm 4mm;
-    font-size: 11pt;
-    font-weight: 700;
-    min-width: 14mm;
-    display: flex; align-items: center; justify-content: center;
-  }
-
-  .list-visual {
-    background: #fff;
-    border: 1.5px solid var(--s-vars);
-    border-radius: 2mm;
-    overflow: hidden;
-    width: 100%;
-    max-width: 70mm;
-    margin: 2mm 0;
-    box-shadow: 0 0.5mm 1.5mm rgba(0,0,0,0.10);
-  }
-  .list-visual .lhead {
-    background: var(--s-vars);
-    color: #fff;
-    padding: 1.5mm 3mm;
-    font-size: 9.5pt;
-    font-weight: 700;
-    display: flex;
-    justify-content: space-between;
-  }
-  .list-visual .lhead .count {
-    background: rgba(0,0,0,0.18);
-    padding: 0.3mm 2mm;
-    border-radius: 6mm;
-    font-size: 8.5pt;
-  }
-  .list-visual .lrow {
-    display: grid;
-    grid-template-columns: 7mm 1fr;
-    border-top: 1px solid #f1d8b8;
-    font-size: 10pt;
-  }
-  .list-visual .lrow:first-of-type { border-top: none; }
-  .list-visual .lrow .idx {
-    background: #fff7e6;
-    color: var(--s-vars);
-    text-align: center;
-    font-weight: 700;
-    padding: 1.2mm 0;
-    font-size: 9pt;
-  }
-  .list-visual .lrow .lval {
-    padding: 1.2mm 3mm;
-    color: var(--ink);
-  }
-  .list-visual .lfoot {
-    background: #fafbfe;
-    padding: 1.5mm 3mm;
-    font-size: 9pt;
-    color: var(--ink-soft);
-    border-top: 1px solid var(--line);
-    display: flex; gap: 3mm; align-items: center;
-  }
-  .list-visual .lfoot input {
-    flex: 1;
-    border: 1px solid var(--line);
-    border-radius: 1mm;
-    height: 5mm;
-    background: #fff;
-  }
-
-  /* ============================================================
-     DECISION DIAMOND (for conditionals)
-     ============================================================ */
-  .decision {
-    display: grid;
-    grid-template-columns: 1fr 36mm 1fr;
-    gap: 4mm;
-    align-items: center;
-    margin: 4mm 0;
-  }
-  .diamond {
-    background: var(--coral);
-    color: #fff;
-    width: 36mm;
-    height: 36mm;
-    transform: rotate(45deg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 3mm;
-    box-shadow: 0 2mm 4mm rgba(0,0,0,0.15);
-    margin: 0 auto;
-  }
-  .diamond .dtxt {
-    transform: rotate(-45deg);
-    text-align: center;
-    font-family: Georgia, serif;
-    font-size: 10.5pt;
-    font-weight: 700;
-    line-height: 1.2;
-    padding: 2mm;
-  }
-  .branch {
-    padding: 4mm 5mm;
-    border-radius: 3mm;
-    font-size: 10pt;
-  }
-  .branch.yes {
-    background: var(--leaf-soft);
-    border-left: 5px solid var(--leaf);
-  }
-  .branch.no {
-    background: var(--coral-soft);
-    border-left: 5px solid var(--coral);
-  }
-  .branch .lbl {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 9pt;
-    font-weight: 700;
-    margin-bottom: 1.5mm;
-    display: block;
-  }
-  .branch.yes .lbl { color: var(--leaf); }
-  .branch.no  .lbl { color: var(--coral); }
-
-  /* if-else C-block (with else slot) */
-  .c-block .c-mid {
-    background: var(--s-control);
-    color: #1a1a2e;
-    font-weight: 600;
-    font-size: 9.5pt;
-    padding: 2mm 4mm;
-    display: inline-flex;
-    align-items: center;
-    min-height: 6.5mm;
-    box-shadow: 0 0.4mm 0 rgba(0,0,0,0.18);
-  }
-
-  /* ============================================================
-     VEDIC ALGORITHM WALKTHROUGH
-     ============================================================ */
-  .vedic-walk {
-    background: #fff;
-    border: 1.5px solid var(--gold);
-    border-radius: 3mm;
-    overflow: hidden;
-    margin: 3mm 0 4mm;
-  }
-  .vedic-walk .vw-head {
-    background: linear-gradient(90deg, var(--gold) 0%, #e9b834 100%);
-    color: #1a1a2e;
-    padding: 3mm 5mm;
-    font-family: Georgia, serif;
-    font-size: 12pt;
-    font-weight: 700;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-  }
-  .vedic-walk .vw-head .sutra-name {
-    font-style: italic;
-    font-size: 10pt;
-    font-weight: 400;
-  }
-  .vedic-walk table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 10pt;
-  }
-  .vedic-walk th,
-  .vedic-walk td {
-    padding: 2.5mm 4mm;
-    border-bottom: 1px solid var(--line);
-    text-align: left;
-    vertical-align: top;
-  }
-  .vedic-walk th {
-    background: #fff7e0;
-    color: var(--navy);
-    font-size: 9pt;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    width: 22mm;
-  }
-  .vedic-walk td .num {
-    font-family: Georgia, serif;
-    font-weight: 700;
-    color: var(--gold);
-    font-size: 12pt;
-  }
-  .vedic-walk tr:last-child th,
-  .vedic-walk tr:last-child td { border-bottom: none; }
-  .vedic-walk .answer-row td,
-  .vedic-walk .answer-row th {
-    background: var(--leaf-soft);
-    border-top: 2px solid var(--leaf);
-  }
-  .vedic-walk .answer-row th { color: var(--leaf); }
-
-  /* Quiz preview line */
-  .qline {
-    border-bottom: 1.5px solid var(--ink-soft);
-    height: 6mm;
-    margin: 2mm 0;
-  }
-
-  /* "I did it!" tickbox row */
-  .tickrow {
-    display: flex;
-    align-items: center;
-    gap: 3mm;
-    margin-top: 3mm;
-    font-size: 10pt;
-  }
-  .tickrow .box {
-    width: 5mm; height: 5mm;
-    border: 1.5px solid var(--navy);
-    border-radius: 1mm;
-    display: inline-block;
-  }
-
-  /* ============================================================
-     A.I. HELPER — stand-out callout used in every topic chapter
-     ============================================================ */
-  .ai-box {
-    margin: 5mm 0 4mm;
-    border: 2px dashed var(--grape);
-    border-radius: 5mm;
-    background: linear-gradient(140deg, #f5efff 0%, #ece4ff 60%, #f7e9ff 100%);
-    padding: 4mm 5mm 4mm 22mm;
-    position: relative;
-    page-break-inside: avoid;
-    box-shadow: 0 1mm 3mm rgba(142, 108, 213, 0.18);
-  }
-  .ai-box::before {
-    content: "🤖";
-    position: absolute;
-    left: 4mm;
-    top: 4mm;
-    font-size: 16pt;
-    background: var(--grape);
-    color: #fff;
-    width: 13mm;
-    height: 13mm;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 1mm 2mm rgba(142, 108, 213, 0.45);
-  }
-  .ai-box .ai-lbl {
-    display: inline-block;
-    background: var(--grape);
-    color: #fff;
-    font-size: 8pt;
-    letter-spacing: 1.5px;
-    font-weight: 700;
-    padding: 0.6mm 3mm;
-    border-radius: 6mm;
-    text-transform: uppercase;
-    margin-right: 2mm;
-  }
-  .ai-box h4 {
-    margin: 0;
-    color: #4a2d8a;
-    font-size: 12.5pt;
-    font-weight: 700;
-    display: inline;
-    vertical-align: middle;
-  }
-  .ai-box .prompt {
-    background: #fff;
-    border: 1.4px solid #d3c5f3;
-    border-left: 4px solid var(--grape);
-    border-radius: 2mm;
-    padding: 2.5mm 3.5mm;
-    font-family: "Consolas", "Courier New", monospace;
-    font-size: 10pt;
-    color: #2a1659;
-    line-height: 1.45;
-    margin-top: 2.5mm;
-  }
-  .ai-box .prompt::before {
-    content: "✏️  ";
-  }
-  .ai-box .tip {
-    margin-top: 2mm;
-    margin-bottom: 0;
-    font-size: 9.5pt;
-    color: #4a4a5e;
-    font-style: italic;
-  }
-
-  /* ============================================================
-     A.I. INTRO PAGE — full-page "Meet Your A.I. Buddy" spread
-     ============================================================ */
-  .ai-page {
-    background: linear-gradient(155deg, #faf6ff 0%, #f0e8ff 60%, #fff4e8 110%);
-  }
-  .ai-page .ai-hero {
-    background: linear-gradient(135deg, #2a1659 0%, #5a3aaf 55%, #8e6cd5 100%);
-    color: #fff;
-    border-radius: 5mm;
-    padding: 7mm 8mm;
-    display: flex;
-    align-items: center;
-    gap: 6mm;
-    margin-bottom: 6mm;
-    box-shadow: 0 2mm 6mm rgba(42, 22, 89, 0.25);
-  }
-  .ai-page .ai-hero .robo {
-    font-size: 38pt;
-    flex-shrink: 0;
-    background: rgba(255,255,255,0.15);
-    border: 2px solid rgba(255,255,255,0.35);
-    border-radius: 50%;
-    width: 28mm;
-    height: 28mm;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .ai-page .ai-hero h1 {
-    font-family: Georgia, serif;
-    font-size: 28pt;
-    line-height: 1.05;
-    margin: 0 0 2mm;
-    color: #fff;
-  }
-  .ai-page .ai-hero h1 .accent { color: var(--gold); }
-  .ai-page .ai-hero p {
-    margin: 0;
-    font-size: 12pt;
-    opacity: 0.95;
-  }
-  .ai-page .ai-what {
-    background: #fff;
-    border-left: 5px solid var(--grape);
-    padding: 4mm 5mm;
-    border-radius: 2mm;
-    margin-bottom: 5mm;
-    box-shadow: 0 1mm 3mm rgba(0,0,0,0.06);
-  }
-  .ai-page .ai-what h3 {
-    color: var(--grape);
-    margin-bottom: 1.5mm;
-    font-size: 13pt;
-  }
-  .ai-rules {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 4mm;
-    margin-bottom: 5mm;
-  }
-  .ai-rule {
-    background: #fff;
-    border-radius: 4mm;
-    padding: 4mm 4mm 3.5mm;
-    border-top: 5px solid var(--grape);
-    box-shadow: 0 1mm 3mm rgba(0,0,0,0.06);
-  }
-  .ai-rule .num {
-    display: inline-block;
-    background: var(--grape);
-    color: #fff;
-    font-weight: 700;
-    width: 8mm;
-    height: 8mm;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 8mm;
-    font-size: 11pt;
-    margin-bottom: 2mm;
-  }
-  .ai-rule h4 {
-    color: #2a1659;
-    margin: 0 0 1.5mm;
-    font-size: 11.5pt;
-  }
-  .ai-rule p {
-    font-size: 9.8pt;
-    color: var(--ink-soft);
-    margin: 0;
-    line-height: 1.45;
-  }
-  .ai-sample {
-    background: #fff;
-    border: 2px solid var(--grape);
-    border-radius: 4mm;
-    padding: 5mm;
-    margin-bottom: 5mm;
-  }
-  .ai-sample .lbl {
-    display: inline-block;
-    background: var(--grape);
-    color: #fff;
-    font-size: 8.5pt;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    padding: 0.6mm 3mm;
-    border-radius: 6mm;
-    text-transform: uppercase;
-    margin-bottom: 2mm;
-  }
-  .ai-sample .bad,
-  .ai-sample .good {
-    padding: 2.5mm 3mm;
-    border-radius: 2mm;
-    font-family: "Consolas", "Courier New", monospace;
-    font-size: 10pt;
-    line-height: 1.4;
-    margin: 1.5mm 0;
-  }
-  .ai-sample .bad {
-    background: #ffe8e8;
-    border-left: 4px solid var(--coral);
-    color: #8c1e1e;
-  }
-  .ai-sample .good {
-    background: #e6f7e8;
-    border-left: 4px solid var(--leaf);
-    color: #1b5d29;
-  }
-  .ai-sample .bad::before { content: "❌  "; font-family: "Segoe UI"; }
-  .ai-sample .good::before { content: "✅  "; font-family: "Segoe UI"; }
-  .ai-golden {
-    background: linear-gradient(95deg, var(--gold-soft), #fff 90%);
-    border: 1.5px solid var(--gold);
-    border-radius: 3mm;
-    padding: 4mm 5mm;
-    font-size: 11pt;
-  }
-  .ai-golden b { color: #6b4a00; }
-
-  /* ============================================================
-     PRINT TWEAKS
-     ============================================================ */
-  @media print {
-    body { background: #fff; }
-    .page { margin: 0; box-shadow: none; }
-  }
-</style>
+<title>T.H.Y.N.K — My Scratch Adventure · Level 1 · Beginners Basic 1 · Young Explorer (Grade 4)</title>
+<link rel="stylesheet" href="THYNK_workbook_grade4.css" />
 </head>
 <body>
 
@@ -1308,8 +15,9 @@
 <section class="page cover">
   <div class="cover-top">
     <img class="cover-logo" src="logo4.jpg" alt="THYNK Logo" />
-    <div class="cover-eyebrow">Workbook · Volume 1 · Grade 4</div>
+    <div class="cover-eyebrow">Level 1 · Beginners Basic 1 · Grade 4</div>
     <div class="cover-title">My Scratch<br/><em>Adventure</em></div>
+    <div class="cover-sub" style="font-style: normal; letter-spacing: 3px; text-transform: uppercase; font-size: 14pt; color: var(--gold); margin-top: 4mm;">— Young Explorer —</div>
     <div class="cover-sub">Where Coding meets Vedic Maths — and learning becomes a super-power.</div>
     <div class="cover-badges">
       <div class="cover-badge"><b>24</b> Sessions</div>
@@ -1408,6 +116,22 @@
       <div>
         <h3>Mini-Projects at the End of Every Chapter</h3>
         <p>Each big topic ends with a fun project — a dancing cat, a counting caterpillar, a number-guessing game and many more — so you don't just <i>learn</i> coding, you <i>build</i> things.</p>
+      </div>
+    </div>
+
+    <div class="toc-card c4" style="border-left-color: var(--gold); grid-column: span 2;">
+      <div class="num" style="background: var(--gold); color: var(--navy);">✎</div>
+      <div>
+        <h3>Exercises &amp; Self-Practice</h3>
+        <p>One full page of fun exercises for every topic — predict, fix the bug, build it yourself. The best way to <b>really</b> learn coding is to <i>do</i> it on your own!</p>
+      </div>
+    </div>
+
+    <div class="toc-card c2" style="border-left-color: #2aa6d6; grid-column: span 2;">
+      <div class="num" style="background: linear-gradient(135deg,#2aa6d6,#1a73a8); color:#fff;">★</div>
+      <div>
+        <h3>Bonus Capstone &middot; Water Cycle Animation 💧☀️☁️🌧️</h3>
+        <p>The grand finale! Use <i>everything</i> you've learned — events, broadcasts, variables, loops <b>and</b> cloning — to build a real <b>Water Cycle</b> science animation. Take it home, show your family, and watch evaporation, condensation and rain happen on your screen.</p>
       </div>
     </div>
   </div>
@@ -2355,6 +1079,99 @@
   </div>
 </section>
 
+<!-- ============================================================
+     EXERCISES — SEQUENCING & EVENTS (CHAPTER 3)
+     ============================================================ -->
+<section class="page ex-page t3">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>Exercises &middot; <span class="accent" style="color: var(--gold);">Sequencing &amp; Events</span></h1>
+    </div>
+    <div class="crumb"><b>Chapter 3</b>Practice</div>
+  </div>
+
+  <div class="ex-hero">
+    <div class="icon">🔢</div>
+    <div>
+      <h2>Get the order right!</h2>
+      <p>Three challenges to test your sequencing super-power. Pencil ready — let's go.</p>
+    </div>
+  </div>
+
+  <!-- Q1 PREDICT -->
+  <div class="ex-q">
+    <div class="top">
+      <div class="qnum">1</div>
+      <span class="qtype predict">Predict</span>
+      <div class="qtitle">What does the cat <i>do</i>?</div>
+    </div>
+    <p>Read this stack from top to bottom. In which order will things happen on the stage? Write 1, 2, 3, 4 in the boxes on the right.</p>
+    <div class="row2" style="grid-template-columns: 1.2fr 1fr; gap: 5mm;">
+      <div class="block-stack">
+        <span class="blk events hat">when ⚑ clicked</span>
+        <span class="blk motion">move <span class="val">30</span> steps</span>
+        <span class="blk looks">say <span class="val">Hello!</span> for <span class="val">1</span> sec</span>
+        <span class="blk sound">play sound <span class="val dropdown">Meow</span> until done</span>
+        <span class="blk motion">turn ↻ <span class="val">15</span> degrees</span>
+      </div>
+      <div>
+        <table class="ex-trace-tbl">
+          <tr><th style="width:14mm;">Order</th><th>What happens</th></tr>
+          <tr><td class="fill" style="text-align:center;">&nbsp;</td><td>Cat turns 15°</td></tr>
+          <tr><td class="fill" style="text-align:center;">&nbsp;</td><td>Cat says "Hello!"</td></tr>
+          <tr><td class="fill" style="text-align:center;">&nbsp;</td><td>Cat moves 30 steps</td></tr>
+          <tr><td class="fill" style="text-align:center;">&nbsp;</td><td>Cat plays meow sound</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q2 FIX -->
+  <div class="ex-q">
+    <div class="top">
+      <div class="qnum">2</div>
+      <span class="qtype fix">Fix the Bug</span>
+      <div class="qtitle">Wrong order!</div>
+    </div>
+    <p>Riya wants her cat to <b>say "Hi"</b> first, <b>then jump</b> (move 50 steps). But she wrote the blocks the wrong way round. <b>Cross out</b> the wrong stack and <b>rewrite the correct one</b> in the empty box.</p>
+    <div class="row2" style="grid-template-columns: 1fr 1fr; gap: 5mm;">
+      <div class="block-stack" style="opacity: 0.85;">
+        <span class="blk events hat">when ⚑ clicked</span>
+        <span class="blk motion">move <span class="val">50</span> steps</span>
+        <span class="blk looks">say <span class="val">Hi!</span> for <span class="val">1</span> sec</span>
+      </div>
+      <div class="ex-write tall"></div>
+    </div>
+  </div>
+
+  <!-- Q3 BUILD -->
+  <div class="ex-q">
+    <div class="top">
+      <div class="qnum">3</div>
+      <span class="qtype build">Build It!</span>
+      <div class="qtitle">The Birthday Sprite 🎂</div>
+    </div>
+    <p>Build this in Scratch:</p>
+    <ul>
+      <li>When the <b>space key</b> is pressed, the cat should say <b>"Happy Birthday!"</b> for 2 seconds.</li>
+      <li>Then it plays a <b>sound</b> of your choice.</li>
+      <li>Then it says <b>your friend's name</b> for 2 seconds.</li>
+    </ul>
+    <p>Which <b>Events</b> block will start your script? Write its name:</p>
+    <div class="ex-blank wide"></div>
+    <div style="margin-top: 3mm;"><span class="ex-checkbox"></span> I built and tested my Birthday Sprite!</div>
+  </div>
+
+  <div class="ex-tip"><b>Tip —</b> The block at the <b>top</b> always runs first. The order of the rest <i>changes the story</i>.</div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Exercises · Sequencing &amp; Events</div>
+    <div class="pgnum">12</div>
+  </div>
+</section>
+
 
 <!-- ============================================================
      PAGE 14 · CHAPTER 4 DIVIDER · LOOPS
@@ -2476,7 +1293,7 @@
   <div class="pagefoot">
     <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
     <div>Chapter 4 · Loops</div>
-    <div class="pgnum">12</div>
+    <div class="pgnum">13</div>
   </div>
 </section>
 
@@ -2625,7 +1442,89 @@
   <div class="pagefoot">
     <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
     <div>Chapter 4 · Loops</div>
-    <div class="pgnum">13</div>
+    <div class="pgnum">14</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     EXERCISES — LOOPS (CHAPTER 4)
+     ============================================================ -->
+<section class="page ex-page t4">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>Exercises &middot; <span class="accent" style="color: var(--coral);">Loops</span></h1>
+    </div>
+    <div class="crumb"><b>Chapter 4</b>Practice</div>
+  </div>
+
+  <div class="ex-hero">
+    <div class="icon">🔁</div>
+    <div>
+      <h2>Repeat &amp; Forever — your turn!</h2>
+      <p>Save your fingers from doing the same thing 100 times. Let the loop do it for you.</p>
+    </div>
+  </div>
+
+  <!-- Q1 COUNT -->
+  <div class="ex-q">
+    <div class="top">
+      <div class="qnum">1</div>
+      <span class="qtype trace">Count It</span>
+      <div class="qtitle">How many times?</div>
+    </div>
+    <p>Each row shows a loop block. Write how many times the inside blocks will run.</p>
+    <table class="ex-trace-tbl">
+      <tr><th style="width:50%;">Loop</th><th>Inside runs how many times?</th></tr>
+      <tr><td><span class="blk control">repeat <span class="val">10</span></span></td><td class="fill"></td></tr>
+      <tr><td><span class="blk control">repeat <span class="val">25</span></span></td><td class="fill"></td></tr>
+      <tr><td><span class="blk control" style="background: var(--s-control);">forever</span></td><td class="fill">________ until you press <b>■</b></td></tr>
+      <tr><td>repeat 4 inside repeat 3 (loops <i>inside</i> loops)</td><td class="fill"></td></tr>
+    </table>
+  </div>
+
+  <!-- Q2 MATCH -->
+  <div class="ex-q">
+    <div class="top">
+      <div class="qnum">2</div>
+      <span class="qtype match">Match the Shape</span>
+      <div class="qtitle">repeat &times; turn = ?</div>
+    </div>
+    <p>Fill in the missing pieces. <b>Rule:</b> turn = 360 ÷ number of sides.</p>
+    <table class="ex-trace-tbl">
+      <tr><th>Shape</th><th>repeat</th><th>turn (degrees)</th></tr>
+      <tr><td>Triangle</td><td>3</td><td class="fill"></td></tr>
+      <tr><td>Square</td><td class="fill"></td><td>90°</td></tr>
+      <tr><td>Pentagon</td><td>5</td><td class="fill"></td></tr>
+      <tr><td>Octagon</td><td class="fill"></td><td class="fill"></td></tr>
+    </table>
+  </div>
+
+  <!-- Q3 BUILD -->
+  <div class="ex-q">
+    <div class="top">
+      <div class="qnum">3</div>
+      <span class="qtype build">Build It!</span>
+      <div class="qtitle">Rocket Countdown 🚀</div>
+    </div>
+    <p>Build a script that counts down from <b>10 to 1</b>, and then says <b>"BLAST OFF!"</b> for 2 seconds.</p>
+    <ol>
+      <li>Make a variable called <b>counter</b> and set it to 10.</li>
+      <li>Use a <b>repeat 10</b> loop — inside it, the cat says <b>counter</b>, waits 1 sec, then <b>changes counter by &minus;1</b>.</li>
+      <li>After the loop, the cat shouts <b>"BLAST OFF!"</b></li>
+    </ol>
+    <p>Which value should you put inside <b>change counter by ___ </b>?</p>
+    <div class="ex-blank"></div>
+    <div style="margin-top: 3mm;"><span class="ex-checkbox"></span> My rocket counted down successfully!</div>
+  </div>
+
+  <div class="ex-tip"><b>Tip —</b> A loop is just <i>"do this again"</i>. If you find yourself copy-pasting blocks more than twice — use a loop.</div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Exercises · Loops</div>
+    <div class="pgnum">15</div>
   </div>
 </section>
 
@@ -2736,7 +1635,7 @@
   <div class="pagefoot">
     <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
     <div>Chapter 5 · Variables &amp; Lists</div>
-    <div class="pgnum">14</div>
+    <div class="pgnum">16</div>
   </div>
 </section>
 
@@ -2832,7 +1731,7 @@
   <div class="pagefoot">
     <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
     <div>Chapter 5 · Variables &amp; Lists</div>
-    <div class="pgnum">15</div>
+    <div class="pgnum">17</div>
   </div>
 </section>
 
@@ -2933,7 +1832,7 @@
   <div class="pagefoot">
     <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
     <div>Chapter 5 · Variables &amp; Lists</div>
-    <div class="pgnum">16</div>
+    <div class="pgnum">18</div>
   </div>
 </section>
 
@@ -3046,7 +1945,95 @@
   <div class="pagefoot">
     <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
     <div>Chapter 5 · Variables &amp; Lists</div>
-    <div class="pgnum">17</div>
+    <div class="pgnum">19</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     EXERCISES — VARIABLES & LISTS (CHAPTER 5)
+     ============================================================ -->
+<section class="page ex-page t5">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>Exercises &middot; <span class="accent" style="color: var(--grape);">Variables &amp; Lists</span></h1>
+    </div>
+    <div class="crumb"><b>Chapter 5</b>Practice</div>
+  </div>
+
+  <div class="ex-hero">
+    <div class="icon">📦</div>
+    <div>
+      <h2>Boxes that remember!</h2>
+      <p>Track values, fix bugs and build your own little memory machine.</p>
+    </div>
+  </div>
+
+  <!-- Q1 TRACE -->
+  <div class="ex-q">
+    <div class="top">
+      <div class="qnum">1</div>
+      <span class="qtype trace">Trace It</span>
+      <div class="qtitle">What's in the score box?</div>
+    </div>
+    <p>Start: <b>score = 0</b>. Fill the table after each instruction.</p>
+    <table class="ex-trace-tbl">
+      <tr><th style="width:55%;">Instruction</th><th>score is now…</th></tr>
+      <tr><td>change score by 5</td><td class="fill"></td></tr>
+      <tr><td>change score by 3</td><td class="fill"></td></tr>
+      <tr><td>set score to 10</td><td class="fill"></td></tr>
+      <tr><td>change score by &minus;4</td><td class="fill"></td></tr>
+      <tr><td>change score by 1</td><td class="fill"></td></tr>
+    </table>
+  </div>
+
+  <!-- Q2 LIST -->
+  <div class="ex-q">
+    <div class="top">
+      <div class="qnum">2</div>
+      <span class="qtype trace">List Trace</span>
+      <div class="qtitle">What's in the list?</div>
+    </div>
+    <p>Start with an <b>empty</b> list called <b>fruits</b>. Apply the steps in order, then write the final list:</p>
+    <ol>
+      <li>add <b>"apple"</b> to fruits</li>
+      <li>add <b>"banana"</b> to fruits</li>
+      <li>add <b>"cherry"</b> to fruits</li>
+      <li>delete item <b>1</b> of fruits</li>
+      <li>add <b>"date"</b> to fruits</li>
+    </ol>
+    <p>Final fruits list (in order):</p>
+    <div style="display: flex; gap: 3mm; flex-wrap: wrap;">
+      <div class="var-box"><div class="vlabel">1</div><div class="vval" style="min-width: 22mm;">&nbsp;</div></div>
+      <div class="var-box"><div class="vlabel">2</div><div class="vval" style="min-width: 22mm;">&nbsp;</div></div>
+      <div class="var-box"><div class="vlabel">3</div><div class="vval" style="min-width: 22mm;">&nbsp;</div></div>
+      <div class="var-box"><div class="vlabel">4</div><div class="vval" style="min-width: 22mm;">&nbsp;</div></div>
+    </div>
+  </div>
+
+  <!-- Q3 BUILD -->
+  <div class="ex-q">
+    <div class="top">
+      <div class="qnum">3</div>
+      <span class="qtype build">Build It!</span>
+      <div class="qtitle">Friend Collector 👫</div>
+    </div>
+    <p>Build a project that asks the player for <b>3 friends' names</b> and stores them in a list called <b>friends</b>. Then make the cat say each name one by one.</p>
+    <ul>
+      <li>Use the <b>ask … and wait</b> block (Sensing) to get a name.</li>
+      <li>Use <b>add (answer) to friends</b> to save it.</li>
+      <li>Use a <b>repeat 3</b> loop with <b>item (i) of friends</b> to read them back.</li>
+    </ul>
+    <div style="margin-top: 3mm;"><span class="ex-checkbox"></span> My cat remembers all 3 friends!</div>
+  </div>
+
+  <div class="ex-tip"><b>Tip —</b> A <b>variable</b> holds <i>one</i> value. A <b>list</b> holds <i>many</i> values. Same idea, different sizes.</div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Exercises · Variables &amp; Lists</div>
+    <div class="pgnum">20</div>
   </div>
 </section>
 
@@ -3169,7 +2156,7 @@
   <div class="pagefoot">
     <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
     <div>Chapter 6 · Conditionals</div>
-    <div class="pgnum">18</div>
+    <div class="pgnum">21</div>
   </div>
 </section>
 
@@ -3269,7 +2256,7 @@
   <div class="pagefoot">
     <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
     <div>Chapter 6 · Conditionals</div>
-    <div class="pgnum">19</div>
+    <div class="pgnum">22</div>
   </div>
 </section>
 
@@ -3405,7 +2392,120 @@
   <div class="pagefoot">
     <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
     <div>Chapter 6 · Conditionals</div>
-    <div class="pgnum">20</div>
+    <div class="pgnum">23</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     EXERCISES — CONDITIONALS (CHAPTER 6)
+     ============================================================ -->
+<section class="page ex-page t6">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>Exercises &middot; <span class="accent" style="color: var(--leaf);">Conditionals</span></h1>
+    </div>
+    <div class="crumb"><b>Chapter 6</b>Practice</div>
+  </div>
+
+  <div class="ex-hero">
+    <div class="icon">🤔</div>
+    <div>
+      <h2>If… then… else!</h2>
+      <p>Make the computer think. Decide. Choose. Just like you do every day.</p>
+    </div>
+  </div>
+
+  <!-- Q1 TRUE/FALSE -->
+  <div class="ex-q">
+    <div class="top">
+      <div class="qnum">1</div>
+      <span class="qtype trace">True or False?</span>
+      <div class="qtitle">Tick the right box.</div>
+    </div>
+    <div class="ex-tf">
+      <div class="h">Condition</div>
+      <div class="h" style="text-align:center;">True</div>
+      <div class="h" style="text-align:center;">False</div>
+
+      <div class="row">10 &gt; 5</div>
+      <div class="opt"><span class="tick"></span></div>
+      <div class="opt"><span class="tick"></span></div>
+
+      <div class="row">7 = 7</div>
+      <div class="opt"><span class="tick"></span></div>
+      <div class="opt"><span class="tick"></span></div>
+
+      <div class="row">"cat" = "Cat"</div>
+      <div class="opt"><span class="tick"></span></div>
+      <div class="opt"><span class="tick"></span></div>
+
+      <div class="row">100 &lt; 99</div>
+      <div class="opt"><span class="tick"></span></div>
+      <div class="opt"><span class="tick"></span></div>
+
+      <div class="row">(3 + 2) = 5</div>
+      <div class="opt"><span class="tick"></span></div>
+      <div class="opt"><span class="tick"></span></div>
+    </div>
+  </div>
+
+  <!-- Q2 TRACE -->
+  <div class="ex-q">
+    <div class="top">
+      <div class="qnum">2</div>
+      <span class="qtype predict">Predict</span>
+      <div class="qtitle">What does the cat say?</div>
+    </div>
+    <p>The cat asks: "Pick a number." For each input below, write what the cat replies.</p>
+    <div class="row2" style="grid-template-columns: 1.2fr 1fr; gap: 5mm;">
+      <div class="block-stack">
+        <span class="blk events hat">when ⚑ clicked</span>
+        <span class="blk sensing">ask <span class="val">Pick a number</span> and wait</span>
+        <span class="blk control c-top">if &nbsp;<span class="val op"><span class="val varpill">answer</span> &gt; <span class="val">10</span></span> &nbsp;then</span>
+        <span class="blk c-arm"></span>
+        <div class="c-inside"><span class="blk looks">say <span class="val">Big!</span></span></div>
+        <span class="blk control c-mid">else</span>
+        <div class="c-inside"><span class="blk looks">say <span class="val">Small!</span></span></div>
+        <span class="blk control c-bottom"></span>
+      </div>
+      <div>
+        <table class="ex-trace-tbl">
+          <tr><th>If you type…</th><th>Cat says…</th></tr>
+          <tr><td>15</td><td class="fill"></td></tr>
+          <tr><td>10</td><td class="fill"></td></tr>
+          <tr><td>3</td><td class="fill"></td></tr>
+          <tr><td>100</td><td class="fill"></td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q3 BUILD -->
+  <div class="ex-q">
+    <div class="top">
+      <div class="qnum">3</div>
+      <span class="qtype build">Build It!</span>
+      <div class="qtitle">Pass / Fail Reporter 📝</div>
+    </div>
+    <p>Build a script that asks the player for their <b>marks (out of 100)</b> and replies:</p>
+    <ul>
+      <li>If marks <b>≥ 90</b> → say <b>"Excellent! 🌟"</b></li>
+      <li>Else if marks <b>≥ 50</b> → say <b>"Pass 😊"</b></li>
+      <li>Else → say <b>"Try again 💪"</b></li>
+    </ul>
+    <p>How many <b>if … else</b> blocks do you need (nested)?</p>
+    <div class="ex-blank"></div>
+    <div style="margin-top: 3mm;"><span class="ex-checkbox"></span> I built a 3-level grader!</div>
+  </div>
+
+  <div class="ex-tip"><b>Tip —</b> Conditions are just questions with <b>yes</b> or <b>no</b> answers. The cat acts only when the answer is <b>yes (true)</b>.</div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Exercises · Conditionals</div>
+    <div class="pgnum">24</div>
   </div>
 </section>
 
@@ -3418,10 +2518,12 @@
     <div class="ch-eyebrow">Chapter Seven</div>
     <div class="ch-num">07</div>
     <div class="ch-title">Operators &amp; Maths Blocks</div>
-    <div class="ch-kicker">The <em>green</em> family — the maths brain of Scratch. We'll bring two famous Vedic sutras to life inside our code.</div>
+    <div class="ch-kicker">The <em>green</em> family — the maths brain of Scratch. We'll bring three famous Vedic sutras to life inside our code.</div>
     <div class="ch-pills">
       <div class="ch-pill">+ − × ÷</div>
       <div class="ch-pill">join &amp; pick</div>
+      <div class="ch-pill">Vedic Addition</div>
+      <div class="ch-pill">Vedic Subtraction</div>
       <div class="ch-pill">Nikhilam</div>
       <div class="ch-pill">Urdhva-Tiryagbhyām</div>
     </div>
@@ -3507,19 +2609,982 @@
   <div class="pagefoot">
     <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
     <div>Chapter 7 · Operators &amp; Maths</div>
-    <div class="pgnum">21</div>
+    <div class="pgnum">25</div>
   </div>
 </section>
 
 
 <!-- ============================================================
-     PAGE 28 · 7.2 NIKHILAM SUBTRACTION
+     PAGE 28 · 7.2 VEDIC ADDITION — SUTRAS & EXAMPLES
      ============================================================ -->
 <section class="page">
   <div class="ph">
     <div class="ph-left">
       <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
-      <h1>7.2 &nbsp;Vedic Algorithm 1 · <span class="accent">Nikhilam</span> Subtraction</h1>
+      <h1>7.2 &nbsp;Vedic Algorithm 1 · <span class="accent" style="color: var(--rose);">Vedic Addition</span></h1>
+    </div>
+    <div class="crumb"><b>Chapter 7</b>Operators &amp; Maths</div>
+  </div>
+
+  <div class="big-idea">
+    <div class="star">★</div>
+    <div>
+      <h3>The Sutra</h3>
+      <p><b>Kevalaih Saptakam Guṇyāt</b> and <b>Śūnyaṁ Sāmyasamuccaye</b> — the ancient sages gave us <i>smarter ways</i> to add. Vedic addition means <b>fewer carries</b>, <b>faster mental sums</b>, and a chance to add <b>from left to right</b> — the way we naturally read numbers!</p>
+    </div>
+  </div>
+
+  <h2 class="section">Three Vedic super-tricks for addition</h2>
+  <div class="add-methods">
+    <div class="m">
+      <span class="tag">Trick 1</span>
+      <h4>🎯 Make Tens</h4>
+      <p>Look for pairs of digits that add up to <b>10</b> (like <b>7 + 3</b>, <b>6 + 4</b>, <b>8 + 2</b>). Add those pairs first, then handle the rest. Tens are easy!</p>
+    </div>
+    <div class="m">
+      <span class="tag">Trick 2</span>
+      <h4>· The Dot Method</h4>
+      <p>Add a column top to bottom. Every time your running total reaches <b>10 or more</b>, place a <b class="dot" style="color: var(--rose);">•</b> next to that digit, subtract 10, and keep going. Each dot = <b>1 carry</b> to the next column.</p>
+    </div>
+    <div class="m" style="grid-column: 1 / -1;">
+      <span class="tag">Trick 3</span>
+      <h4>⬅ Left-to-Right Addition</h4>
+      <p>Instead of the usual right-to-left, add the <b>biggest place value first</b>. Adjust the number as you move right — whenever a column reaches 10+, bump the left digit up by 1. This is how mental maths champions do it!</p>
+    </div>
+  </div>
+
+  <h2 class="section">Worked example — with the <span style="color: var(--rose);">Dot Method</span></h2>
+  <p style="font-size: 10.5pt;">Add: &nbsp; <b>348 + 521 + 146</b>. &nbsp;Work column by column, right to left.</p>
+
+  <div class="vedic-walk">
+    <div class="vw-head">
+      Dot Method &middot; column by column
+      <span class="sutra-name">Śuddha · "Pure column addition"</span>
+    </div>
+    <table>
+      <tr>
+        <th>Ones</th>
+        <td><span class="num">8 + 1 + 6 = 15</span> &nbsp;→&nbsp; write <b>5</b>, place <b style="color: var(--rose);">•</b> above the tens column &nbsp;<i>(1 carry)</i></td>
+      </tr>
+      <tr>
+        <th>Tens</th>
+        <td><span class="num">4 + 2 + 4 = 10</span>, plus the <b style="color: var(--rose);">•</b> makes <span class="num">11</span> &nbsp;→&nbsp; write <b>1</b>, place <b style="color: var(--rose);">•</b> above the hundreds &nbsp;<i>(1 carry)</i></td>
+      </tr>
+      <tr>
+        <th>Hundreds</th>
+        <td><span class="num">3 + 5 + 1 = 9</span>, plus the <b style="color: var(--rose);">•</b> makes <span class="num">10</span> &nbsp;→&nbsp; write <b>10</b> &nbsp;<i>(the last column can spill into thousands)</i></td>
+      </tr>
+      <tr class="answer-row">
+        <th>Answer</th>
+        <td><span class="num" style="font-size: 16pt; color: var(--leaf);">1 0 1 5</span> &nbsp; ✅ &nbsp; 348 + 521 + 146 = <b>1015</b></td>
+      </tr>
+    </table>
+  </div>
+
+  <h2 class="section">Worked example — using <span style="color: var(--leaf);">Make Tens</span></h2>
+  <p style="font-size: 10.5pt;">Add: &nbsp; <b>7 + 3 + 8 + 2 + 5</b>. &nbsp;Spot the pairs that make 10 first!</p>
+
+  <div class="add-example-wrap">
+    <div class="add-col">
+      <span class="row">7</span>
+      <span class="row">3</span>
+      <span class="row">8</span>
+      <span class="row">2</span>
+      <span class="row"><span class="op">+</span>5</span>
+      <div class="rule"></div>
+      <span class="row sum">25</span>
+    </div>
+    <div>
+      <h4>Steps</h4>
+      <ol>
+        <li><b>7 + 3 = 10</b> &nbsp;<i>(first pair)</i></li>
+        <li><b>8 + 2 = 10</b> &nbsp;<i>(second pair)</i></li>
+        <li>Left over: <b>5</b></li>
+        <li><b>10 + 10 + 5 = 25</b> &nbsp;✅</li>
+      </ol>
+      <p style="font-size: 9.5pt; color: var(--ink-soft); margin-top: 1mm;"><i>No carrying, no scratching — just pair, group and go!</i></p>
+    </div>
+  </div>
+
+  <div class="didyou">
+    <span class="lbl">Why Vedic addition is powerful</span>
+    You do <b>less writing</b>, use <b>fewer carries</b>, and can often reach the answer in your <b>head</b>. The same tricks scale up beautifully — whether you're adding three single digits or four 4-digit numbers. Ready to try?
+  </div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Chapter 7 · Operators &amp; Maths</div>
+    <div class="pgnum">26</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 29 · 7.2 VEDIC ADDITION PRACTICE — PART 1 (Q1–15)
+     ============================================================ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>Vedic Addition &middot; <span class="accent" style="color: var(--rose);">Practice</span> &nbsp;<span style="font-size: 12pt; color: var(--ink-soft);">Part 1 · Q1–15</span></h1>
+    </div>
+    <div class="crumb"><b>Chapter 7</b>Practice</div>
+  </div>
+
+  <div class="aw-hero">
+    <div class="icon">🧮</div>
+    <div>
+      <h2>Solve using your favourite Vedic trick!</h2>
+      <p>Use <b>Make Tens</b>, the <b>Dot Method</b>, or <b>Left-to-Right</b>. Write the sum on the answer line under each stack.</p>
+    </div>
+  </div>
+
+  <div class="aw-grid">
+    <!-- Row 1 -->
+    <div class="aw-cell">
+      <div class="qn">1.</div>
+      <div class="aw-stack">
+        <span class="row">4</span>
+        <span class="row">7</span>
+        <span class="row plus">5</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn">2.</div>
+      <div class="aw-stack">
+        <span class="row">8</span>
+        <span class="row">3</span>
+        <span class="row plus">6</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn">3.</div>
+      <div class="aw-stack">
+        <span class="row">9</span>
+        <span class="row">5</span>
+        <span class="row plus">2</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="aw-cell">
+      <div class="qn">4.</div>
+      <div class="aw-stack">
+        <span class="row">6</span>
+        <span class="row">8</span>
+        <span class="row plus">4</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn">5.</div>
+      <div class="aw-stack">
+        <span class="row">7</span>
+        <span class="row">9</span>
+        <span class="row plus">3</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn">6.</div>
+      <div class="aw-stack">
+        <span class="row">5</span>
+        <span class="row">4</span>
+        <span class="row plus">8</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="aw-cell">
+      <div class="qn">7.</div>
+      <div class="aw-stack">
+        <span class="row">3</span>
+        <span class="row">7</span>
+        <span class="row plus">9</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn">8.</div>
+      <div class="aw-stack">
+        <span class="row">2</span>
+        <span class="row">8</span>
+        <span class="row plus">6</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn">9.</div>
+      <div class="aw-stack">
+        <span class="row">9</span>
+        <span class="row">4</span>
+        <span class="row plus">5</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+
+    <!-- Row 4 -->
+    <div class="aw-cell">
+      <div class="qn">10.</div>
+      <div class="aw-stack">
+        <span class="row">8</span>
+        <span class="row">6</span>
+        <span class="row plus">7</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn">11.</div>
+      <div class="aw-stack">
+        <span class="row">348</span>
+        <span class="row">521</span>
+        <span class="row plus">146</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn">12.</div>
+      <div class="aw-stack">
+        <span class="row">672</span>
+        <span class="row">184</span>
+        <span class="row plus">239</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+
+    <!-- Row 5 -->
+    <div class="aw-cell">
+      <div class="qn">13.</div>
+      <div class="aw-stack">
+        <span class="row">405</span>
+        <span class="row">398</span>
+        <span class="row plus">507</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn">14.</div>
+      <div class="aw-stack">
+        <span class="row">918</span>
+        <span class="row">276</span>
+        <span class="row plus">134</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn">15.</div>
+      <div class="aw-stack">
+        <span class="row">731</span>
+        <span class="row">529</span>
+        <span class="row plus">168</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ex-tip" style="margin-top: 4mm;"><b>Tip —</b> For single-digit stacks (Q1–10), first scan for pairs that make <b>10</b>. For 3-digit stacks (Q11–15), use the <b>Dot Method</b> — one column at a time!</div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Chapter 7 · Vedic Addition Practice</div>
+    <div class="pgnum">27</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 30 · 7.2 VEDIC ADDITION PRACTICE — PART 2 (Q16–30)
+     ============================================================ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>Vedic Addition &middot; <span class="accent" style="color: var(--rose);">Practice</span> &nbsp;<span style="font-size: 12pt; color: var(--ink-soft);">Part 2 · Q16–30</span></h1>
+    </div>
+    <div class="crumb"><b>Chapter 7</b>Practice</div>
+  </div>
+
+  <div class="aw-hero">
+    <div class="icon">➕</div>
+    <div>
+      <h2>Level up — big numbers, same tricks!</h2>
+      <p>Now try 3-digit and 4-digit sums. The <b>Dot Method</b> is your best friend here — one column at a time, top to bottom.</p>
+    </div>
+  </div>
+
+  <div class="aw-grid">
+    <!-- Row 6 -->
+    <div class="aw-cell">
+      <div class="qn">16.</div>
+      <div class="aw-stack">
+        <span class="row">482</span>
+        <span class="row">316</span>
+        <span class="row plus">295</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn">17.</div>
+      <div class="aw-stack">
+        <span class="row">659</span>
+        <span class="row">207</span>
+        <span class="row plus">481</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn">18.</div>
+      <div class="aw-stack">
+        <span class="row">874</span>
+        <span class="row">125</span>
+        <span class="row plus">699</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+
+    <!-- Row 7 -->
+    <div class="aw-cell">
+      <div class="qn">19.</div>
+      <div class="aw-stack">
+        <span class="row">543</span>
+        <span class="row">612</span>
+        <span class="row plus">178</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn">20.</div>
+      <div class="aw-stack">
+        <span class="row">296</span>
+        <span class="row">483</span>
+        <span class="row plus">721</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn">21.</div>
+      <div class="aw-stack">
+        <span class="row">3482</span>
+        <span class="row">5917</span>
+        <span class="row">2604</span>
+        <span class="row plus">1489</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+
+    <!-- Row 8 -->
+    <div class="aw-cell">
+      <div class="qn">22.</div>
+      <div class="aw-stack">
+        <span class="row">7265</span>
+        <span class="row">1834</span>
+        <span class="row">5901</span>
+        <span class="row plus">&nbsp;274</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn">23.</div>
+      <div class="aw-stack">
+        <span class="row">9054</span>
+        <span class="row">2178</span>
+        <span class="row">3615</span>
+        <span class="row plus">4203</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn">24.</div>
+      <div class="aw-stack">
+        <span class="row">6429</span>
+        <span class="row">1857</span>
+        <span class="row">&nbsp;904</span>
+        <span class="row plus">7136</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+
+    <!-- Row 9 -->
+    <div class="aw-cell">
+      <div class="qn">25.</div>
+      <div class="aw-stack">
+        <span class="row">5298</span>
+        <span class="row">3467</span>
+        <span class="row">1859</span>
+        <span class="row plus">6274</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn">26.</div>
+      <div class="aw-stack">
+        <span class="row">8143</span>
+        <span class="row">2765</span>
+        <span class="row">3928</span>
+        <span class="row plus">1456</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn">27.</div>
+      <div class="aw-stack">
+        <span class="row">9731</span>
+        <span class="row">2684</span>
+        <span class="row">5419</span>
+        <span class="row plus">3207</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+
+    <!-- Row 10 -->
+    <div class="aw-cell">
+      <div class="qn">28.</div>
+      <div class="aw-stack">
+        <span class="row">4862</span>
+        <span class="row">7135</span>
+        <span class="row">2594</span>
+        <span class="row plus">4081</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn">29.</div>
+      <div class="aw-stack">
+        <span class="row">6509</span>
+        <span class="row">1846</span>
+        <span class="row">9723</span>
+        <span class="row plus">3158</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn">30.</div>
+      <div class="aw-stack">
+        <span class="row">4327</span>
+        <span class="row">5896</span>
+        <span class="row">2715</span>
+        <span class="row plus">6048</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tickrow" style="margin-top: 4mm;">
+    <div class="box"></div> I finished all 30 &mdash; the Vedic way! &nbsp; ⭐
+  </div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Chapter 7 · Vedic Addition Practice</div>
+    <div class="pgnum">28</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 29 · 7.3 VEDIC SUBTRACTION — SUTRAS & EXAMPLES
+     ============================================================ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>7.3 &nbsp;Vedic Algorithm 2 · <span class="accent" style="color: var(--grape);">Vedic Subtraction</span></h1>
+    </div>
+    <div class="crumb"><b>Chapter 7</b>Operators &amp; Maths</div>
+  </div>
+
+  <div class="big-idea">
+    <div class="star">★</div>
+    <div>
+      <h3>The Sutra</h3>
+      <p><b>Nikhilam Navataścaramaṁ Daśataḥ</b> — <i>"All from 9 and the last from 10."</i> This one sutra unlocks <b>super-fast subtraction</b>. With a little twist called the <b>Complement Trick</b>, we can subtract any number from any number — <i>without borrowing even once!</i></p>
+    </div>
+  </div>
+
+  <h2 class="section">Three Vedic super-tricks for subtraction</h2>
+  <div class="add-methods">
+    <div class="m">
+      <span class="tag">Trick 1</span>
+      <h4>🎯 Nikhilam · From 10, 100, 1000…</h4>
+      <p>To find <b>1000 − 437</b>, apply the sutra: <b>9−4=5</b>, <b>9−3=6</b>, <b>10−7=3</b> &nbsp;→&nbsp; <b>563</b>. Every digit from 9, the last one from 10. That's it!</p>
+    </div>
+    <div class="m">
+      <span class="tag">Trick 2</span>
+      <h4>🪄 The Complement Trick</h4>
+      <p>For any subtraction, <b>round the bottom number up</b> to the nearest 10, 100 or 1000. Add the tiny <b>complement</b> to the top, then subtract the round number. No borrowing, no scratching!</p>
+    </div>
+    <div class="m" style="grid-column: 1 / -1;">
+      <span class="tag">Trick 3</span>
+      <h4>🧠 Think "What Completes the Top?"</h4>
+      <p>For small stacks like <b>15 − 7</b>, don't take away — <i>add up</i>! Ask: <b>7 + ? = 15</b>. Answer <b>8</b>. Your brain is already fast at addition; use that speed for subtraction too.</p>
+    </div>
+  </div>
+
+  <h2 class="section">Worked example — the <span style="color: var(--grape);">Complement Trick</span></h2>
+  <p style="font-size: 10.5pt;">Subtract: &nbsp; <b>452 − 76 = ?</b> &nbsp;The bottom (76) is close to <b>100</b> — let's use that.</p>
+
+  <div class="vedic-walk" style="border-color: var(--grape);">
+    <div class="vw-head" style="background: linear-gradient(90deg, var(--grape) 0%, #a58ce0 100%); color: #fff;">
+      Complement Method &middot; step by step
+      <span class="sutra-name">Nikhilam · complement to 100</span>
+    </div>
+    <table>
+      <tr>
+        <th>Step 1</th>
+        <td>Round the bottom (76) up to the nearest 100 &nbsp;→&nbsp; <span class="num">100</span></td>
+      </tr>
+      <tr>
+        <th>Step 2</th>
+        <td>Find the <b>complement</b> of 76 using Nikhilam: <span class="num">9−7 = 2</span>, <span class="num">10−6 = 4</span> &nbsp;→&nbsp; <span class="num">24</span></td>
+      </tr>
+      <tr>
+        <th>Step 3</th>
+        <td><b>Add</b> the complement to the top: &nbsp;<span class="num">452 + 24 = 476</span></td>
+      </tr>
+      <tr>
+        <th>Step 4</th>
+        <td><b>Subtract</b> the round number: &nbsp;<span class="num">476 − 100 = 376</span></td>
+      </tr>
+      <tr class="answer-row">
+        <th>Answer</th>
+        <td><span class="num" style="font-size: 16pt; color: var(--leaf);">376</span> &nbsp; ✅ &nbsp; 452 − 76 = <b>376</b> &nbsp; <i>(no borrowing!)</i></td>
+      </tr>
+    </table>
+  </div>
+
+  <h2 class="section">Bigger example — <span style="color: var(--grape);">5604 − 2786</span></h2>
+  <p style="font-size: 10.5pt;">Same trick, bigger numbers. Round <b>2786</b> up to <b>3000</b>.</p>
+
+  <div class="add-example-wrap" style="border-color: var(--grape); grid-template-columns: 36mm 1fr;">
+    <div class="add-col" style="border-color: var(--grape); background: #f7f3ff;">
+      <span class="row">5604</span>
+      <span class="row"><span class="op" style="color: var(--grape);">−</span>2786</span>
+      <div class="rule"></div>
+      <span class="row sum">2818</span>
+    </div>
+    <div>
+      <h4>Steps</h4>
+      <ol>
+        <li>Round <b>2786</b> up to <b>3000</b>.</li>
+        <li>Complement = <b>3000 − 2786 = 214</b>.</li>
+        <li>Add complement to top: <b>5604 + 214 = 5818</b>.</li>
+        <li>Subtract the round number: <b>5818 − 3000 = 2818</b> &nbsp;✅</li>
+      </ol>
+      <p style="font-size: 9.5pt; color: var(--ink-soft); margin-top: 1mm;"><i>The bigger the numbers, the more time the trick saves!</i></p>
+    </div>
+  </div>
+
+  <div class="didyou">
+    <span class="lbl">Why Vedic subtraction feels like magic</span>
+    Regular subtraction makes you <b>borrow</b> across columns — messy and slow. The <b>complement trick</b> turns subtraction into <i>a small addition + a subtraction from a round number</i>. Both parts are easy. Try it on the worksheet — you'll never subtract the old way again!
+  </div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Chapter 7 · Operators &amp; Maths</div>
+    <div class="pgnum">29</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 30 · 7.3 VEDIC SUBTRACTION PRACTICE — PART 1 (Q1–15)
+     ============================================================ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>Vedic Subtraction &middot; <span class="accent" style="color: var(--grape);">Practice</span> &nbsp;<span style="font-size: 12pt; color: var(--ink-soft);">Part 1 · Q1–15</span></h1>
+    </div>
+    <div class="crumb"><b>Chapter 7</b>Practice</div>
+  </div>
+
+  <div class="aw-hero" style="background: linear-gradient(135deg, var(--grape) 0%, #a58ce0 100%);">
+    <div class="icon">➖</div>
+    <div>
+      <h2>Warm-up — small numbers, big brains!</h2>
+      <p>Start with the "<b>What completes the top?</b>" trick. From Q11 onwards, try the <b>Complement Trick</b> — round the bottom up.</p>
+    </div>
+  </div>
+
+  <div class="aw-grid">
+    <!-- Row 1 -->
+    <div class="aw-cell">
+      <div class="qn" style="color: var(--grape);">1.</div>
+      <div class="aw-stack">
+        <span class="row">9</span>
+        <span class="row minus">4</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn" style="color: var(--grape);">2.</div>
+      <div class="aw-stack">
+        <span class="row">15</span>
+        <span class="row minus">&nbsp;7</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn" style="color: var(--grape);">3.</div>
+      <div class="aw-stack">
+        <span class="row">18</span>
+        <span class="row minus">&nbsp;9</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="aw-cell">
+      <div class="qn" style="color: var(--grape);">4.</div>
+      <div class="aw-stack">
+        <span class="row">27</span>
+        <span class="row minus">&nbsp;8</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn" style="color: var(--grape);">5.</div>
+      <div class="aw-stack">
+        <span class="row">34</span>
+        <span class="row minus">&nbsp;6</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn" style="color: var(--grape);">6.</div>
+      <div class="aw-stack">
+        <span class="row">42</span>
+        <span class="row minus">&nbsp;9</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="aw-cell">
+      <div class="qn" style="color: var(--grape);">7.</div>
+      <div class="aw-stack">
+        <span class="row">55</span>
+        <span class="row minus">&nbsp;7</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn" style="color: var(--grape);">8.</div>
+      <div class="aw-stack">
+        <span class="row">63</span>
+        <span class="row minus">&nbsp;8</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn" style="color: var(--grape);">9.</div>
+      <div class="aw-stack">
+        <span class="row">71</span>
+        <span class="row minus">&nbsp;9</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+
+    <!-- Row 4 -->
+    <div class="aw-cell">
+      <div class="qn" style="color: var(--grape);">10.</div>
+      <div class="aw-stack">
+        <span class="row">88</span>
+        <span class="row minus">&nbsp;5</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn" style="color: var(--grape);">11.</div>
+      <div class="aw-stack">
+        <span class="row">124</span>
+        <span class="row minus">&nbsp;&nbsp;8</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn" style="color: var(--grape);">12.</div>
+      <div class="aw-stack">
+        <span class="row">136</span>
+        <span class="row minus">&nbsp;19</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+
+    <!-- Row 5 -->
+    <div class="aw-cell">
+      <div class="qn" style="color: var(--grape);">13.</div>
+      <div class="aw-stack">
+        <span class="row">205</span>
+        <span class="row minus">&nbsp;17</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn" style="color: var(--grape);">14.</div>
+      <div class="aw-stack">
+        <span class="row">248</span>
+        <span class="row minus">&nbsp;39</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn" style="color: var(--grape);">15.</div>
+      <div class="aw-stack">
+        <span class="row">317</span>
+        <span class="row minus">&nbsp;28</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ex-tip" style="margin-top: 4mm; background: #f2ebff; border-left-color: var(--grape); color: #3a2b6b;"><b>Tip —</b> For Q11–15, round the bottom up to the nearest <b>10</b>. Example: <b>136 − 19</b>. Round 19 → 20, complement = 1. So <b>136 + 1 − 20 = 137 − 20 = 117</b>. ✨</div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Chapter 7 · Vedic Subtraction Practice</div>
+    <div class="pgnum">30</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 31 · 7.3 VEDIC SUBTRACTION PRACTICE — PART 2 (Q16–30)
+     ============================================================ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>Vedic Subtraction &middot; <span class="accent" style="color: var(--grape);">Practice</span> &nbsp;<span style="font-size: 12pt; color: var(--ink-soft);">Part 2 · Q16–30</span></h1>
+    </div>
+    <div class="crumb"><b>Chapter 7</b>Practice</div>
+  </div>
+
+  <div class="aw-hero" style="background: linear-gradient(135deg, var(--grape) 0%, #a58ce0 100%);">
+    <div class="icon">🪄</div>
+    <div>
+      <h2>Level up — the Complement Trick shines!</h2>
+      <p>For each sum: round the <b>bottom</b> up to the nearest <b>100</b> or <b>1000</b>, add the tiny complement to the top, then subtract the round number.</p>
+    </div>
+  </div>
+
+  <div class="aw-grid">
+    <!-- Row 6 -->
+    <div class="aw-cell">
+      <div class="qn" style="color: var(--grape);">16.</div>
+      <div class="aw-stack">
+        <span class="row">452</span>
+        <span class="row minus">&nbsp;76</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn" style="color: var(--grape);">17.</div>
+      <div class="aw-stack">
+        <span class="row">584</span>
+        <span class="row minus">&nbsp;98</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn" style="color: var(--grape);">18.</div>
+      <div class="aw-stack">
+        <span class="row">673</span>
+        <span class="row minus">157</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+
+    <!-- Row 7 -->
+    <div class="aw-cell">
+      <div class="qn" style="color: var(--grape);">19.</div>
+      <div class="aw-stack">
+        <span class="row">805</span>
+        <span class="row minus">286</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn" style="color: var(--grape);">20.</div>
+      <div class="aw-stack">
+        <span class="row">946</span>
+        <span class="row minus">458</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn" style="color: var(--grape);">21.</div>
+      <div class="aw-stack">
+        <span class="row">1234</span>
+        <span class="row minus">&nbsp;567</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+
+    <!-- Row 8 -->
+    <div class="aw-cell">
+      <div class="qn" style="color: var(--grape);">22.</div>
+      <div class="aw-stack">
+        <span class="row">2456</span>
+        <span class="row minus">&nbsp;789</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn" style="color: var(--grape);">23.</div>
+      <div class="aw-stack">
+        <span class="row">3810</span>
+        <span class="row minus">1945</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn" style="color: var(--grape);">24.</div>
+      <div class="aw-stack">
+        <span class="row">4728</span>
+        <span class="row minus">1859</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+
+    <!-- Row 9 -->
+    <div class="aw-cell">
+      <div class="qn" style="color: var(--grape);">25.</div>
+      <div class="aw-stack">
+        <span class="row">5604</span>
+        <span class="row minus">2786</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn" style="color: var(--grape);">26.</div>
+      <div class="aw-stack">
+        <span class="row">6842</span>
+        <span class="row minus">3957</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn" style="color: var(--grape);">27.</div>
+      <div class="aw-stack">
+        <span class="row">7420</span>
+        <span class="row minus">1865</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+
+    <!-- Row 10 -->
+    <div class="aw-cell">
+      <div class="qn" style="color: var(--grape);">28.</div>
+      <div class="aw-stack">
+        <span class="row">8531</span>
+        <span class="row minus">4978</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn" style="color: var(--grape);">29.</div>
+      <div class="aw-stack">
+        <span class="row">9164</span>
+        <span class="row minus">5879</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+    <div class="aw-cell">
+      <div class="qn" style="color: var(--grape);">30.</div>
+      <div class="aw-stack">
+        <span class="row">12035</span>
+        <span class="row minus">&nbsp;6847</span>
+        <div class="rule"></div>
+        <div class="ans"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tickrow" style="margin-top: 4mm;">
+    <div class="box"></div> I finished all 30 subtractions &mdash; the Vedic way, no borrowing! &nbsp; ⭐
+  </div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Chapter 7 · Vedic Subtraction Practice</div>
+    <div class="pgnum">31</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 32 · 7.4 NIKHILAM SUBTRACTION (in Scratch)
+     ============================================================ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>7.4 &nbsp;Vedic Algorithm 3 · <span class="accent">Nikhilam</span> in Scratch</h1>
     </div>
     <div class="crumb"><b>Chapter 7</b>Operators &amp; Maths</div>
   </div>
@@ -3601,19 +3666,19 @@
   <div class="pagefoot">
     <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
     <div>Chapter 7 · Operators &amp; Maths</div>
-    <div class="pgnum">22</div>
+    <div class="pgnum">32</div>
   </div>
 </section>
 
 
 <!-- ============================================================
-     PAGE 29 · 7.3 URDHVA-TIRYAGBHYAM MULTIPLICATION
+     PAGE 33 · 7.5 URDHVA-TIRYAGBHYAM MULTIPLICATION
      ============================================================ -->
 <section class="page">
   <div class="ph">
     <div class="ph-left">
       <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
-      <h1>7.3 &nbsp;Vedic Algorithm 2 · <span class="accent">Urdhva</span> Multiplication</h1>
+      <h1>7.5 &nbsp;Vedic Algorithm 4 · <span class="accent">Urdhva</span> Multiplication</h1>
     </div>
     <div class="crumb"><b>Chapter 7</b>Operators &amp; Maths</div>
   </div>
@@ -3710,13 +3775,1013 @@
   <div class="pagefoot">
     <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
     <div>Chapter 7 · Operators &amp; Maths</div>
-    <div class="pgnum">23</div>
+    <div class="pgnum">33</div>
   </div>
 </section>
 
 
 <!-- ============================================================
-     PAGE 30 · CONGRATULATIONS · END OF WORKBOOK
+     EXERCISES — OPERATORS & MATHS (CHAPTER 7)
+     ============================================================ -->
+<section class="page ex-page t7">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>Exercises &middot; <span class="accent" style="color: var(--rose);">Operators &amp; Maths</span></h1>
+    </div>
+    <div class="crumb"><b>Chapter 7</b>Practice</div>
+  </div>
+
+  <div class="ex-hero">
+    <div class="icon">🧮</div>
+    <div>
+      <h2>Crunch the numbers!</h2>
+      <p>The green family is your maths toolbox. Time to wield it like a pro.</p>
+    </div>
+  </div>
+
+  <!-- Q1 CALC -->
+  <div class="ex-q">
+    <div class="top">
+      <div class="qnum">1</div>
+      <span class="qtype calc">Calculate</span>
+      <div class="qtitle">Solve mentally — then check in Scratch.</div>
+    </div>
+    <p>Given: <b>a = 2, b = 3, c = 4, d = 5</b>. Find the value of:</p>
+    <table class="ex-trace-tbl">
+      <tr><th style="width:45%;">Expression</th><th>Working</th><th>Answer</th></tr>
+      <tr><td>(a + b)</td><td class="fill"></td><td class="fill"></td></tr>
+      <tr><td>(c &times; d)</td><td class="fill"></td><td class="fill"></td></tr>
+      <tr><td>(a &times; d) + (b &times; c)</td><td class="fill"></td><td class="fill"></td></tr>
+      <tr><td>(a + b) &times; (c + d)</td><td class="fill"></td><td class="fill"></td></tr>
+    </table>
+  </div>
+
+  <!-- Q2 BUILD EXPRESSION -->
+  <div class="ex-q">
+    <div class="top">
+      <div class="qnum">2</div>
+      <span class="qtype match">Block Expression</span>
+      <div class="qtitle">Draw the green block stack.</div>
+    </div>
+    <p>How would you write <b>(5 &times; 2) + 3</b> using Scratch operator blocks? Sketch the block in the box (or describe which blocks go inside which).</p>
+    <div class="ex-write tall"></div>
+    <p style="font-size: 9.5pt; color: var(--ink-soft); margin-top: 1mm;">Hint: nest a green ✕ block <i>inside</i> a green + block.</p>
+  </div>
+
+  <!-- Q3 BUILD -->
+  <div class="ex-q">
+    <div class="top">
+      <div class="qnum">3</div>
+      <span class="qtype build">Build It!</span>
+      <div class="qtitle">Vedic Calculator — Squares ending in 5</div>
+    </div>
+    <p>The sutra <b>Ekadhikena Purvena</b> says: <b>(N5)² = N × (N+1)</b> followed by <b>25</b>. Example: <b>35² = 3 × 4 = 12</b> &rArr; <b>1225</b>.</p>
+    <ol>
+      <li>Build a Scratch script that asks for a number <b>N</b> (like 3, 4, 5…).</li>
+      <li>Compute <b>front = N × (N + 1)</b>.</li>
+      <li>Use <b>join</b> to display <b>front</b> followed by <b>25</b>.</li>
+    </ol>
+    <p>Write the answers your project should give for these inputs:</p>
+    <table class="ex-trace-tbl">
+      <tr><th>Input N</th><th>front (N×(N+1))</th><th>Answer (join with 25)</th></tr>
+      <tr><td>3 &nbsp;(so 35²)</td><td class="fill"></td><td class="fill"></td></tr>
+      <tr><td>7 &nbsp;(so 75²)</td><td class="fill"></td><td class="fill"></td></tr>
+      <tr><td>9 &nbsp;(so 95²)</td><td class="fill"></td><td class="fill"></td></tr>
+    </table>
+    <div style="margin-top: 3mm;"><span class="ex-checkbox"></span> My Vedic Squarer works!</div>
+  </div>
+
+  <div class="ex-tip"><b>Tip —</b> Inside Scratch, big maths is just <i>small green blocks stacked inside each other</i>. Build slowly, test each step.</div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Exercises · Operators &amp; Maths</div>
+    <div class="pgnum">34</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ANSWER KEY DIVIDER
+     ============================================================ -->
+<section class="page divider d8">
+  <div class="div-inner">
+    <div class="ch-eyebrow">For Self-Check, Parents &amp; Teachers</div>
+    <div class="ch-num">✓</div>
+    <div class="ch-title">Answer Key</div>
+    <div class="ch-kicker">Solutions to every exercise from Chapters 3 to 7. Try the questions first on your own — <em>then</em> peek here to check your work. The struggle is where the real learning happens!</div>
+    <div class="ch-pills">
+      <div class="ch-pill">Ch 3 · Sequencing</div>
+      <div class="ch-pill">Ch 4 · Loops</div>
+      <div class="ch-pill">Ch 5 · Variables</div>
+      <div class="ch-pill">Ch 6 · Conditionals</div>
+      <div class="ch-pill">Ch 7 · Operators</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ANSWER KEY · CHAPTER 3 · SEQUENCING & EVENTS
+     ============================================================ -->
+<section class="page ex-page t3">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>Answers &middot; <span class="accent" style="color: var(--gold);">Sequencing &amp; Events</span></h1>
+    </div>
+    <div class="crumb"><b>Chapter 3</b>Answer Key</div>
+  </div>
+
+  <div class="ex-hero">
+    <div class="icon">✓</div>
+    <div>
+      <h2>Sequencing &amp; Events — Solutions</h2>
+      <p>Try the questions first. <i>Then</i> peek here to check.</p>
+    </div>
+  </div>
+
+  <div class="ex-q">
+    <div class="top">
+      <div class="qnum">1</div>
+      <span class="qtype predict">Predict</span>
+      <div class="qtitle">Order on the stage</div>
+    </div>
+    <p>Blocks always run <b>top to bottom</b>. So the order is: <b>move 30 → say "Hello!" → play meow → turn 15°.</b></p>
+    <table class="ex-trace-tbl">
+      <tr><th style="width:24mm;">Order</th><th>What happens</th></tr>
+      <tr><td style="text-align:center;"><b>1</b></td><td>Cat moves 30 steps</td></tr>
+      <tr><td style="text-align:center;"><b>2</b></td><td>Cat says "Hello!"</td></tr>
+      <tr><td style="text-align:center;"><b>3</b></td><td>Cat plays meow sound</td></tr>
+      <tr><td style="text-align:center;"><b>4</b></td><td>Cat turns 15°</td></tr>
+    </table>
+  </div>
+
+  <div class="ex-q">
+    <div class="top">
+      <div class="qnum">2</div>
+      <span class="qtype fix">Fix the Bug</span>
+      <div class="qtitle">Correct stack</div>
+    </div>
+    <p>Riya wants <i>say "Hi"</i> first, <i>then jump</i>. Correct order:</p>
+    <div class="block-stack" style="max-width: 70mm;">
+      <span class="blk events hat">when ⚑ clicked</span>
+      <span class="blk looks">say <span class="val">Hi!</span> for <span class="val">1</span> sec</span>
+      <span class="blk motion">move <span class="val">50</span> steps</span>
+    </div>
+  </div>
+
+  <div class="ex-q">
+    <div class="top">
+      <div class="qnum">3</div>
+      <span class="qtype build">Build It!</span>
+      <div class="qtitle">Birthday Sprite</div>
+    </div>
+    <p>The Events block that starts your script when the space-bar is pressed:</p>
+    <p><b>when [space] key pressed</b> &nbsp; <span style="color: var(--ink-soft);">(yellow Events block, with the dropdown set to <i>space</i>)</span></p>
+  </div>
+
+  <div class="ex-tip"><b>Remember —</b> the block at the <b>top of the stack</b> always runs <i>first</i>. Change the order, change the story.</div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Answer Key · Sequencing &amp; Events</div>
+    <div class="pgnum">35</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ANSWER KEY · CHAPTER 4 · LOOPS
+     ============================================================ -->
+<section class="page ex-page t4">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>Answers &middot; <span class="accent" style="color: var(--coral);">Loops</span></h1>
+    </div>
+    <div class="crumb"><b>Chapter 4</b>Answer Key</div>
+  </div>
+
+  <div class="ex-hero">
+    <div class="icon">✓</div>
+    <div>
+      <h2>Loops — Solutions</h2>
+      <p>One loop block can do the work of dozens. Check your counts below.</p>
+    </div>
+  </div>
+
+  <div class="ex-q">
+    <div class="top">
+      <div class="qnum">1</div>
+      <span class="qtype trace">Count It</span>
+      <div class="qtitle">How many times?</div>
+    </div>
+    <table class="ex-trace-tbl">
+      <tr><th style="width:50%;">Loop</th><th>Inside runs how many times?</th></tr>
+      <tr><td>repeat 10</td><td><b>10</b> times</td></tr>
+      <tr><td>repeat 25</td><td><b>25</b> times</td></tr>
+      <tr><td>forever</td><td><b>Forever</b> — until you press the red ■ (stop)</td></tr>
+      <tr><td>repeat 4 inside repeat 3</td><td><b>12</b> times (outer 3 × inner 4)</td></tr>
+    </table>
+  </div>
+
+  <div class="ex-q">
+    <div class="top">
+      <div class="qnum">2</div>
+      <span class="qtype match">Match the Shape</span>
+      <div class="qtitle">repeat &times; turn = ?</div>
+    </div>
+    <p><b>Rule:</b> turn = 360° ÷ number of sides.</p>
+    <table class="ex-trace-tbl">
+      <tr><th>Shape</th><th>repeat</th><th>turn (degrees)</th></tr>
+      <tr><td>Triangle</td><td>3</td><td><b>120°</b></td></tr>
+      <tr><td>Square</td><td><b>4</b></td><td>90°</td></tr>
+      <tr><td>Pentagon</td><td>5</td><td><b>72°</b></td></tr>
+      <tr><td>Octagon</td><td><b>8</b></td><td><b>45°</b></td></tr>
+    </table>
+  </div>
+
+  <div class="ex-q">
+    <div class="top">
+      <div class="qnum">3</div>
+      <span class="qtype build">Build It!</span>
+      <div class="qtitle">Rocket Countdown</div>
+    </div>
+    <p>To make the counter go down from 10 to 1, use:</p>
+    <p><b>change counter by &minus;1</b> &nbsp; <span style="color: var(--ink-soft);">(negative one — orange Variables block)</span></p>
+  </div>
+
+  <div class="ex-tip"><b>Remember —</b> a loop is just <i>"do this again"</i>. If you're copying blocks more than twice — switch to a loop.</div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Answer Key · Loops</div>
+    <div class="pgnum">36</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ANSWER KEY · CHAPTER 5 · VARIABLES & LISTS
+     ============================================================ -->
+<section class="page ex-page t5">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>Answers &middot; <span class="accent" style="color: var(--grape);">Variables &amp; Lists</span></h1>
+    </div>
+    <div class="crumb"><b>Chapter 5</b>Answer Key</div>
+  </div>
+
+  <div class="ex-hero">
+    <div class="icon">✓</div>
+    <div>
+      <h2>Variables &amp; Lists — Solutions</h2>
+      <p>Trace each step in order. Remember: <b>set</b> replaces, <b>change</b> adds to.</p>
+    </div>
+  </div>
+
+  <div class="ex-q">
+    <div class="top">
+      <div class="qnum">1</div>
+      <span class="qtype trace">Trace It</span>
+      <div class="qtitle">What's in the score box?</div>
+    </div>
+    <p>Start: <b>score = 0</b>.</p>
+    <table class="ex-trace-tbl">
+      <tr><th style="width:55%;">Instruction</th><th>score is now…</th></tr>
+      <tr><td>change score by 5</td><td><b>5</b></td></tr>
+      <tr><td>change score by 3</td><td><b>8</b></td></tr>
+      <tr><td>set score to 10</td><td><b>10</b>&nbsp; <span style="color: var(--ink-soft); font-size:9pt;">(set replaces!)</span></td></tr>
+      <tr><td>change score by &minus;4</td><td><b>6</b></td></tr>
+      <tr><td>change score by 1</td><td><b>7</b></td></tr>
+    </table>
+  </div>
+
+  <div class="ex-q">
+    <div class="top">
+      <div class="qnum">2</div>
+      <span class="qtype trace">List Trace</span>
+      <div class="qtitle">Final list</div>
+    </div>
+    <p>Trace:&nbsp; [apple] → [apple, banana] → [apple, banana, cherry] → <b>delete item 1</b> → [banana, cherry] → [banana, cherry, date].</p>
+    <p>Final <b>fruits</b> list (only 3 items remain):</p>
+    <div style="display: flex; gap: 3mm; flex-wrap: wrap;">
+      <div class="var-box"><div class="vlabel">1</div><div class="vval" style="min-width: 22mm;"><b>banana</b></div></div>
+      <div class="var-box"><div class="vlabel">2</div><div class="vval" style="min-width: 22mm;"><b>cherry</b></div></div>
+      <div class="var-box"><div class="vlabel">3</div><div class="vval" style="min-width: 22mm;"><b>date</b></div></div>
+      <div class="var-box"><div class="vlabel">4</div><div class="vval" style="min-width: 22mm; color: var(--ink-soft);">— empty —</div></div>
+    </div>
+  </div>
+
+  <div class="ex-q">
+    <div class="top">
+      <div class="qnum">3</div>
+      <span class="qtype build">Build It!</span>
+      <div class="qtitle">Friend Collector</div>
+    </div>
+    <p>Outline of a correct project:</p>
+    <ol>
+      <li>Make a list called <b>friends</b>.</li>
+      <li>Use <b>repeat 3</b> with: <i>ask "Friend's name?" and wait</i>, then <i>add (answer) to friends</i>.</li>
+      <li>Use another <b>repeat 3</b> with a counter <b>i</b>: <i>say (item i of friends)</i> for 1 sec, then <i>change i by 1</i>.</li>
+    </ol>
+  </div>
+
+  <div class="ex-tip"><b>Remember —</b> deleting item 1 always shifts every other item <i>up</i> by one. That's why the final list is only 3 long, not 4.</div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Answer Key · Variables &amp; Lists</div>
+    <div class="pgnum">37</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ANSWER KEY · CHAPTER 6 · CONDITIONALS
+     ============================================================ -->
+<section class="page ex-page t6">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>Answers &middot; <span class="accent" style="color: var(--leaf);">Conditionals</span></h1>
+    </div>
+    <div class="crumb"><b>Chapter 6</b>Answer Key</div>
+  </div>
+
+  <div class="ex-hero">
+    <div class="icon">✓</div>
+    <div>
+      <h2>Conditionals — Solutions</h2>
+      <p>Every condition is a question with a <b>yes/no</b> answer. Let's check yours.</p>
+    </div>
+  </div>
+
+  <div class="ex-q">
+    <div class="top">
+      <div class="qnum">1</div>
+      <span class="qtype trace">True or False?</span>
+      <div class="qtitle">Answers</div>
+    </div>
+    <table class="ex-trace-tbl">
+      <tr><th style="width:55%;">Condition</th><th>Answer</th></tr>
+      <tr><td>10 &gt; 5</td><td><b>True</b></td></tr>
+      <tr><td>7 = 7</td><td><b>True</b></td></tr>
+      <tr><td>"cat" = "Cat"</td><td><b>True</b> in Scratch <span style="color: var(--ink-soft); font-size: 9pt;">(Scratch ignores capital letters in =). In most other coding languages this would be <b>False</b>.</span></td></tr>
+      <tr><td>100 &lt; 99</td><td><b>False</b></td></tr>
+      <tr><td>(3 + 2) = 5</td><td><b>True</b></td></tr>
+    </table>
+  </div>
+
+  <div class="ex-q">
+    <div class="top">
+      <div class="qnum">2</div>
+      <span class="qtype predict">Predict</span>
+      <div class="qtitle">What does the cat say?</div>
+    </div>
+    <p>Condition: <b>answer &gt; 10</b>. If true → "Big!", else → "Small!".</p>
+    <table class="ex-trace-tbl">
+      <tr><th style="width:30mm;">If you type…</th><th>Cat says…</th></tr>
+      <tr><td>15</td><td><b>Big!</b> &nbsp; <span style="color: var(--ink-soft); font-size:9pt;">(15 &gt; 10 is true)</span></td></tr>
+      <tr><td>10</td><td><b>Small!</b> &nbsp; <span style="color: var(--ink-soft); font-size:9pt;">(10 &gt; 10 is false — &gt; means <i>strictly</i> greater)</span></td></tr>
+      <tr><td>3</td><td><b>Small!</b></td></tr>
+      <tr><td>100</td><td><b>Big!</b></td></tr>
+    </table>
+  </div>
+
+  <div class="ex-q">
+    <div class="top">
+      <div class="qnum">3</div>
+      <span class="qtype build">Build It!</span>
+      <div class="qtitle">Pass / Fail Reporter</div>
+    </div>
+    <p>You need <b>2 nested if-else blocks</b>:</p>
+    <ol>
+      <li>Outer: <b>if</b> answer ≥ 90 → say "Excellent! 🌟" &nbsp; <b>else</b> &hellip;</li>
+      <li>Inner (in the else): <b>if</b> answer ≥ 50 → say "Pass 😊" &nbsp; <b>else</b> say "Try again 💪".</li>
+    </ol>
+  </div>
+
+  <div class="ex-tip"><b>Remember —</b> the symbol <b>&gt;</b> is <i>strictly greater than</i>. For "10 or more", use <b>≥</b> (or check <b>not (answer &lt; 10)</b>).</div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Answer Key · Conditionals</div>
+    <div class="pgnum">38</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ANSWER KEY · CHAPTER 7 · OPERATORS & MATHS
+     ============================================================ -->
+<section class="page ex-page t7">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>Answers &middot; <span class="accent" style="color: var(--rose);">Operators &amp; Maths</span></h1>
+    </div>
+    <div class="crumb"><b>Chapter 7</b>Answer Key</div>
+  </div>
+
+  <div class="ex-hero">
+    <div class="icon">✓</div>
+    <div>
+      <h2>Operators &amp; Maths — Solutions</h2>
+      <p>BODMAS still rules — even when you're stacking green blocks.</p>
+    </div>
+  </div>
+
+  <div class="ex-q">
+    <div class="top">
+      <div class="qnum">1</div>
+      <span class="qtype calc">Calculate</span>
+      <div class="qtitle">a = 2, b = 3, c = 4, d = 5</div>
+    </div>
+    <table class="ex-trace-tbl">
+      <tr><th style="width:40%;">Expression</th><th>Working</th><th>Answer</th></tr>
+      <tr><td>(a + b)</td><td>2 + 3</td><td><b>5</b></td></tr>
+      <tr><td>(c &times; d)</td><td>4 &times; 5</td><td><b>20</b></td></tr>
+      <tr><td>(a &times; d) + (b &times; c)</td><td>(2&times;5) + (3&times;4) = 10 + 12</td><td><b>22</b></td></tr>
+      <tr><td>(a + b) &times; (c + d)</td><td>(2+3) &times; (4+5) = 5 &times; 9</td><td><b>45</b></td></tr>
+    </table>
+  </div>
+
+  <div class="ex-q">
+    <div class="top">
+      <div class="qnum">2</div>
+      <span class="qtype match">Block Expression</span>
+      <div class="qtitle">(5 &times; 2) + 3</div>
+    </div>
+    <p>Nest a green <b>&times; block</b> <i>inside</i> a green <b>+ block</b>:</p>
+    <p style="font-family: Consolas, monospace; background: var(--bg-tint); padding: 3mm; border-radius: 2mm;">
+      <span style="background: var(--s-operators); color: #fff; padding: 1mm 2mm; border-radius: 2mm;">(&nbsp;<span style="background: var(--s-operators); padding: 0.5mm 2mm; border-radius: 2mm;">5 &times; 2</span>&nbsp; +&nbsp; 3&nbsp;)</span>
+    </p>
+    <p>The final answer is <b>(5 × 2) + 3 = 10 + 3 = 13</b>.</p>
+  </div>
+
+  <div class="ex-q">
+    <div class="top">
+      <div class="qnum">3</div>
+      <span class="qtype build">Build It!</span>
+      <div class="qtitle">Vedic Calculator — Squares ending in 5</div>
+    </div>
+    <p>Rule: <b>front = N × (N + 1)</b>, then <b>join</b> with <b>25</b>.</p>
+    <table class="ex-trace-tbl">
+      <tr><th>Input N</th><th>front (N × (N+1))</th><th>Answer (join with 25)</th></tr>
+      <tr><td>3 &nbsp;(35²)</td><td>3 × 4 = <b>12</b></td><td><b>1225</b></td></tr>
+      <tr><td>7 &nbsp;(75²)</td><td>7 × 8 = <b>56</b></td><td><b>5625</b></td></tr>
+      <tr><td>9 &nbsp;(95²)</td><td>9 × 10 = <b>90</b></td><td><b>9025</b></td></tr>
+    </table>
+  </div>
+
+  <div class="ex-tip"><b>Remember —</b> <i>Ekadhikena Purvena</i> means <b>"by one more than the previous one"</b>. For 35², the previous digit is 3, so we multiply 3 by <b>one more</b> = 4. Then stick 25 on the end. Magic!</div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Answer Key · Operators &amp; Maths</div>
+    <div class="pgnum">39</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     BONUS CAPSTONE · DIVIDER · WATER CYCLE
+     ============================================================ -->
+<section class="page divider d8">
+  <div class="div-inner">
+    <div class="ch-eyebrow">Bonus Capstone &middot; Take-Home Project</div>
+    <div class="ch-num">★</div>
+    <div class="ch-title">The <em>Water Cycle</em><br/>Animation</div>
+    <div class="ch-kicker">You have learned events, loops, variables, conditionals, operators <i>and</i> Vedic sutras. Now mix them all together to build a real <b>Science animation</b> — the journey of a single water drop from the sea to the sky and back as rain.</div>
+    <div class="ch-pills">
+      <div class="ch-pill">5 sprites</div>
+      <div class="ch-pill">Broadcasts</div>
+      <div class="ch-pill">Cloning 🆕</div>
+      <div class="ch-pill">Variables</div>
+      <div class="ch-pill">Real Science</div>
+      <div class="ch-pill">Show at home 🏠</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CAPSTONE · PAGE 1 · WHAT WE'RE BUILDING
+     ============================================================ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>Capstone &middot; <span class="accent">The Water Cycle</span></h1>
+    </div>
+    <div class="crumb"><b>Bonus</b>Take-Home Project</div>
+  </div>
+
+  <div class="big-idea">
+    <div class="star">💧</div>
+    <div>
+      <h3>What we're building</h3>
+      <p>An animated Science scene that shows the <b>three big stages</b> of the water cycle, looping forever:</p>
+      <p style="margin-top:1mm;"><b>1. Evaporation</b> — the Sun heats the sea, a tiny water drop rises into the sky. &nbsp;<b>2. Condensation</b> — many drops meet and the cloud grows bigger. &nbsp;<b>3. Precipitation</b> — when the cloud is heavy enough, it rains.</p>
+    </div>
+  </div>
+
+  <h2 class="section">Meet your 5 sprites + 1 boss</h2>
+  <div class="cards-3">
+    <div class="kc sky">
+      <h4>🎬 Stage <span style="color: var(--ink-soft); font-weight: 400; font-size: 9.5pt;">(the boss)</span></h4>
+      <p>Doesn't move — but <b>tells everyone what to do</b>. Owns the master loop and two variables: <b>Cycle</b> and <b>drops</b>.</p>
+    </div>
+    <div class="kc sun">
+      <h4>☀️ Sun</h4>
+      <p>Just pulses gently in the top-right corner. Decorative — no broadcasts from here.</p>
+    </div>
+    <div class="kc sky">
+      <h4>💧 WaterDrop</h4>
+      <p>Hides at the bottom. When it hears "evaporate", it shows up, says <i>"Evaporation!"</i> and glides up to the cloud.</p>
+    </div>
+    <div class="kc grape">
+      <h4>☁️ Cloud</h4>
+      <p>Sits at the top. Grows bigger every "condense". Resets to its small size after every rainstorm.</p>
+    </div>
+    <div class="kc leaf">
+      <h4>🌧️ RainDrop</h4>
+      <p>Hides on flag. When it hears "precipitate", it <b>clones itself 8 times</b> and the clones fall to the ground.</p>
+    </div>
+    <div class="kc rose">
+      <h4>📦 Variables</h4>
+      <p><b>Cycle</b> — how many full water cycles we've finished. <br/><b>drops</b> — how many drops have collected in the cloud this round.</p>
+    </div>
+  </div>
+
+  <h2 class="section">How the sprites talk — the broadcast flow 📣</h2>
+  <div class="stage-preview">
+    <div class="frame">
+      <svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <rect x="0" y="0" width="600" height="200" fill="#fffaf0"/>
+        <!-- Stage box -->
+        <rect x="20" y="60" width="120" height="80" rx="10" fill="#1d3a85" stroke="#0a1a3a" stroke-width="2"/>
+        <text x="80" y="95" font-family="Segoe UI" font-size="13" fill="#fff" text-anchor="middle" font-weight="700">🎬 Stage</text>
+        <text x="80" y="115" font-family="Segoe UI" font-size="9" fill="#fff" text-anchor="middle">forever broadcaster</text>
+
+        <!-- Arrows -->
+        <g font-family="Segoe UI" font-size="10" fill="#1a1a2e">
+          <line x1="140" y1="80" x2="240" y2="40" stroke="#FFBF00" stroke-width="3" marker-end="url(#a)"/>
+          <text x="190" y="35" text-anchor="middle" fill="#a87100" font-weight="700">evaporate</text>
+
+          <line x1="140" y1="100" x2="240" y2="100" stroke="#FFBF00" stroke-width="3" marker-end="url(#a)"/>
+          <text x="190" y="92" text-anchor="middle" fill="#a87100" font-weight="700">condense</text>
+
+          <line x1="140" y1="120" x2="240" y2="160" stroke="#FFBF00" stroke-width="3" marker-end="url(#a)"/>
+          <text x="190" y="172" text-anchor="middle" fill="#a87100" font-weight="700">precipitate</text>
+        </g>
+
+        <defs>
+          <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#FFBF00"/>
+          </marker>
+        </defs>
+
+        <!-- Receivers -->
+        <rect x="245" y="22" width="170" height="38" rx="8" fill="#dff5e1" stroke="#5fc06b" stroke-width="2"/>
+        <text x="330" y="46" font-family="Segoe UI" font-size="12" fill="#0e3b3a" text-anchor="middle">💧 WaterDrop rises</text>
+
+        <rect x="245" y="82" width="170" height="38" rx="8" fill="#ece4ff" stroke="#8e6cd5" stroke-width="2"/>
+        <text x="330" y="106" font-family="Segoe UI" font-size="12" fill="#2a1659" text-anchor="middle">☁️ Cloud grows</text>
+
+        <rect x="245" y="142" width="170" height="38" rx="8" fill="#cdebff" stroke="#3ec1ff" stroke-width="2"/>
+        <text x="330" y="166" font-family="Segoe UI" font-size="12" fill="#0a1a3a" text-anchor="middle">🌧️ RainDrop clones fall</text>
+
+        <!-- Loop arrow back -->
+        <path d="M 415 100 Q 540 100 540 50 Q 540 14 80 18 L 80 56" fill="none" stroke="#1d3a85" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#a)"/>
+        <text x="478" y="14" font-family="Segoe UI" font-size="9" fill="#1d3a85">…then it loops forever 🔁</text>
+      </svg>
+    </div>
+    <div class="cap">The Stage is the only sprite that broadcasts. WaterDrop, Cloud and RainDrop just <b>listen</b> and react.</div>
+  </div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Bonus Capstone · Water Cycle</div>
+    <div class="pgnum">40</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CAPSTONE · PAGE 2 · SETUP — BACKDROP, SUN, WATERDROP
+     ============================================================ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>Step 1–3 &middot; <span class="accent">Backdrop, Sun &amp; WaterDrop</span></h1>
+    </div>
+    <div class="crumb"><b>Bonus</b>Take-Home Project</div>
+  </div>
+
+  <h2 class="section">Step 1 · Paint the backdrop 🎨</h2>
+  <p>Click the <b>Stage</b> (right side) → <b>Backdrops</b> tab → <b>Paint</b>. Make a sky that fades from blue at the top to sand at the bottom, with a dark blue sea at the bottom. This is the world your animation lives in.</p>
+
+  <h2 class="section">Step 2 · The Sun — gentle pulse ☀️</h2>
+  <div class="row2">
+    <div>
+      <p>Add a Sun sprite (paint a yellow circle). Place it at <b>x = 180, y = 130</b>. The Sun just <b>looks</b> alive — it doesn't control the cycle.</p>
+      <div class="blocks-stage">
+        <div class="cap">Sun sprite</div>
+        <div class="block-stack">
+          <span class="blk events hat">when ⚑ clicked</span>
+          <span class="blk motion">go to x: <span class="val">180</span> y: <span class="val">130</span></span>
+          <span class="blk looks">set size to <span class="val">80</span> %</span>
+          <div class="c-block">
+            <div class="c-top">forever</div>
+            <div class="c-body">
+              <div class="c-arm"></div>
+              <div class="c-inside">
+                <span class="blk looks">change size by <span class="val">12</span></span>
+                <span class="blk control">wait <span class="val">0.25</span> secs</span>
+                <span class="blk looks">change size by <span class="val">-12</span></span>
+                <span class="blk control">wait <span class="val">0.25</span> secs</span>
+              </div>
+            </div>
+            <div class="c-bottom">&nbsp;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="def-box">
+        <h4>💡 Why not let the Sun broadcast?</h4>
+        <p>If the Sun shouted <b>evaporate!</b> every half-second, it would <i>restart</i> the WaterDrop's script before the drop had time to glide. The Sun must stay <b>decorative</b>. The full secret is on the next page.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section">Step 3 · The WaterDrop — rises on cue 💧</h2>
+  <p>Paint a small blue tear-drop sprite. It needs <b>two scripts</b>: hide at the start, and rise when it hears <i>"evaporate"</i>.</p>
+
+  <div class="row2">
+    <div>
+      <h3 class="sub">Script A · Start hidden</h3>
+      <div class="blocks-stage">
+        <div class="cap">WaterDrop sprite</div>
+        <div class="block-stack">
+          <span class="blk events hat">when ⚑ clicked</span>
+          <span class="blk looks">hide</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3 class="sub">Script B · When I hear "evaporate"</h3>
+      <div class="blocks-stage">
+        <div class="cap">WaterDrop sprite · receives broadcast</div>
+        <div class="block-stack">
+          <span class="blk events hat">when I receive <span class="val dropdown">evaporate</span></span>
+          <span class="blk motion">go to x: <span class="val">pick random -200 to 200</span> y: <span class="val">-120</span></span>
+          <span class="blk looks">show</span>
+          <span class="blk looks">say <span class="val">Evaporation!</span> for <span class="val">0.5</span> secs</span>
+          <span class="blk motion">glide <span class="val">1.5</span> secs to x: <span class="val">-100</span> y: <span class="val">100</span></span>
+          <span class="blk looks">hide</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="vedic-bridge">
+    <div class="col left">
+      <span class="lbl">Real Science</span>
+      <h4>Evaporation</h4>
+      <p>Heat from the Sun gives water molecules so much energy that they <b>turn into vapour</b> and rise into the sky. Our drop's upward glide shows exactly that.</p>
+    </div>
+    <div class="arrow">→</div>
+    <div class="col right">
+      <span class="lbl">In Scratch</span>
+      <h4>Glide = animation</h4>
+      <p>The <b>glide</b> block moves the sprite smoothly from one (x, y) to another in a chosen time. Perfect for showing motion in nature.</p>
+    </div>
+  </div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Bonus Capstone · Water Cycle</div>
+    <div class="pgnum">41</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CAPSTONE · PAGE 3 · CLOUD & RAINDROP (CLONING)
+     ============================================================ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>Step 4–5 &middot; <span class="accent">Cloud &amp; RainDrop</span></h1>
+    </div>
+    <div class="crumb"><b>Bonus</b>Take-Home Project</div>
+  </div>
+
+  <h2 class="section">Step 4 · The Cloud — three short scripts ☁️</h2>
+  <p>Paint a fluffy white cloud. Place it at <b>x = -100, y = 100</b>. The Cloud listens to <b>two</b> broadcasts and resets itself with one start-up script.</p>
+
+  <div class="row3">
+    <div>
+      <h3 class="sub">A · Set up</h3>
+      <div class="blocks-stage">
+        <div class="cap">Cloud · on flag</div>
+        <div class="block-stack">
+          <span class="blk events hat">when ⚑ clicked</span>
+          <span class="blk motion">go to x: <span class="val">-100</span> y: <span class="val">100</span></span>
+          <span class="blk looks">set size to <span class="val">60</span> %</span>
+          <span class="blk looks">show</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3 class="sub">B · On "condense"</h3>
+      <div class="blocks-stage">
+        <div class="cap">Cloud grows</div>
+        <div class="block-stack">
+          <span class="blk events hat">when I receive <span class="val dropdown">condense</span></span>
+          <span class="blk looks">say <span class="val">Condensation!</span> for <span class="val">0.5</span> secs</span>
+          <span class="blk looks">change size by <span class="val">15</span></span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3 class="sub">C · On "precipitate"</h3>
+      <div class="blocks-stage">
+        <div class="cap">Cloud resets</div>
+        <div class="block-stack">
+          <span class="blk events hat">when I receive <span class="val dropdown">precipitate</span></span>
+          <span class="blk looks">say <span class="val">Rain! 🌧️</span> for <span class="val">0.5</span> secs</span>
+          <span class="blk looks">set size to <span class="val">60</span> %</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section">Step 5 · The RainDrop — meet <span class="accent">cloning</span> 🆕</h2>
+  <p>A <b>clone</b> is a copy of a sprite that Scratch creates while the project is running. Perfect for rain: one tiny RainDrop sprite can become <i>eight</i> falling drops.</p>
+
+  <div class="row3">
+    <div>
+      <h3 class="sub">A · Hide at start</h3>
+      <div class="blocks-stage">
+        <div class="cap">RainDrop · main</div>
+        <div class="block-stack">
+          <span class="blk events hat">when ⚑ clicked</span>
+          <span class="blk looks">hide</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3 class="sub">B · Spawn 8 clones</h3>
+      <div class="blocks-stage">
+        <div class="cap">on "precipitate"</div>
+        <div class="block-stack">
+          <span class="blk events hat">when I receive <span class="val dropdown">precipitate</span></span>
+          <div class="c-block">
+            <div class="c-top">repeat <span class="val">8</span></div>
+            <div class="c-body">
+              <div class="c-arm"></div>
+              <div class="c-inside">
+                <span class="blk control">create clone of <span class="val dropdown">myself</span></span>
+                <span class="blk control">wait <span class="val">0.08</span> secs</span>
+              </div>
+            </div>
+            <div class="c-bottom">&nbsp;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3 class="sub">C · Each clone falls</h3>
+      <div class="blocks-stage">
+        <div class="cap">clone behaviour</div>
+        <div class="block-stack">
+          <span class="blk control hat">when I start as a clone</span>
+          <span class="blk motion">go to x: <span class="val">pick random -140 to -60</span> y: <span class="val">120</span></span>
+          <span class="blk looks">show</span>
+          <span class="blk motion">glide <span class="val">0.8</span> secs to x: <span class="val">x position</span> y: <span class="val">-120</span></span>
+          <span class="blk control">delete this clone</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="def-box">
+    <h4>🧠 Why <b>delete this clone</b>?</h4>
+    <p>Without it, every cycle would leave 8 more drops frozen at the bottom of the stage. After hundreds of cycles your Scratch project would slow down. <b>Delete this clone</b> = good housekeeping. Always clean up your clones!</p>
+  </div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Bonus Capstone · Water Cycle</div>
+    <div class="pgnum">42</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CAPSTONE · PAGE 4 · STAGE DRIVER + BROADCAST AND WAIT
+     ============================================================ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>Step 6 &middot; <span class="accent">The Stage Drives the Cycle</span></h1>
+    </div>
+    <div class="crumb"><b>Bonus</b>Take-Home Project</div>
+  </div>
+
+  <p>Click on the <b>Stage</b> (right side, below the green flag). The Stage gets its <i>own</i> script area. Make <b>two variables</b> <i>for this sprite only</i>: <b>Cycle</b> (starts at 0) and <b>drops</b> (starts at 0). These belong to the whole project.</p>
+
+  <h2 class="section">The master loop 🔁</h2>
+  <div class="blocks-stage">
+    <div class="cap">Stage · the conductor of the orchestra</div>
+    <div class="block-stack">
+      <span class="blk events hat">when ⚑ clicked</span>
+      <span class="blk vars">set <span class="val dropdown">Cycle</span> to <span class="val">0</span></span>
+      <span class="blk vars">set <span class="val dropdown">drops</span> to <span class="val">0</span></span>
+      <div class="c-block">
+        <div class="c-top">forever</div>
+        <div class="c-body">
+          <div class="c-arm"></div>
+          <div class="c-inside">
+            <span class="blk events">broadcast <span class="val dropdown">evaporate</span> and wait</span>
+            <span class="blk vars">change <span class="val dropdown">drops</span> by <span class="val">1</span></span>
+            <span class="blk events">broadcast <span class="val dropdown">condense</span> and wait</span>
+            <div class="c-block">
+              <div class="c-top">if <span class="val op">drops &gt; 2</span> then</div>
+              <div class="c-body">
+                <div class="c-arm"></div>
+                <div class="c-inside">
+                  <span class="blk events">broadcast <span class="val dropdown">precipitate</span> and wait</span>
+                  <span class="blk vars">change <span class="val dropdown">Cycle</span> by <span class="val">1</span></span>
+                  <span class="blk vars">set <span class="val dropdown">drops</span> to <span class="val">0</span></span>
+                </div>
+              </div>
+              <div class="c-bottom">&nbsp;</div>
+            </div>
+          </div>
+        </div>
+        <div class="c-bottom">&nbsp;</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section">⚠️ The "broadcast and wait" trap</h2>
+  <div class="def-box" style="border-color: var(--coral);">
+    <h4>The bug we have to avoid</h4>
+    <p>If you use the plain <b>broadcast</b> block in a fast <b>forever</b> loop, Scratch will fire <i>evaporate</i> again <b>before</b> the WaterDrop finishes gliding — and Scratch <b>restarts</b> the receiving script from the top. Result: you only ever see "Evaporation!" — the drop never reaches the cloud. 😱</p>
+      <p><b>The fix</b> — use <b>broadcast … and wait</b>. The Stage now <i>pauses</i> until the WaterDrop has finished its glide, then fires the next message. Each phase gets to finish. Beautiful!</p>
+  </div>
+
+  <h2 class="section">Timeline — what happens in one cycle ⏱️</h2>
+  <table class="ex-trace-tbl">
+    <tr><th style="width:18%;">Time</th><th>Who acts</th><th>What you see</th></tr>
+    <tr><td>0.0 s</td><td>Stage → "evaporate"</td><td>WaterDrop appears at sea, says <i>"Evaporation!"</i></td></tr>
+    <tr><td>0.5–2.0 s</td><td>WaterDrop</td><td>Glides up to the cloud, hides</td></tr>
+    <tr><td>2.0 s</td><td>Stage</td><td><b>drops</b> changes from 0 → 1 → 2 → 3 (one per cycle)</td></tr>
+    <tr><td>2.0 s</td><td>Stage → "condense"</td><td>Cloud says <i>"Condensation!"</i> and grows by 15%</td></tr>
+    <tr><td>~3.0 s</td><td>Stage checks <b>drops &gt; 2</b></td><td>After the 3rd drop, the condition is true → time to rain!</td></tr>
+    <tr><td>~3.5 s</td><td>Stage → "precipitate"</td><td>8 RainDrop clones fall, Cloud resets to small, <b>Cycle</b> goes up by 1</td></tr>
+    <tr><td>loop</td><td>Stage</td><td>Back to "evaporate" — the water cycle continues 🔁</td></tr>
+  </table>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Bonus Capstone · Water Cycle</div>
+    <div class="pgnum">43</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CAPSTONE · PAGE 5 · RUN IT & EXTEND
+     ============================================================ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-left">
+      <img class="ph-logo" src="logo4.jpg" alt="THYNK"/>
+      <h1>Run It &middot; <span class="accent">Tweak &amp; Extend</span></h1>
+    </div>
+    <div class="crumb"><b>Bonus</b>Take-Home Project</div>
+  </div>
+
+  <h2 class="section">What you should see on the stage 🎬</h2>
+  <div class="stage-preview">
+    <div class="frame">
+      <svg viewBox="0 0 480 220" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <!-- Sky -->
+        <rect x="0" y="0" width="480" height="170" fill="#cdebff"/>
+        <!-- Sea -->
+        <rect x="0" y="170" width="480" height="50" fill="#3e8fc1"/>
+        <!-- Sand -->
+        <rect x="0" y="160" width="480" height="14" fill="#e8c98a"/>
+
+        <!-- Sun -->
+        <circle cx="430" cy="40" r="22" fill="#FFCC4D"/>
+        <g stroke="#FFCC4D" stroke-width="3">
+          <line x1="430" y1="8" x2="430" y2="0"/>
+          <line x1="430" y1="72" x2="430" y2="80"/>
+          <line x1="398" y1="40" x2="390" y2="40"/>
+          <line x1="462" y1="40" x2="470" y2="40"/>
+        </g>
+
+        <!-- Cloud (grown) -->
+        <g transform="translate(110,40)">
+          <ellipse cx="0"  cy="20" rx="38" ry="22" fill="#ffffff"/>
+          <ellipse cx="38" cy="14" rx="32" ry="20" fill="#ffffff"/>
+          <ellipse cx="74" cy="22" rx="34" ry="22" fill="#ffffff"/>
+          <ellipse cx="40" cy="28" rx="55" ry="14" fill="#ffffff"/>
+        </g>
+
+        <!-- RainDrops falling -->
+        <g fill="#4FB4FF">
+          <ellipse cx="105" cy="105" rx="3" ry="6"/>
+          <ellipse cx="140" cy="125" rx="3" ry="6"/>
+          <ellipse cx="170" cy="95" rx="3" ry="6"/>
+          <ellipse cx="190" cy="140" rx="3" ry="6"/>
+          <ellipse cx="120" cy="148" rx="3" ry="6"/>
+          <ellipse cx="155" cy="110" rx="3" ry="6"/>
+        </g>
+
+        <!-- A rising waterdrop -->
+        <ellipse cx="250" cy="155" rx="5" ry="8" fill="#4FB4FF"/>
+
+        <!-- Speech bubble -->
+        <g transform="translate(290,140)">
+          <rect x="0" y="0" width="130" height="24" rx="10" fill="#ffffff" stroke="#1a1a2e" stroke-width="1.2"/>
+          <text x="65" y="16" font-family="Segoe UI" font-size="11" text-anchor="middle" fill="#1a1a2e">Evaporation!</text>
+        </g>
+
+        <!-- Variable monitors -->
+        <g font-family="Segoe UI" font-size="10">
+          <rect x="6" y="6" width="80" height="18" rx="3" fill="#fff" stroke="#888"/>
+          <text x="10" y="18" fill="#1a1a2e">Cycle  <tspan font-weight="700">3</tspan></text>
+          <rect x="6" y="28" width="80" height="18" rx="3" fill="#fff" stroke="#888"/>
+          <text x="10" y="40" fill="#1a1a2e">drops  <tspan font-weight="700">2</tspan></text>
+        </g>
+      </svg>
+    </div>
+    <div class="cap">Cycle = 3 means the water has already gone sea → sky → rain → sea <b>three times</b>. drops = 2 means one more evaporation will trigger the next rainfall.</div>
+  </div>
+
+  <h2 class="section">⭐ Bonus challenges — try at least one!</h2>
+  <div class="cards-2">
+    <div class="kc sun">
+      <h4>🌈 Add a rainbow</h4>
+      <p>After "precipitate", broadcast <b>rainbow</b> — and let a new Rainbow sprite <b>show</b> for 2 seconds, then <b>hide</b>.</p>
+    </div>
+    <div class="kc sky">
+      <h4>❄️ Make it snow</h4>
+      <p>Add a Temperature variable. When Temperature &lt; 0, broadcast <b>snow</b> instead of precipitate. Use a white snowflake costume.</p>
+    </div>
+    <div class="kc leaf">
+      <h4>🔊 Add sound effects</h4>
+      <p>From the <b>Sounds</b> tab, add a "drip" sound to RainDrop and play it when each clone starts.</p>
+    </div>
+    <div class="kc grape">
+      <h4>🏔️ Add a mountain</h4>
+      <p>Paint a brown mountain on the backdrop. Where do <b>rivers</b> fit into the water cycle?</p>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="lbl">Your Turn · Activity B.1</div>
+    <h3>Plan, then build</h3>
+    <ol>
+      <li>Open Scratch (online: <b>scratch.mit.edu</b> · offline: Scratch Desktop). Start a new project named <b>"Water Cycle".</b></li>
+      <li>Make all 5 sprites + 2 Stage variables (<b>Cycle</b> and <b>drops</b>).</li>
+      <li>Type the scripts from pages B2 → B4. Test by clicking the green flag.</li>
+      <li>Bonus 🌟: Pick <b>one</b> challenge from above and add it. Tick it here once it works:</li>
+    </ol>
+    <div class="tickrow"><div class="box"></div> 🌈 Rainbow &nbsp; <div class="box" style="margin-left:6mm;"></div> ❄️ Snow &nbsp; <div class="box" style="margin-left:6mm;"></div> 🔊 Sound &nbsp; <div class="box" style="margin-left:6mm;"></div> 🏔️ Mountain</div>
+    <div class="tickrow"><div class="box"></div> I showed my finished project to a parent or friend!</div>
+  </div>
+
+  <div class="ai-box">
+    <div><span class="ai-lbl">Ask A.I.</span><h4>Stuck? Try this prompt &mdash;</h4></div>
+    <div class="prompt">In Scratch, my <b>Stage</b> uses a <b>forever</b> loop with <b>broadcast evaporate and wait</b> → <b>broadcast condense and wait</b> → if <b>drops &gt; 2</b> then <b>broadcast precipitate and wait</b>. My <b>WaterDrop</b> hears "evaporate", says <i>"Evaporation!"</i> and glides up — but the cloud never grows. What might I have done wrong, and what should I check first?</div>
+    <p class="tip">💡 Telling A.I. the <b>order of broadcasts</b> and which sprite listens to which one helps it find the bug fast.</p>
+  </div>
+
+  <div class="pagefoot">
+    <div class="brand">T<span class="dot">.</span>H<span class="dot">.</span>Y<span class="dot">.</span>N<span class="dot">.</span>K · Grade 4 Workbook</div>
+    <div>Bonus Capstone · Water Cycle</div>
+    <div class="pgnum">44</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE 36 · CONGRATULATIONS · END OF WORKBOOK
      ============================================================ -->
 <section class="page divider d1">
   <div class="div-inner">
@@ -3731,6 +4796,7 @@
       <div class="ch-pill">Conditionals ✓</div>
       <div class="ch-pill">Operators ✓</div>
       <div class="ch-pill">Vedic Sutras ✓</div>
+      <div class="ch-pill">Self-Practice ✓</div>
     </div>
   </div>
 </section>
