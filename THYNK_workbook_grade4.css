@@ -1655,6 +1655,123 @@
     position: absolute;
     left: 0;
   }
+
+  /* ============================================================
+     SEQUENCING / NUMBER-PATTERN MCQ CARDS (Chapter 3)
+     ============================================================ */
+  .sq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5mm 5mm;
+    margin-top: 2mm;
+  }
+  .sq-grid.cols-1 { grid-template-columns: 1fr; }
+  .sq-cell {
+    background: #fff;
+    border: 1.2px solid var(--line);
+    border-left: 3.5mm solid var(--gold);
+    border-radius: 2mm;
+    padding: 1.8mm 3mm 2.2mm;
+    display: flex;
+    gap: 2.5mm;
+    page-break-inside: avoid;
+  }
+  .sq-cell .qn {
+    background: var(--gold);
+    color: var(--navy);
+    font-family: Georgia, serif;
+    font-weight: 700;
+    font-size: 10pt;
+    min-width: 7mm;
+    height: 7mm;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0.3mm;
+  }
+  .sq-cell .body {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  .sq-cell .stem {
+    font-size: 9.8pt;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 1mm;
+  }
+  .sq-cell .stem b { color: var(--navy); }
+  .sq-cell .stem .seq {
+    font-family: 'Courier New', Consolas, monospace;
+    color: var(--rose);
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 10.5pt;
+  }
+  .sq-cell .figure {
+    margin: 1mm 0 1.5mm;
+    line-height: 0;
+  }
+  .sq-cell .opts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4mm 4mm;
+    font-size: 9.3pt;
+    color: var(--ink);
+  }
+  .sq-cell .opts.opts-1 { grid-template-columns: 1fr; }
+  .sq-cell .opts.opts-3 { grid-template-columns: repeat(3, auto); align-items: center; gap: 0.4mm 3mm; }
+  .sq-cell .opt {
+    display: flex;
+    align-items: center;
+    gap: 1.5mm;
+    white-space: nowrap;
+  }
+  .sq-cell .opt .letter {
+    color: #a37500;
+    font-family: Georgia, serif;
+    font-weight: 700;
+    font-size: 9.3pt;
+    flex-shrink: 0;
+  }
+  .sq-cell .opt img,
+  .sq-cell .opt svg { flex-shrink: 0; }
+  .sq-cell .ans-row {
+    font-size: 9.5pt;
+    color: var(--ink-soft);
+    margin-top: 0.5mm;
+  }
+  .sq-cell .ans-line {
+    display: inline-block;
+    border-bottom: 1.2px solid var(--ink-soft);
+    min-width: 28mm;
+    height: 4.5mm;
+    vertical-align: bottom;
+    margin-left: 1.5mm;
+  }
+  /* Compact input-output table inside a card */
+  .sq-cell .iot-tbl {
+    border-collapse: collapse;
+    font-size: 8.5pt;
+    margin: 0.8mm 0 1.2mm;
+  }
+  .sq-cell .iot-tbl th,
+  .sq-cell .iot-tbl td {
+    border: 1px solid #888;
+    padding: 0.2mm 2.5mm;
+    text-align: center;
+    min-width: 8mm;
+    line-height: 1.15;
+  }
+  .sq-cell .iot-tbl th {
+    background: #f4f4fa;
+    font-weight: 600;
+    font-size: 9.5pt;
+    padding: 0.4mm 2.5mm;
+  }
+  .sq-cell .iot-tbl td.q { color: var(--rose); font-weight: 700; }
+  .sq-cell .iot-tbl td.blank { color: #aaa; }
   .aw-stack .rule {
     border-bottom: 2px solid var(--navy);
     margin: 0.5mm 0;
