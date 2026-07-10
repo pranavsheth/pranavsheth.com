@@ -1,7 +1,8 @@
 ﻿  /* ============================================================
      PAGE / PRINT SETUP
+     Paper: A4 — 210 × 297 mm
      ============================================================ */
-  @page { size: auto; margin: 0; }
+  @page { size: A4; margin: 0; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
@@ -1640,6 +1641,20 @@
     position: absolute;
     left: 0;
   }
+  .aw-stack .row.times::before {
+    content: "\00D7";  /* × */
+    color: var(--rose);
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+  }
+  .aw-stack .row.divide::before {
+    content: "\00F7";  /* ÷ */
+    color: var(--grape);
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+  }
   .aw-stack .rule {
     border-bottom: 2px solid var(--navy);
     margin: 0.5mm 0;
@@ -1648,6 +1663,159 @@
     height: 6mm;
     border-bottom: 1.5px solid var(--ink-soft);
     margin-top: 0.5mm;
+  }
+
+  /* ============================================================
+     MULTIPLICATION WORKSHEETS  (Vedic × 11, × 99, × 999, warm-up)
+     ============================================================ */
+  .mw-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3mm 4mm;
+    margin-top: 2mm;
+  }
+  .mw-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .mw-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .mw-grid.cols-6 { grid-template-columns: repeat(6, 1fr); }
+  .mw-grid.cols-8 { grid-template-columns: repeat(8, 1fr); gap: 2mm 2.5mm; }
+
+  .mw-cell {
+    background: #fff;
+    border: 1.2px solid var(--line);
+    border-radius: 2mm;
+    padding: 1.8mm 2mm 2.5mm;
+    display: flex;
+    flex-direction: column;
+    page-break-inside: avoid;
+    min-width: 0;
+  }
+  .mw-cell .qn {
+    font-family: Georgia, serif;
+    font-weight: 700;
+    background: var(--navy);
+    color: #fff;
+    border-radius: 1.5mm;
+    font-size: 9pt;
+    padding: 0.6mm 2mm;
+    margin-bottom: 1.2mm;
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+  .mw-stack {
+    font-family: 'Courier New', Consolas, monospace;
+    font-size: 11pt;
+    color: var(--ink);
+    line-height: 1.35;
+    text-align: right;
+    padding-right: 1mm;
+    position: relative;
+  }
+  .mw-stack .row { display: block; letter-spacing: 2px; }
+  .mw-stack .row.times { position: relative; }
+  .mw-stack .row.times::before {
+    content: "×";
+    color: var(--rose);
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+  }
+  .mw-stack .rule {
+    border-bottom: 2px solid var(--navy);
+    margin: 0.5mm 0;
+  }
+  .mw-stack .ans {
+    height: 5.5mm;
+    border-bottom: 1.5px solid var(--ink-soft);
+    margin-top: 0.5mm;
+  }
+
+  /* Single-line problem list: "78 × 6 = ______" */
+  .mw-line-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5mm 6mm;
+    margin-top: 2mm;
+  }
+  .mw-line-list.cols-1 { grid-template-columns: 1fr; }
+  .mw-line-list.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .mw-line {
+    display: flex;
+    align-items: baseline;
+    gap: 2.5mm;
+    background: #fff;
+    border: 1.2px solid var(--line);
+    border-radius: 2mm;
+    padding: 2mm 4mm;
+    page-break-inside: avoid;
+  }
+  .mw-line .qn {
+    font-family: Georgia, serif;
+    font-weight: 700;
+    color: var(--rose);
+    font-size: 10.5pt;
+    min-width: 7mm;
+  }
+  .mw-line .prob {
+    font-family: 'Courier New', Consolas, monospace;
+    font-size: 13pt;
+    color: var(--ink);
+    letter-spacing: 2px;
+    white-space: nowrap;
+  }
+  .mw-line .ans-line {
+    flex: 1 1 auto;
+    border-bottom: 1.5px solid var(--ink-soft);
+    height: 6mm;
+    min-width: 20mm;
+  }
+
+  /* Method / description card used on Vedic multiplication pages */
+  .method-card {
+    background: #fff;
+    border: 1.5px solid var(--gold);
+    border-left: 4mm solid var(--gold);
+    border-radius: 3mm;
+    padding: 3mm 4mm;
+    margin: 2mm 0 3mm;
+  }
+  .method-card h4 {
+    font-family: Georgia, serif;
+    color: var(--navy);
+    font-size: 12pt;
+    margin: 0 0 1.2mm;
+  }
+  .method-card p { font-size: 10pt; margin: 0 0 1.2mm; color: var(--ink); }
+  .method-card ol { padding-left: 5mm; font-size: 10pt; margin: 1mm 0 1.5mm; }
+  .method-card ol li { margin: 0.6mm 0; }
+  .method-card .examples {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3mm;
+    margin-top: 1.5mm;
+  }
+  .method-card .ex-chip {
+    background: var(--bg-tint);
+    border: 1px solid #cfd8ec;
+    border-radius: 2mm;
+    padding: 2mm 3mm;
+    font-family: 'Courier New', Consolas, monospace;
+    font-size: 10.5pt;
+    color: var(--ink);
+  }
+  .method-card .ex-chip b { color: var(--rose); }
+  .method-card .ex-chip .step { color: var(--ink-soft); font-size: 9pt; display: block; margin-top: 0.5mm; }
+
+  /* Small centered section label above a table of problems */
+  .mw-section-label {
+    display: inline-block;
+    background: var(--navy);
+    color: #fff;
+    font-family: Georgia, serif;
+    font-size: 10.5pt;
+    padding: 1mm 3.5mm;
+    border-radius: 1.5mm;
+    margin: 3mm 0 1.5mm;
+    letter-spacing: 0.4px;
   }
 
   /* ============================================================
