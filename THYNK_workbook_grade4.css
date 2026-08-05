@@ -207,6 +207,161 @@
     object-fit: cover;
   }
 
+  /* Preface page */
+  .preface-page {
+    background:
+      radial-gradient(circle at 12% 14%, rgba(255, 183, 3, 0.24) 0 8mm, transparent 8.2mm),
+      radial-gradient(circle at 88% 18%, rgba(62, 193, 255, 0.22) 0 10mm, transparent 10.2mm),
+      radial-gradient(circle at 84% 84%, rgba(95, 192, 107, 0.22) 0 9mm, transparent 9.2mm),
+      linear-gradient(160deg, #fff8ec 0%, #eef7ff 52%, #ffffff 100%);
+    border-top: 4px solid var(--gold);
+    padding-top: 10mm;
+  }
+  .preface-page::before {
+    opacity: 0.028;
+  }
+  .preface-shell {
+    border: 2px solid #ffd471;
+    border-radius: 4mm;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 252, 245, 0.96) 100%);
+    padding: 7mm 7mm 6.5mm;
+    box-shadow: 0 1.6mm 4.5mm rgba(20, 42, 94, 0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .preface-shell::after {
+    content: "";
+    position: absolute;
+    right: -10mm;
+    top: -10mm;
+    width: 34mm;
+    height: 34mm;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.85) 0 20%, rgba(62, 193, 255, 0.24) 45%, rgba(62, 193, 255, 0.08) 75%, transparent 100%);
+    pointer-events: none;
+  }
+  .preface-header {
+    display: flex;
+    gap: 5mm;
+    align-items: flex-start;
+    margin-bottom: 5mm;
+    padding-bottom: 3.4mm;
+    border-bottom: 1px solid rgba(20, 42, 94, 0.16);
+  }
+  .preface-logo {
+    width: 20mm;
+    height: 20mm;
+    object-fit: contain;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #ffd471;
+    box-shadow: 0 1.4mm 3.2mm rgba(20, 42, 94, 0.15);
+    padding: 1.3mm;
+  }
+  .preface-head-copy {
+    flex: 1;
+  }
+  .preface-kicker {
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 2.2px;
+    font-size: 9.6pt;
+    color: #0f3c73;
+    margin-bottom: 1.2mm;
+    background: linear-gradient(90deg, #ffe9ad 0%, #fff5d7 100%);
+    border: 1px solid #ffd471;
+    border-radius: 999px;
+    padding: 0.8mm 3.4mm;
+  }
+  .preface-title {
+    font-family: Georgia, serif;
+    font-size: 27pt;
+    color: var(--navy);
+    line-height: 1.05;
+    margin-bottom: 1.1mm;
+    text-shadow: 0 0.35mm 0 rgba(255, 212, 113, 0.8);
+  }
+  .preface-brand {
+    font-family: Georgia, serif;
+    font-size: 18.5pt;
+    color: #124c8d;
+    letter-spacing: 0.6px;
+    margin-bottom: 1.1mm;
+  }
+  .preface-tagline {
+    font-size: 12.4pt;
+    font-style: italic;
+    color: #27466f;
+    margin-bottom: 0;
+    background: rgba(62, 193, 255, 0.12);
+    border: 1px dashed rgba(26, 115, 168, 0.35);
+    border-radius: 2mm;
+    padding: 1.2mm 2.2mm;
+    display: inline-block;
+  }
+  .preface-body {
+    padding: 0.9mm 0.8mm 0;
+  }
+  .preface-body p {
+    font-size: 12.8pt;
+    line-height: 1.6;
+    margin-bottom: 2.9mm;
+    text-align: justify;
+  }
+  .preface-body b {
+    color: #0f3f7a;
+  }
+  .preface-body p:first-child::first-letter {
+    float: left;
+    font-family: Georgia, serif;
+    font-size: 28pt;
+    line-height: 1;
+    color: var(--navy);
+    margin: 0.4mm 1.2mm 0 0;
+    font-weight: 700;
+  }
+  .preface-highlight {
+    margin: 2.4mm 0 3.2mm;
+    border-left: 2.8px solid var(--gold);
+    background: linear-gradient(90deg, #fff6da 0%, rgba(255, 246, 218, 0.82) 42%, rgba(255, 255, 255, 0.3) 100%);
+    border-radius: 2mm;
+    padding: 2.8mm 3.2mm 2.8mm 9.2mm;
+    position: relative;
+  }
+  .preface-highlight::before {
+    content: "*";
+    position: absolute;
+    left: 2.6mm;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4.8mm;
+    height: 4.8mm;
+    border-radius: 50%;
+    background: #ffd471;
+    color: #0f3c73;
+    font-size: 10.5pt;
+    font-weight: 700;
+    line-height: 4.8mm;
+    text-align: center;
+  }
+  .preface-highlight p {
+    margin: 0;
+  }
+  .preface-signoff {
+    margin-top: 2.1mm;
+    padding-top: 2.8mm;
+    border-top: 1px dashed rgba(20, 42, 94, 0.2);
+    font-size: 13.2pt;
+    text-align: center;
+    color: #123f74;
+    background: rgba(95, 192, 107, 0.1);
+    border-radius: 2mm;
+    padding: 2.4mm 2.3mm;
+  }
+  .preface-body p:last-child {
+    margin-bottom: 0;
+  }
+
   /* ============================================================
      INNER PAGE HEADER
      ============================================================ */
