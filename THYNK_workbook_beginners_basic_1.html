@@ -6,46 +6,77 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>T.H.Y.N.K — My Scratch Adventure · Level 1 · Young Explorer · Beginners Basic 1</title>
   <link rel="stylesheet" href="THYNK_workbook_grade4.css" />
+<!-- THYNK_A4_PRINT_STYLES -->
+<style>
+@page {
+  size: A4;
+  margin: 12mm;
+}
+
+@media print {
+  html,
+  body {
+    width: auto;
+    min-height: auto;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  .page,
+  .sheet,
+  .a4,
+  .slide {
+    width: 100% !important;
+    min-height: calc(297mm - 24mm) !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+  }
+
+  img,
+  svg,
+  video,
+  canvas,
+  table {
+    max-width: 100% !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    break-after: avoid-page;
+    page-break-after: avoid;
+  }
+
+  p,
+  li,
+  blockquote {
+    orphans: 3;
+    widows: 3;
+  }
+}
+</style>
 </head>
 
 <body>
   <!-- ============================================================
-     PAGE 1 · COVER
+     PAGE 1 · FRONT COVER IMAGE
      ============================================================ -->
-  <section class="page cover">
-    <div class="cover-top">
-      <img class="cover-logo" src="logo4.png" alt="THYNK Logo" />
-      <div class="cover-eyebrow">Level 1 · Young Explorer · Beginners Basic 1</div>
-      <div class="cover-title">My Scratch<br /><em>Adventure</em></div>
-      <!-- <div class="cover-sub" style="font-style: normal; letter-spacing: 3px; text-transform: uppercase; font-size: 12.5pt; color: var(--gold); margin-top: 3mm;">Grade 4</div> -->
-      <div class="cover-sub">Where Coding meets Vedic Maths — and learning becomes a super-power.</div>
-      <div class="cover-badges">
-        <div class="cover-badge"><b>24</b> Sessions</div>
-        <div class="cover-badge"><b>7</b> Big Topics</div>
-        <div class="cover-badge"><b>Loads</b> of Fun</div>
-      </div>
-    </div>
-
-    <div class="cover-bottom">
-      <h3>This workbook belongs to —</h3>
-      <div class="name-grid">
-        <div class="name-row"><span class="lbl">My Name</span>
-          <div class="line"></div>
-        </div>
-        <div class="name-row"><span class="lbl">My Class &amp; Section</span>
-          <div class="line"></div>
-        </div>
-        <div class="name-row"><span class="lbl">My School</span>
-          <div class="line"></div>
-        </div>
-        <div class="name-row"><span class="lbl">My Teacher</span>
-          <div class="line"></div>
-        </div>
-      </div>
-      <div class="cover-tagline">
-        <span>Think Today</span> · <span>Learn Smart</span> · <span>Lead Tomorrow</span>
-      </div>
-    </div>
+  <section class="page cover-photo">
+    <img class="cover-photo-image" src="Workbook Front Cover.jpeg" alt="THYNK Workbook Front Cover" />
   </section>
 
 
@@ -11049,6 +11080,14 @@
         <div class="ch-pill">Self-Practice ✓</div>
       </div>
     </div>
+  </section>
+
+
+  <!-- ============================================================
+     LAST PAGE · BACK COVER IMAGE
+     ============================================================ -->
+  <section class="page cover-photo">
+    <img class="cover-photo-image" src="Workbook Back Cover.jpeg" alt="THYNK Workbook Back Cover" />
   </section>
 
 
