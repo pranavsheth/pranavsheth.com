@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THYNK — School Management Presentation</title>
+  <style>
+    :root {
+      --navy: #07152f;
+      --blue: #173b78;
+      --cyan: #45d7ff;
+      --violet: #8b6cff;
+      --green: #45e0a5;
+      --orange: #ffad5a;
+      --white: #f7f9ff;
+      --muted: #aebbd3;
+      --glass: rgba(255, 255, 255, .075);
+      --line: rgba(255, 255, 255, .12);
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      margin: 0;
+      height: 100%;
+      font-family: Inter, Segoe UI, Arial, sans-serif;
+      background: #040b1c;
+      color: var(--white);
+      overflow: hidden
+    }
+
+    .deck {
+      height: 100vh;
+      width: 100vw;
+      position: relative
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      padding: 6vh 7vw 7vh;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      transform: translateX(35px) scale(.985);
+      pointer-events: none;
+      transition: opacity .45s ease, transform .55s cubic-bezier(.2, .8, .2, 1);
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 88% 12%, rgba(69, 215, 255, .13), transparent 26%),
+        radial-gradient(circle at 12% 88%, rgba(139, 108, 255, .14), transparent 30%),
+        linear-gradient(135deg, #06122c 0%, #071a3b 52%, #06122b 100%);
+    }
+
+    .slide.active {
+      opacity: 1;
+      transform: none;
+      pointer-events: auto
+    }
+
+    .grid {
+      position: absolute;
+      inset: 0;
+      opacity: .22;
+      background-image: linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, black, transparent 82%);
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(2px);
+      pointer-events: none
+    }
+
+    .orb.a {
+      width: 260px;
+      height: 260px;
+      right: -70px;
+      bottom: -80px;
+      background: rgba(69, 215, 255, .1)
+    }
+
+    .orb.b {
+      width: 180px;
+      height: 180px;
+      left: -80px;
+      top: 30%;
+      background: rgba(139, 108, 255, .1)
+    }
+
+    .logo-header {
+      display: flex;
+      align-items: center;
+      height: 58px
+    }
+
+    .logo-header img {
+      display: block;
+      max-width: 400px;
+      object-fit: contain
+    }
+
+    .topline {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 2
+    }
+
+    .brand {
+      font-weight: 900;
+      letter-spacing: .18em;
+      font-size: 14px
+    }
+
+    .pill {
+      border: 1px solid var(--line);
+      background: var(--glass);
+      padding: 8px 13px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 12px
+    }
+
+    h1 {
+      font-size: clamp(48px, 7vw, 92px);
+      line-height: .92;
+      margin: 0;
+      letter-spacing: -.05em
+    }
+
+    h2 {
+      font-size: clamp(34px, 4vw, 58px);
+      line-height: 1;
+      margin: 0 0 18px;
+      letter-spacing: -.04em
+    }
+
+    h3 {
+      margin: 0 0 9px;
+      font-size: 18px
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+      margin: 0
+    }
+
+    .eyebrow {
+      font-size: 13px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      font-weight: 800;
+      margin-bottom: 14px
+    }
+
+    .hero {
+      margin: auto 0;
+      max-width: 920px;
+      z-index: 2
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, var(--cyan), #fff 42%, var(--violet));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent
+    }
+
+    .tagline {
+      font-weight: 700;
+      margin: 22px 0 16px
+    }
+
+    .sub {
+      max-width: 700px
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 28px;
+      z-index: 2
+    }
+
+    .cards.three {
+      grid-template-columns: repeat(3, 1fr)
+    }
+
+    .card {
+      background: linear-gradient(145deg, rgba(255, 255, 255, .095), rgba(255, 255, 255, .035));
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 22px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, .18)
+    }
+
+    .icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(69, 215, 255, .13);
+      border: 1px solid rgba(69, 215, 255, .25);
+      margin-bottom: 18px;
+      font-size: 18px
+    }
+
+    .two {
+      display: grid;
+      grid-template-columns: .85fr .85fr;
+      gap: 28px;
+      align-items: center;
+      height: 100%;
+      z-index: 2
+    }
+
+    .founders {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 25px
+    }
+
+    .founder {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, .05)
+    }
+
+    .founder b {
+      font-size: 20px
+    }
+
+    .founder span {
+      display: block;
+      color: var(--cyan);
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin: 6px 0 10px
+    }
+
+    .question {
+      font-size: clamp(30px, 4vw, 54px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -.04em
+    }
+
+    .quote {
+      font-size: clamp(25px, 3vw, 42px);
+      line-height: 1.1;
+      font-weight: 800;
+      margin-top: 30px
+    }
+
+    .quote em {
+      font-style: normal;
+      color: var(--cyan)
+    }
+
+    .flow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 30px;
+      flex-wrap: wrap
+    }
+
+    .node {
+      padding: 13px 17px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, .07);
+      border: 1px solid var(--line);
+      font-weight: 800
+    }
+
+    .arrow {
+      color: var(--cyan);
+      font-size: 20px
+    }
+
+    .split-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 25px
+    }
+
+    .item {
+      padding: 16px 18px;
+      border-left: 3px solid var(--cyan);
+      background: rgba(255, 255, 255, .045);
+      border-radius: 0 12px 12px 0
+    }
+
+    .item b {
+      display: block;
+      margin-bottom: 4px
+    }
+
+    .item small {
+      color: var(--muted);
+      line-height: 1.4
+    }
+
+    .table {
+      margin-top: 22px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, .04)
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 15px 18px;
+      border-bottom: 1px solid var(--line);
+      gap: 20px
+    }
+
+    .row:last-child {
+      border: 0
+    }
+
+    .row.head {
+      background: rgba(69, 215, 255, .08);
+      font-weight: 800
+    }
+
+    .journey {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 18px
+    }
+
+    .track {
+      min-height: 310px;
+      border-radius: 22px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .05);
+      position: relative;
+      overflow: hidden
+    }
+
+    .track:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      height: 4px;
+      background: var(--cyan)
+    }
+
+    .track:nth-child(2):before {
+      background: var(--green)
+    }
+
+    .track:nth-child(3):before {
+      background: var(--violet)
+    }
+
+    .track:nth-child(4):before {
+      background: var(--orange)
+    }
+
+    .num {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: .15em
+    }
+
+    .track h3 {
+      font-size: 21px;
+      margin-top: 9px
+    }
+
+    .track .level {
+      color: var(--cyan);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-weight: 800
+    }
+
+    .track ul {
+      padding-left: 17px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55
+    }
+
+    .gain {
+      position: absolute;
+      bottom: 18px;
+      left: 20px;
+      right: 20px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, .16);
+      font-size: 12px
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 40px;
+      align-items: end;
+      height: 100%;
+      z-index: 2
+    }
+
+    .contactbox {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .055);
+      border-radius: 24px;
+      padding: 28px
+    }
+
+    .contactbox div {
+      padding: 11px 0;
+      border-bottom: 1px solid var(--line)
+    }
+
+    .contactbox div:last-child {
+      border: 0
+    }
+
+    .contactbox b {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 4px
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 18px;
+      left: 7vw;
+      right: 7vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #9aa8c2;
+      font-size: 11px;
+      letter-spacing: .02em;
+      z-index: 10;
+      border-top: 1px solid rgba(255, 255, 255, .08);
+      padding-top: 10px
+    }
+
+    .controls {
+      position: fixed;
+      right: 25px;
+      bottom: 22px;
+      display: flex;
+      gap: 8px;
+      z-index: 50
+    }
+
+    button {
+      border: 1px solid var(--line);
+      background: rgba(8, 20, 48, .8);
+      color: white;
+      width: 42px;
+      height: 38px;
+      border-radius: 11px;
+      cursor: pointer;
+      font-size: 16px
+    }
+
+    button:hover {
+      background: rgba(69, 215, 255, .15)
+    }
+
+    .dots {
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 28px;
+      display: flex;
+      gap: 6px;
+      z-index: 50
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #56637d;
+      transition: .3s
+    }
+
+    .dot.active {
+      width: 24px;
+      border-radius: 8px;
+      background: var(--cyan)
+    }
+
+    .hint {
+      position: fixed;
+      top: 20px;
+      right: 25px;
+      font-size: 11px;
+      color: #71809c;
+      z-index: 50
+    }
+
+    .big-number {
+      font-size: 120px;
+      font-weight: 900;
+      line-height: .8;
+      color: rgba(69, 215, 255, .08);
+      position: absolute;
+      right: 7vw;
+      top: 13vh
+    }
+
+    @media(max-width:900px) {
+      .slide {
+        padding: 5vh 5vw 8vh;
+        overflow: auto
+      }
+
+      .cards,
+      .journey {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .two,
+      .contact {
+        grid-template-columns: 1fr
+      }
+
+      .split-list {
+        grid-template-columns: 1fr
+      }
+
+      .footer {
+        left: 5vw;
+        right: 5vw
+      }
+
+      .big-number {
+        display: none
+      }
+
+      .controls {
+        right: 12px
+      }
+
+      .hint {
+        display: none
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="deck" id="deck">
+
+    <section class="slide active">
+      <div class="grid"></div>
+      <div class="orb a"></div>
+      <div class="orb b"></div>
+      <div class="topline">
+        <div class="brand logo-header"><img src="https://pranavsheth.com/logo4.png" alt="THYNK Logo"></div>
+        <div class="pill">SCHOOL MANAGEMENT PRESENTATION · 2026</div>
+      </div>
+      <div class="hero">
+        <div class="eyebrow"> Next Gen Skills Program (Vedic Mathematics + Coding + AI + Logical Thinking)</div>
+        <!-- <h1><span class="gradient">THYNK</span></h1> -->
+        <div class="tagline">Ancient Wisdom. Modern Intelligence.</div>
+        <p class="sub">A future-ready learning ecosystem combining <b>AI, Coding, Mathematics and Cognitive
+            Development</b> to help students think, create, innovate and lead.</p>
+        <p class="sub" style="margin-top: 20px;">THYNK is an program for Grades 3–8 that fuses India's Vedic Maths
+          heritage with modern coding. Instead of teaching the two side by side, we use one to teach the other — every
+          Vedic sutra becomes a doorway into a real coding concept, and every coding project reinforces mental maths.
+          It's delivered as a structured, ready-to-teach curriculum, so your school doesn't need to hire or train
+          specialist coding staff — just a room, a set of laptops, and children ready to build.</p>
+        <div class="tagline">Think Today, Learn Smart. Lead Tomorrow.</div>
+        <!-- <div class="founders">
+          <div class="founder"><b>Aradhana Zaveri</b><span>Founder</span>
+            <p>Academic development · School relationships · Student engagement</p>
+          </div>
+          <div class="founder"><b>Pranav Sheth</b><span>Founder</span>
+            <p>Technology · Business development · Program strategy</p>
+          </div>
+        </div> -->
+      </div>
+      <div class="footer"><span>THYNK Edutech LLP&nbsp;&nbsp; | &nbsp;&nbsp;info@thynkedutech.com&nbsp;&nbsp; |
+          &nbsp;&nbsp;www.thynkedutech.com</span><span class="slide-num" style="display: none;"></span></div>
+    </section>
+
+    <section class="slide">
+      <div class="grid"></div>
+      <div class="big-number"></div>
+      <div class="topline">
+        <div class="brand logo-header"><img src="https://pranavsheth.com/logo4.png" alt="THYNK Logo"></div>
+        <div class="pill">THE CORE IDEA</div>
+      </div>
+      <div class="two">
+        <div>
+          <div class="eyebrow">Why future-ready learning?</div>
+          <div class="question">Can a child <span class="gradient">THINK, SOLVE, CREATE & ADAPT?</span></div>
+          <p style="margin-top:22px;max-width:650px">Children are growing up in a world shaped by AI, automation,
+            digital technology and constant innovation. Future readiness is not just knowing technology — it is knowing
+            how to think with it.</p>
+          <p style="margin-top:22px;max-width:650px">By 2030, every job will have a digital component. A child who
+            cannot code in 2030 will be at the same disadvantage as a child who could not read English in 2000.</p>
+          <p style="margin-top:22px;max-width:650px">Every sutra your students already memorise for speed maths has a
+            direct, one-to-one equivalent in programming logic — so coding class becomes reinforcement of what they
+            know, not a brand-new subject from zero.</p>
+          <div class="flow"><span class="node">THINK</span><span class="arrow">→</span><span
+              class="node">SOLVE</span><span class="arrow">→</span><span class="node">CREATE</span><span
+              class="arrow">→</span><span class="node">INNOVATE</span></div>
+        </div>
+        <div class="cards" style="grid-template-columns:1fr 1fr;margin-top:0">
+          <div class="card">
+            <div class="icon">✦</div>
+            <h3>AI</h3>
+            <p>Understand and work with emerging technology.</p>
+          </div>
+          <div class="card">
+            <div class="icon">⌘</div>
+            <h3>Coding</h3>
+            <p>Build logical and computational thinking.</p>
+          </div>
+          <div class="card">
+            <div class="icon">∑</div>
+            <h3>Vedic Mathematics</h3>
+            <p>Develop speed, accuracy and pattern recognition.</p>
+          </div>
+          <div class="card">
+            <div class="icon">◎</div>
+            <h3>Cognitive</h3>
+            <p>Strengthen concentration, creativity and problem solving.</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer"><span>THYNK Edutech LLP&nbsp;&nbsp; | &nbsp;&nbsp;info@thynkedutech.com&nbsp;&nbsp; |
+          &nbsp;&nbsp;www.thynkedutech.com</span><span class="slide-num" style="display: none;"></span></div>
+    </section>
+
+    <section class="slide">
+      <div class="grid"></div>
+      <div class="big-number"></div>
+      <div class="topline">
+        <div class="brand logo-header"><img src="https://pranavsheth.com/logo4.png" alt="THYNK Logo"></div>
+        <div class="pill">WHY EVERY CHILD MUST LEARN TO CODE</div>
+      </div>
+      <div style="margin:auto 0;z-index:2">
+        <div class="eyebrow">Coding is more than a technical skill</div>
+        <h2>Coding teaches children <span class="gradient">how to think systematically.</span></h2>
+        <div class="cards" style="grid-template-columns:repeat(3, 1fr);">
+          <div class="card">
+            <div class="icon">🧩</div>
+            <h3>Structured Thinking</h3>
+            <p>Move from simply using technology to creating, building, and understanding how it works.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🛠️</div>
+            <h3>Creators, Not Consumers</h3>
+            <p>Move from simply using technology to creating, building, and understanding how it works.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🌱</div>
+            <h3>Resilience</h3>
+            <p>Learn to embrace mistakes, solve problems, and stay calm when things don’t work the first time.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🚀</div>
+            <h3>Future-Proofing</h3>
+            <p>Learn to work with AI, ask better questions, and critically verify what it produces.</p>
+          </div>
+          <div class="card">
+            <div class="icon">📋</div>
+            <h3>NEP 2020 Aligned</h3>
+            <p>Build measurable computational-thinking skills through structured, outcome-based learning.</p>
+          </div>
+          <div class="card">
+            <div class="icon">📈</div>
+            <h3>Stronger Academics</h3>
+            <p>Develop logical thinking, sequencing, and problem-solving skills that support stronger academic
+              performance.</p>
+          </div>
+        </div>
+        <div class="quote">The goal isn't to make every child a programmer.<br><em>The goal is to make every child a
+            better thinker.</em></div>
+      </div>
+      <div class="footer"><span>THYNK Edutech LLP&nbsp;&nbsp; | &nbsp;&nbsp;info@thynkedutech.com&nbsp;&nbsp; |
+          &nbsp;&nbsp;www.thynkedutech.com</span><span class="slide-num" style="display: none;"></span></div>
+    </section>
+
+    <section class="slide">
+      <div class="grid"></div>
+      <div class="big-number"></div>
+      <div class="topline">
+        <div class="brand logo-header"><img src="https://pranavsheth.com/logo4.png" alt="THYNK Logo"></div>
+        <div class="pill">CURRICULUM CONNECTION</div>
+      </div>
+      <div style="margin:auto 0;z-index:2">
+        <div class="eyebrow">Complement, don't replace</div>
+        <h2>THYNK extends the <span class="gradient">existing school curriculum.</span></h2>
+        <p style="max-width:780px">Designed to run during the regular computer period, enrichment period or activity
+          period — connecting classroom concepts with real-world application.</p>
+        <div class="cards">
+          <div class="card">
+            <div class="icon">01</div>
+            <h3>Builds on what you already teach</h3>
+            <p>All schools introduce Vedic Maths in middle school — THYNK deepens that foundation into something
+              practical and modern, with no new textbook to introduce and no existing lesson plan to disrupt.</p>
+          </div>
+          <div class="card">
+            <div class="icon">02</div>
+            <h3>Meets the NEP 2020 mandate</h3>
+            <p>NEP 2020 requires coding from Grade 6. THYNK gives a structured, ready-to-deliver way to fulfil this
+              without hiring specialist coding teachers, backed by a documented curriculum path your school can present
+              at audit.</p>
+          </div>
+          <div class="card">
+            <div class="icon">03</div>
+            <h3>3–5× faster mental computation</h3>
+            <p>Vedic techniques boost mental calculation speed, leading to faster debugging, stronger logic and greater
+              coding confidence — an edge that shows up well beyond the coding classroom.</p>
+          </div>
+          <div class="card">
+            <div class="icon">04</div>
+            <h3>Pride in India's mathematical heritage</h3>
+            <p>Ancient Vedic Maths meets modern coding, empowering confident learners who see coding not as something
+              borrowed from abroad, but as an extension of a tradition they already own.</p>
+          </div>
+        </div>
+        <!-- <div class="table">
+      <div class="row head"><span>Existing Learning</span><span>THYNK Connection</span></div>
+      <div class="row"><span>Mathematics</span><span>Logic · Patterns · Mental Math · Problem Solving</span></div>
+      <div class="row"><span>Science</span><span>Experiments · Systems · Simulation · Exploration</span></div>
+      <div class="row"><span>English & Creativity</span><span>Storytelling · Communication · Creative Projects</span></div>
+      <div class="row"><span>Computer Studies</span><span>Coding · Digital Thinking · AI</span></div>
+      <div class="row"><span>Problem Solving</span><span>Algorithms · Debugging · Logical Reasoning</span></div>
+    </div> -->
+        <div class="flow"><span class="node">LEARN</span><span class="arrow">→</span><span
+            class="node">APPLY</span><span class="arrow">→</span><span class="node">CREATE</span><span
+            class="arrow">→</span><span class="node">REFLECT</span></div>
+      </div>
+      <div class="footer"><span>THYNK Edutech LLP&nbsp;&nbsp; | &nbsp;&nbsp;info@thynkedutech.com&nbsp;&nbsp; |
+          &nbsp;&nbsp;www.thynkedutech.com</span><span class="slide-num" style="display: none;"></span></div>
+    </section>
+
+    <section class="slide">
+      <div class="grid"></div>
+      <div class="big-number"></div>
+      <div class="topline">
+        <div class="brand logo-header"><img src="https://pranavsheth.com/logo4.png" alt="THYNK Logo"></div>
+        <div class="pill">WHY THYNK</div>
+      </div>
+      <div style="margin:auto 0;z-index:2">
+        <div class="eyebrow">Technology as a tool for better thinking</div>
+        <h2>One program. <span class="gradient">Two sets of outcomes.</span></h2>
+        <div class="two" style="height:auto;margin-top:18px">
+          <div>
+            <h3 style="font-size:24px">For Students</h3>
+            <div class="split-list" style="grid-template-columns:1fr">
+              <div class="item"><b>Stronger Thinking</b><small>Logical, analytical & computational thinking.</small>
+              </div>
+              <div class="item"><b>Greater Creativity</b><small>Turn ideas into projects and interactive
+                  experiences.</small></div>
+              <div class="item"><b>Better Problem Solving</b><small>Break problems down and find solutions.</small>
+              </div>
+              <div class="item"><b>Mathematical Confidence</b><small>Speed, accuracy and pattern recognition.</small>
+              </div>
+              <!-- <div class="item"><b>Future Readiness</b><small>Early familiarity with AI and modern technology.</small></div>
+          <div class="item"><b>Confidence to Create</b><small>Move from technology consumer to creator.</small></div> -->
+            </div>
+          </div>
+          <div>
+            <h3 style="font-size:24px">For Schools</h3>
+            <div class="split-list" style="grid-template-columns:1fr">
+              <div class="item"><b>Future-Ready Learning</b><small>Bring AI, coding and computational thinking into the
+                  school ecosystem.</small></div>
+              <div class="item"><b>Academic Integration</b><small>Connect technology learning with existing
+                  subjects.</small></div>
+              <div class="item"><b>Structured Progression</b><small>A clear pathway from foundational thinking to
+                  advanced programming.</small></div>
+              <div class="item"><b>Engaging Computer Periods</b><small>Turn computer time into active creation.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer"><span>THYNK Edutech LLP&nbsp;&nbsp; | &nbsp;&nbsp;info@thynkedutech.com&nbsp;&nbsp; |
+          &nbsp;&nbsp;www.thynkedutech.com</span><span class="slide-num" style="display: none;"></span></div>
+    </section>
+
+    <section class="slide">
+      <div class="grid"></div>
+      <div class="big-number"></div>
+      <div class="topline">
+        <div class="brand logo-header"><img src="https://pranavsheth.com/logo4.png" alt="THYNK Logo"></div>
+        <div class="pill">THE LEARNING JOURNEY</div>
+      </div>
+      <div style="margin:auto 0;z-index:2">
+        <div class="eyebrow">EXPLORE → CREATE → INNOVATE → LEAD</div>
+        <h2>Four tracks. <span class="gradient">One progressive journey.</span></h2>
+        <div class="journey">
+          <div class="track">
+            <div class="num">01</div>
+            <div class="level">Beginners · Basic 1</div>
+            <h3>Young Explorer</h3>
+            <p>Build the foundations of computational thinking.</p>
+            <ul>
+              <li>Scratch & sequencing</li>
+              <li>Loops, variables & lists</li>
+              <li>Conditionals & operators</li>
+              <li>Math blocks & AI</li>
+            </ul>
+            <div class="gain"><b>Gain:</b> Logic · Problem Solving · Creativity</div>
+          </div>
+          <div class="track">
+            <div class="num">02</div>
+            <div class="level">Beginners · Basic 2</div>
+            <h3>Young Creator</h3>
+            <p>Move from ideas to digital creation.</p>
+            <ul>
+              <li>Animation & custom blocks</li>
+              <li>Sound & storytelling</li>
+              <li>Broadcasting</li>
+              <li>HTML & CSS + AI</li>
+            </ul>
+            <div class="gain"><b>Gain:</b> Digital Creativity · Web Foundations</div>
+          </div>
+          <div class="track">
+            <div class="num">03</div>
+            <div class="level">Advanced · Advanced 1</div>
+            <h3>Young Innovator</h3>
+            <p>Build interactive web experiences.</p>
+            <ul>
+              <li>Advanced HTML & CSS</li>
+              <li>JavaScript</li>
+              <li>Interactive projects</li>
+              <li>AI-assisted development</li>
+            </ul>
+            <div class="gain"><b>Gain:</b> Programming · Web Development · Innovation</div>
+          </div>
+          <div class="track">
+            <div class="num">04</div>
+            <div class="level">Advanced · Advanced 2</div>
+            <h3>Young Leader</h3>
+            <p>Develop deeper programming foundations.</p>
+            <ul>
+              <li>Java or Python</li>
+              <li>OOP concepts</li>
+              <li>Arrays & Objects</li>
+              <li>Advanced problem solving + AI</li>
+            </ul>
+            <div class="gain"><b>Gain:</b> Programming Foundations · Computational Thinking</div>
+          </div>
+        </div>
+        <div class="flow" style="justify-content:center"><span class="node">CONSUMER</span><span
+            class="arrow">→</span><span class="node">EXPLORER</span><span class="arrow">→</span><span
+            class="node">CREATOR</span><span class="arrow">→</span><span class="node">INNOVATOR</span><span
+            class="arrow">→</span><span class="node">LEADER</span></div>
+      </div>
+      <div class="footer"><span>THYNK Edutech LLP&nbsp;&nbsp; | &nbsp;&nbsp;info@thynkedutech.com&nbsp;&nbsp; |
+          &nbsp;&nbsp;www.thynkedutech.com</span><span class="slide-num" style="display: none;"></span></div>
+    </section>
+
+    <section class="slide">
+      <div class="grid"></div>
+      <div class="big-number"></div>
+      <div class="topline">
+        <div class="brand logo-header"><img src="https://pranavsheth.com/logo4.png" alt="THYNK Logo"></div>
+        <div class="pill">THE LEARNING JOURNEY</div>
+      </div>
+      <div style="margin:auto 0;z-index:2">
+        <div class="eyebrow">EXPLORE → CREATE → INNOVATE → LEAD</div>
+        <h2>The THYNK Student — <span class="gradient"> Think. Create. Solve. Lead.</span></h2>
+        <p style="max-width:800px">After completing all four THYNK programs, students graduate with more than coding
+          skills. They develop a <b>problem-solving mindset</b> that helps them approach challenges with curiosity,
+          logic, creativity, and confidence.</p>
+        <h3 style="font-size:24px">A THYNK student learns to:</h3>
+        <div class="two" style="height:auto;">
+          <div>
+            <div class="split-list" style="grid-template-columns:1fr">
+              <div class="item"><b>Think Structurally</b><small>break complex problems into smaller, manageable
+                  steps.</small></div>
+              <div class="item"><b>Create, Not Just Consume</b><small>move from using technology to building with
+                  it.</small></div>
+              <div class="item"><b>Solve with Logic</b><small>apply computational thinking to real-world and academic
+                  problems.</small></div>
+              <div class="item"><b>Learn from Failure</b><small>experiment, debug, improve, and try again with
+                  confidence.</small></div>
+            </div>
+          </div>
+          <div>
+            <div class="split-list" style="grid-template-columns:1fr">
+              <div class="item"><b>Work with AI</b><small>use AI as a learning and creation partner while questioning
+                  and verifying its output.</small></div>
+              <div class="item"><b>Build Real Projects</b><small>turn ideas into working digital experiences and
+                  solutions.</small></div>
+              <div class="item"><b>Communicate & Collaborate</b><small>explain ideas clearly and work effectively with
+                  others.</small></div>
+              <div class="item"><b>Take Ownership</b><small>develop the confidence to explore, innovate, and
+                  lead.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p style="max-width:800px">A THYNK student doesn't just ask <i>“What is the answer?”</i> — they learn to ask
+          <b>“How can I solve it, build it, improve it, and create something new?”</b>
+        </p>
+        <div class="footer"><span>THYNK Edutech LLP&nbsp;&nbsp; | &nbsp;&nbsp;info@thynkedutech.com&nbsp;&nbsp; |
+            &nbsp;&nbsp;www.thynkedutech.com</span><span class="slide-num" style="display: none;"></span></div>
+    </section>
+
+    <section class="slide">
+      <div class="grid"></div>
+      <div class="orb a"></div>
+      <div class="orb b"></div>
+      <div class="topline">
+        <div class="brand logo-header"><img src="https://pranavsheth.com/logo4.png" alt="THYNK Logo"></div>
+        <div class="pill">LET'S BUILD THE FUTURE TOGETHER</div>
+      </div>
+
+      <div class="contact" style="height:50%;">
+        <div>
+          <h2>Bring THYNK <span class="gradient">to Your School</span></h2>
+          <div class="tagline">Think Today, Learn Smart. Lead Tomorrow.</div>
+          <p style="max-width:600px">We'd welcome the chance to walk your team through the full program in person — the
+            curriculum, sample student projects, and how a rollout would work at your school. Reach out to either of us
+            directly:</b></p>
+          <div class="flow"><span class="node">AI</span><span class="node">CODING</span><span
+              class="node">MATHEMATICS</span><span class="node">COGNITIVE DEVELOPMENT</span></div>
+        </div>
+        <!-- <div class="contactbox">
+          <div><b>FOUNDERS</b>Aradhana Zaveri . Pranav Sheth </div>
+          <div><b>MOBILE</b>99672 00387</div>
+          <div><b>EMAIL</b>info@thynkedutech.com</div>
+          <div><b>WEB</b>www.thynkedutech.com</div>
+          <div><b>COMPANY</b>THYNK Edutech LLP</div>
+        </div> -->
+      </div>
+       <div class="founders">
+          <div class="founder"><b>Aradhana Zaveri</b><span>Founder</span>
+            <p>Email: aradhana@thynkedutech.com</p>
+            <p>Mobile: 99672 00387</p>
+          </div>
+          <div class="founder"><b>Pranav Sheth</b><span>Founder</span>
+            <p>Email: pranav@thynkedutech.com</p>
+            <p>Mobile: 99671 00879</p>
+          </div>
+        </div>
+      <div class="footer"><span>THYNK Edutech LLP&nbsp;&nbsp; | &nbsp;&nbsp;info@thynkedutech.com&nbsp;&nbsp; |
+          &nbsp;&nbsp;www.thynkedutech.com</span><span class="slide-num" style="display: none;"></span></div>
+    </section>
+
+  </div>
+
+  <div class="dots" id="dots"></div>
+  <div class="controls"><button id="prev">‹</button><button id="next">›</button></div>
+
+  <script>
+    const slides = [...document.querySelectorAll('.slide')];
+    const dots = document.getElementById('dots');
+    let i = 0;
+    slides.forEach((_, n) => { const d = document.createElement('span'); d.className = 'dot' + (n === 0 ? ' active' : ''); d.onclick = () => go(n); dots.appendChild(d) });
+    function go(n) {
+      i = (n + slides.length) % slides.length;
+      slides.forEach((s, k) => {
+        s.classList.toggle('active', k === i);
+        const num = s.querySelector('.slide-num');
+        if (num) num.textContent = String(k + 1).padStart(2, '0') + ' / 07';
+      });
+      [...dots.children].forEach((d, k) => d.classList.toggle('active', k === i));
+    }
+    go(0);
+    document.getElementById('prev').onclick = () => go(i - 1);
+    document.getElementById('next').onclick = () => go(i + 1);
+    document.addEventListener('keydown', e => {
+      if (['ArrowRight', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); go(i + 1) }
+      if (['ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); go(i - 1) }
+      if (e.key.toLowerCase() === 'f') { if (!document.fullscreenElement) document.documentElement.requestFullscreen(); else document.exitFullscreen() }
+    });
+    let sx = null;
+    document.addEventListener('touchstart', e => sx = e.changedTouches[0].screenX, { passive: true });
+    document.addEventListener('touchend', e => { if (sx === null) return; let dx = e.changedTouches[0].screenX - sx; if (Math.abs(dx) > 45) go(i + (dx < 0 ? 1 : -1)); sx = null }, { passive: true });
+  </script>
+</body>
+
+</html>
